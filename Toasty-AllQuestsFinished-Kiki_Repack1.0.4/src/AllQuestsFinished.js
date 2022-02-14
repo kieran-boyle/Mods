@@ -1,17 +1,18 @@
-"use strict";
+"use strict"
 
 class AllQuestsFinished {
+
     constructor() {
-        this.mod = "Toasty-AllQuestsFinished-Kiki-Repack";
-		Logger.info(`Loading: ${this.mod}`);
-        ModLoader.onLoad[this.mod] = this.Start.bind(this);
+        this.mod = "Toasty-AllQuestsFinished-Kiki-Repack"
+        Logger.info(`Loading: ${this.mod}`)
+        ModLoader.onLoad[this.mod] = AllQuestsFinished.onLoadMod
     }
 
-    Start() {
+    static onLoadMod() {
 
-        const database = DatabaseServer.tables;
-        let base = database.templates.quests;
-    
+        const database = DatabaseServer.tables
+        let base = database.templates.quests
+
         //The following is ripped straight from Ereshkigal's All Quests Available mod with minor changes
 
         for (let file in base) {
@@ -31,4 +32,4 @@ class AllQuestsFinished {
     }
 }
 
-module.exports.Mod = AllQuestsFinished;
+module.exports.Mod = AllQuestsFinished
