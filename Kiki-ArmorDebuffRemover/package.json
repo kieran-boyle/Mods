@@ -1,7 +1,7 @@
 {
-    "name": "camerarecoilremover",
+    "name": "armordebuffremover",
     "author": "Kiki",
-    "version": "1.0.6",
+    "version": "1.0.0",
     "license": "NCSA",
     "main": "mod.js",
     "akiVersion": "2.2.*"

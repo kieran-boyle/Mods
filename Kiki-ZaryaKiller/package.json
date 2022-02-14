@@ -1,7 +1,7 @@
 {
-    "name": "chooseyourspawn",
+    "name": "zaryakiller",
     "author": "Kiki",
-    "version": "1.2.0",
+    "version": "1.0.0",
     "license": "NCSA",
     "main": "mod.js",
     "akiVersion": "2.2.*"
