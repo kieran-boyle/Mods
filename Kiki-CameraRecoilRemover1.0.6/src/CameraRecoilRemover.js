@@ -1,8 +1,8 @@
 "use strict"
 
-const config = require("../config/config.json")
-const items = DatabaseServer.tables.templates.items
-const weaponClass =[
+const CONFIG = require("../config/config.json")
+const ITEMS = DatabaseServer.tables.templates.items
+const WEAPONCLASSLIST = [
 	"pistol",
 	"smg",
 	"shotgun",
@@ -11,19 +11,23 @@ const weaponClass =[
 	"machinegun",
 	"marksmanRifle",
 	"sniperRifle"
-	]
+]
 
-class CameraRecoilRemover{
-	
-	static onLoadMod(){
-		for(let eachItem in items){
-			if(weaponClass.includes(items[eachItem]._props.weapClass)){
-				items[eachItem]._props.CameraRecoil *= config.CameraRecoil
+class CameraRecoilRemover {
+
+	static onLoadMod() {
+
+		for (let eachItem in ITEMS) {
+
+			if (WEAPONCLASSLIST.includes(ITEMS[eachItem]._props.weapClass)) {
+				ITEMS[eachItem]._props.CameraRecoil *= CONFIG.CameraRecoil
 			}
 		}
-		if(config.debug === true){
-			Logger.log(`[Kiki-CameraRecoilRemover] : Camera recoil is multiplied by ${config.CameraRecoil}`,"yellow","black")
+
+		if (CONFIG.debug === true) {
+			Logger.log(`[Kiki-CameraRecoilRemover] : Camera recoil is multiplied by ${CONFIG.CameraRecoil}`, "yellow", "black")
 		}
 	}
 }
+
 module.exports = CameraRecoilRemover

@@ -1,0 +1,23 @@
+{
+  "name": "mods",
+  "version": "1.0.0",
+  "description": "AKI mods",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kieran-boyle/Mods.git"
+  },
+  "author": "Kiki",
+  "license": "NCSA",
+  "bugs": {
+    "url": "https://github.com/kieran-boyle/Mods/issues"
+  },
+  "homepage": "https://github.com/kieran-boyle/Mods#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

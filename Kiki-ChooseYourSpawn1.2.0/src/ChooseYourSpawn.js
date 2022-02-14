@@ -2,7 +2,6 @@
 
 const CONFIG = require("../config/config.json")
 const LOCATIONS = DatabaseServer.tables.locations
-
 const BUGFIX = {
 	"Id": "e17e24b8-476b-49d0-b420-d9f620bugfix",
 	"Position": {
@@ -44,13 +43,7 @@ class ChooseYourSpawn {
 
 	static onLoadMod() {
 
-		for (const eachMap in CONFIG) {
-			if (eachMap !== 'debug' && CONFIG[eachMap].enabled === true) {
-				sortSpawns(eachMap)
-			}
-		}
-
-		function sortSpawns(map) {
+		var sortSpawns = function (map) {
 
 			if (map == "rezervbase") {
 				//One of the clusters is missing a point (thanks BSG!) breaks the function, so created and pushed new point.
@@ -58,17 +51,16 @@ class ChooseYourSpawn {
 			}
 
 			let playerSpawns = () => LOCATIONS[map].base.SpawnPointParams.filter(spawn => spawn.Categories.includes('Player'))
-
 			let points = []
 			let sorted = []
 			let whitelist = []
-			let counter = 0
 
 			if (CONFIG.debug === true) {
-				Logger.log(`\n[Kiki-ChooseYourSpawn] : Initial number of player spawns = ${playerSpawns().length} on ${map}\n`, 'yellow', 'black')
+				Logger.log(`\n[Kiki-ChooseYourSpawn] : Initial number of player spawns = ${playerSpawns().length} on ${map}`, 'yellow', 'black')
 			}
 
 			for (let spawn of LOCATIONS[map].base.SpawnPointParams) {
+
 				if (spawn.Categories == "Player") {
 					let temp = {}
 					temp['Id'] = spawn.Id
@@ -79,32 +71,20 @@ class ChooseYourSpawn {
 
 			points.sort((a, b) => a['Position'].x - b['Position'].x)
 
-			if (CONFIG.debug === true) {
-				for (const pos in points) {
-					counter++
-					Logger.log(`"${points[pos].Id}" ${JSON.stringify(points[pos].Position)}`)
-					if (counter % 5 === 0) {
-						Logger.log('\n')
-					}
-				}
-			}
-
 			for (let k = 0; k <= points.length; k++) {
+
 				if (k % 5 === 0) {
 					sorted.push(points.slice(k, k + 5))
 				}
 			}
 
 			for (const [i, option] of Object.entries(CONFIG[map].spawns)) {
+
 				if (option === true) {
 					map === 'laboratory' ?
 						whitelist.push(LABSLIST[i]) :
 						whitelist.push(...(sorted[i].map((a) => a.Id))) // clever, thanks Kiubu.
 				}
-			}
-
-			if (CONFIG.debug === true) {
-				Logger.log(`Whitelist = ${whitelist}\n`)
 			}
 
 			for (let i = LOCATIONS[map].base.SpawnPointParams.length - 1; i >= 0; i--) {
@@ -119,6 +99,14 @@ class ChooseYourSpawn {
 				Logger.log(`[Kiki-ChooseYourSpawn] : Final number of player spawns = ${playerSpawns().length} on ${map} \n`, 'yellow', 'black')
 			}
 		}
+
+		for (const eachMap in CONFIG) {
+
+			if (eachMap !== 'debug' && CONFIG[eachMap].enabled === true) {
+				sortSpawns(eachMap)
+			}
+		}
 	}
 }
+
 module.exports = ChooseYourSpawn

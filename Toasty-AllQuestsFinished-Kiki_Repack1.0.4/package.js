@@ -1,3 +1,3 @@
-const { Mod } = require("./src/AllQuestsFinished.js");
+const { Mod } = require("./src/AllQuestsFinished.js")
 
-module.exports.mod = new Mod();
+module.exports.mod = new Mod()
