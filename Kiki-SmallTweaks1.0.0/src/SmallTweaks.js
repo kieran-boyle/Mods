@@ -1,12 +1,10 @@
 "use strict"
 
 //const config = require("../config/config.json")
-const database = DatabaseServer.tables.templates.items
-const globals = DatabaseServer.tables.globals
-const parents = ["5c99f98d86f7745c314214b3", "5c164d2286f774194c5e69fa"]
-const locations = DatabaseServer.tables.locations
-
-const lootConfig = {//from AIO but mini
+const DATABASE = DatabaseServer.tables.templates.items
+const GLOBALS = DatabaseServer.tables.globals
+const LOCATIONS = DatabaseServer.tables.locations
+const LOOTCONFIG = { //from AIO but mini
 	"globalsMul": 3,
 	"bigmap": 1,
 	"factory4_day": 1,
@@ -23,30 +21,33 @@ class smallTweaks {
 	static onLoadMod() {
 
 		//set the 5 second deploy counter to be instant.
-		globals.config.TimeBeforeDeploy = 1
-		globals.config.TimeBeforeDeployLocal = 1
+		GLOBALS.config.TimeBeforeDeploy = 1
+		GLOBALS.config.TimeBeforeDeployLocal = 1
 
-		for (const i in database) {
-			let item = database[i]			
+		for (const i in DATABASE) {
+			let item = DATABASE[i]
+
 			//set baground colour of ammo depending on pen
-			if(item._parent === "5485a8684bdc2da71d8b4567") {
-				let pen = item._props.PenetrationPower 
+			if (item._parent === "5485a8684bdc2da71d8b4567") {
+				let pen = item._props.PenetrationPower
 				let colour = ""
-				pen > 60 ? colour = "red" ://SuperPen 
-					pen > 50 ? colour = "yellow" ://HighPen 
-					pen > 40 ? colour = "violet" ://MedHighPen 
-					pen > 30 ? colour = "blue" ://MedPen 
-					pen > 20 ? colour = "green" ://LowMedPen 
-					colour = "grey"//LowPen 
+
+				pen > 60 ? colour = "red" : //SuperPen 
+					pen > 50 ? colour = "yellow" : //HighPen 
+					pen > 40 ? colour = "violet" : //MedHighPen 
+					pen > 30 ? colour = "blue" : //MedPen 
+					pen > 20 ? colour = "green" : //LowMedPen 
+					colour = "grey" //LowPen 
 				item._props.BackgroundColor = colour
 			}
 		}
-		
+
 		//Changing maps loots spawn chances multiplier
-		for(let [k, v] of Object.entries(lootConfig)){
+		for (let [k, v] of Object.entries(LOOTCONFIG)) {
+
 			k === "globalsMul" ?
 				DatabaseServer.tables.globals.config.GlobalLootChanceModifier = v :
-				locations[k].base.GlobalLootChanceModifier = v
+				LOCATIONS[k].base.GlobalLootChanceModifier = v
 		}
 	}
 }
