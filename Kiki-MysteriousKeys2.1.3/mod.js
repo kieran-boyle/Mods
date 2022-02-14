@@ -1,12 +1,14 @@
-"use strict";
+"use strict"
 
-const MysteriousKeys = require("./src/MysteriousKeys.js");
+const MysteriousKeys = require("./src/MysteriousKeys.js")
 
 class Mod {
+
 		constructor() {
-			Logger.info("Loading: Kiki-MysteriousKeys");
-			ModLoader.onLoad["Kiki-MysteriousKeys"] = MysteriousKeys.onLoadMod;
-		}	
+			
+			Logger.info("Loading: Kiki-MysteriousKeys")
+			ModLoader.onLoad["Kiki-MysteriousKeys"] = MysteriousKeys.onLoadMod
+		}
 }
 
-module.exports.Mod = new Mod();
+module.exports.Mod = new Mod()
