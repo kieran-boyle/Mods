@@ -1,8 +1,0 @@
-{
-    "name": "traderleveltweeks",
-    "author": "Kiki",
-    "version": "2.0.4",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}

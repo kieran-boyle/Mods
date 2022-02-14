@@ -1,0 +1,8 @@
+{
+    "name": "healthmultiplier",
+    "author": "Kiki",
+    "version": "1.0.0",
+    "license": "NCSA",
+    "main": "mod.js",
+    "akiVersion": "2.2.*"
+}

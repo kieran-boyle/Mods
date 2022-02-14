@@ -1,8 +1,0 @@
-{
-    "name": "chooseyourspawn",
-    "author": "Kiki",
-    "version": "1.2.0",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}

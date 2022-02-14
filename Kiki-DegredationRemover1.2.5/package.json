@@ -1,8 +1,0 @@
-{
-    "name": "degredationremover",
-    "author": "Kiki",
-    "version": "1.2.5",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}

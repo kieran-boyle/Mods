@@ -1,8 +1,0 @@
-{
-    "name": "zaryakiller",
-    "author": "Kiki",
-    "version": "3.0.3",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}

@@ -1,8 +1,0 @@
-{
-    "name": "armordebuffremover",
-    "author": "Kiki",
-    "version": "2.0.3",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}

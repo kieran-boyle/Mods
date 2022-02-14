@@ -1,0 +1,9 @@
+{
+	"name": "removetediousquestconditions",
+	"author": "Kiki",
+	"version": "1.0.0",
+	"license": "NCSA",
+	"dependencies": {},
+	"main": "mod.js",
+	"akiVersion": "2.2.*"
+}

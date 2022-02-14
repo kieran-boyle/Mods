@@ -1,9 +1,0 @@
-{
-	"name": "allquestsfinished",
-	"author": "Toasty,Kiki",
-	"version": "1.0.4",
-	"license": "MIT",
-	"dependencies": {},
-	"main": "package.js",
-	"akiVersion": "2.2.*"
-}

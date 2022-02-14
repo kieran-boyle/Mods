@@ -1,8 +1,0 @@
-{
-    "name": "biggerstash",
-    "author": "Kiki",
-    "version": "2.1.5",
-    "license": "NCSA",
-    "main": "mod.js",
-    "akiVersion": "2.2.*"
-}
