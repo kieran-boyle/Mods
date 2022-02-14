@@ -1,5 +1,5 @@
 {
-	"repairPriceMultiplier":1,
-	"qualityMultiplier" : 0,
-	"debug" : true
+	"repairPriceMultiplier": 1,
+	"qualityMultiplier": 0,
+	"debug": false
 }
