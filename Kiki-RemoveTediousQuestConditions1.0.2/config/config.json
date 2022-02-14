@@ -1,0 +1,10 @@
+{
+    "weaponModsInclusive": false,
+    "weaponModsExclusive": false,
+    "weapon": false,
+    "equipmentInclusive": false,
+    "equipmentExclusive": false,
+    "distance": false,
+    "bodyPart": false,
+    "setPMC": false
+}

@@ -1,0 +1,1 @@
+Sets the camera recoil on all weapons to 0.  this can be changed in the config if you just want to tone it down a bit instead of removing it completely. it is a multiplier (so times by 0 is no camera recoil by 0.5, half, by 2 double etc).

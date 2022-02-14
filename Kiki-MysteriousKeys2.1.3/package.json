@@ -1,0 +1,8 @@
+{
+    "name": "mysteriouskeys",
+    "author": "Kiki",
+    "version": "2.1.3",
+    "license": "NCSA",
+    "main": "mod.js",
+    "akiVersion": "2.2.*"
+}

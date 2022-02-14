@@ -1,0 +1,20 @@
+{
+	"Helmet":{
+		"speedPenaltyPercent": false,
+		"mousePenalty": false,
+		"weaponErgonomicPenalty": false
+	},
+	"Rig":{
+		"speedPenaltyPercent": false,
+		"mousePenalty": false,
+		"weaponErgonomicPenalty": false
+	},
+	"Armor":{
+		"speedPenaltyPercent": false,
+		"mousePenalty": false,
+		"weaponErgonomicPenalty": false
+	},
+	"Backpack":{
+		"speedPenaltyPercent": false
+	}
+}

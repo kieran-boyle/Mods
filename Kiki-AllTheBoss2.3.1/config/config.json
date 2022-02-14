@@ -1,0 +1,116 @@
+{
+	"debug" : false,
+	"boostRaiders" : {
+		"enabled" : true,
+		"chance" : 100,
+		"time" : -1,
+		"escortAmount" : 2
+	},
+	"bigmap" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"factory4_day" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100
+		}
+	},
+	"factory4_night" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"interchange" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"laboratory" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"rezervbase" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"shoreline" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"woods" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	},
+	"lighthouse" : {
+		"enabled" : true,
+		"bossList" : {
+			"bossGluhar" : 100,
+			"bossKojaniy" : 100,
+			"bossSanitar" : 100,
+			"bossBully" : 100,
+			"bossKilla" : 100,
+			"bossTagilla" : 100,
+			"sectantPriest" : 100
+		}
+	}
+}

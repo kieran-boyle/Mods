@@ -1,0 +1,5 @@
+# Mod AllQuestsFinished
+
+This mod will change the finish condition for every quest so they can be completed automatically. It is useful for completing any bugged quests or just skipping all the quests if that's what you desire. This is incompatible with any mod that alters quest finishing conditions (such as my Remove Tedious Quests mod). Uninstalling will return quests to normal and allow you to use other quest mods. Any quest completed with this will remain completed even after you uniinstall and any progress you made before installing will be preserved. This pairs well with Ereshkigal's All Quests Available mod in the AIO and would allow you to start and finish every quest in the game as soon as you start a new profile. 
+
+Special thanks to Ereshkigal as this is essentially just a value change from their All Quests Available mod found in their AIO. All credit should go to them.
