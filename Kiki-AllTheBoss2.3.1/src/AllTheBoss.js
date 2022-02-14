@@ -1,11 +1,11 @@
 "use strict"
 
-const database = DatabaseServer.tables.locations
-const allBoss = require("./boss.json")
-const maps = require("./maps.json")
-const raiders = require("./raiders.json")
-const config = require("../config/config.json")
-var zones = []
+const DATABASE = DatabaseServer.tables.locations
+const ALLBOSS = require("./boss.json")
+const MAPS = require("./maps.json")
+const RAIDERS = require("./raiders.json")
+const CONFIG = require("../config/config.json")
+var ZONES = []
 
 class AllTheBoss {
 
@@ -22,30 +22,30 @@ class AllTheBoss {
 			}
 			let rand = getRandomInt(zoneList.length)
 			let thisZone = zoneList[rand]
-			zones.splice(rand, 1)
+			ZONES.splice(rand, 1)
 			return thisZone.toString()
 		}
 
-		for (let eachMap in maps) {
+		for (let eachMap in MAPS) {
 			let thisMap = []
 
-			if (config[eachMap].enabled === true) {
-				zones = maps[eachMap].split(",")
+			if (CONFIG[eachMap].enabled === true) {
+				ZONES = MAPS[eachMap].split(",")
 
-				for (let eachEntry in allBoss) {
-					let thisBoss = allBoss[eachEntry]
+				for (let eachEntry in ALLBOSS) {
+					let thisBoss = ALLBOSS[eachEntry]
 
-					if (config[eachMap].bossList[thisBoss.BossName] > 0) {
-						thisBoss.BossChance = config[eachMap].bossList[thisBoss.BossName]
-						thisBoss.BossZone = chooseZone(zones)
+					if (CONFIG[eachMap].bossList[thisBoss.BossName] > 0) {
+						thisBoss.BossChance = CONFIG[eachMap].bossList[thisBoss.BossName]
+						thisBoss.BossZone = chooseZone(ZONES)
 
-						if (zones.length <= 1) {
-							zones = maps[eachMap].split(",")
+						if (ZONES.length <= 1) {
+							ZONES = MAPS[eachMap].split(",")
 						}
 
 						thisMap.push(thisBoss)
 
-						if (config.debug === true) {
+						if (CONFIG.debug === true) {
 							Logger.log(`[Kiki-AllTheBoss] : ${thisBoss.BossName} has a ${thisBoss.BossChance}% chance to spawn on ${eachMap}`, "yellow", "black")
 						}
 					}
@@ -53,13 +53,13 @@ class AllTheBoss {
 
 				if (eachMap === "rezervbase") {
 
-					for (let eachBot in raiders.rezervbase) {
-						let thisRaider = raiders.rezervbase[eachBot]
+					for (let eachBot in RAIDERS.rezervbase) {
+						let thisRaider = RAIDERS.rezervbase[eachBot]
 
-						if (config.boostRaiders.enabled === true) {
-							thisRaider.BossChance = config.boostRaiders.chance
-							thisRaider.Time = config.boostRaiders.time
-							thisRaider.BossEscortAmount = config.boostRaiders.escortAmount - 1
+						if (CONFIG.boostRaiders.enabled === true) {
+							thisRaider.BossChance = CONFIG.boostRaiders.chance
+							thisRaider.Time = CONFIG.boostRaiders.time
+							thisRaider.BossEscortAmount = CONFIG.boostRaiders.escortAmount - 1
 						}
 						thisMap.push(thisRaider)
 					}
@@ -67,21 +67,21 @@ class AllTheBoss {
 
 				if (eachMap === "laboratory") {
 
-					for (let eachBot in raiders.laboratory) {
-						let thisRaider = raiders.laboratory[eachBot]
+					for (let eachBot in RAIDERS.laboratory) {
+						let thisRaider = RAIDERS.laboratory[eachBot]
 
-						if (config.boostRaiders.enabled === true) {
-							thisRaider.BossChance = config.boostRaiders.chance
-							thisRaider.Time = config.boostRaiders.time
-							thisRaider.BossEscortAmount = config.boostRaiders.escortAmount - 1
+						if (CONFIG.boostRaiders.enabled === true) {
+							thisRaider.BossChance = CONFIG.boostRaiders.chance
+							thisRaider.Time = CONFIG.boostRaiders.time
+							thisRaider.BossEscortAmount = CONFIG.boostRaiders.escortAmount - 1
 						}
 						thisMap.push(thisRaider)
 					}
 				}
 
 				eachMap === "lighthouse" ?
-					database[eachMap].base.BossLocationSpawn = [...database[eachMap].base.BossLocationSpawn, ...thisMap] :
-					database[eachMap].base.BossLocationSpawn = thisMap
+					DATABASE[eachMap].base.BossLocationSpawn = [...DATABASE[eachMap].base.BossLocationSpawn, ...thisMap] :
+					DATABASE[eachMap].base.BossLocationSpawn = thisMap
 			}
 		}
 	}
