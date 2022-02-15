@@ -1,31 +1,30 @@
 "use strict"
 
-//const config = require("../config/config.json")
-const DATABASE = DatabaseServer.tables.templates.items
-const GLOBALS = DatabaseServer.tables.globals
-const LOCATIONS = DatabaseServer.tables.locations
-const LOOTCONFIG = { //from AIO but mini
-	"globalsMul": 3,
-	"bigmap": 1,
-	"factory4_day": 1,
-	"factory4_night": 1,
-	"interchange": 1,
-	"laboratory": 1,
-	"shoreline": 1,
-	"woods": 1,
-	"rezervbase": 1
-}
-
 class smallTweaks {
 
 	static onLoadMod() {
+		
+		const database = DatabaseServer.tables.templates.items
+		const globals = DatabaseServer.tables.globals
+		const locations = DatabaseServer.tables.locations
+		const lootConfig = { //from AIO but mini
+			"globalsMul": 3,
+			"bigmap": 1,
+			"factory4_day": 1,
+			"factory4_night": 1,
+			"interchange": 1,
+			"laboratory": 1,
+			"shoreline": 1,
+			"woods": 1,
+			"rezervbase": 1
+		}
 
 		//set the 5 second deploy counter to be instant.
-		GLOBALS.config.TimeBeforeDeploy = 1
-		GLOBALS.config.TimeBeforeDeployLocal = 1
+		globals.config.TimeBeforeDeploy = 1
+		globals.config.TimeBeforeDeployLocal = 1
 
-		for (const i in DATABASE) {
-			let item = DATABASE[i]
+		for (const i in database) {
+			let item = database[i]
 
 			//set baground colour of ammo depending on pen
 			if (item._parent === "5485a8684bdc2da71d8b4567") {
@@ -43,11 +42,11 @@ class smallTweaks {
 		}
 
 		//Changing maps loots spawn chances multiplier
-		for (let [k, v] of Object.entries(LOOTCONFIG)) {
+		for (let [k, v] of Object.entries(lootConfig)) {
 
 			k === "globalsMul" ?
 				DatabaseServer.tables.globals.config.GlobalLootChanceModifier = v :
-				LOCATIONS[k].base.GlobalLootChanceModifier = v
+				locations[k].base.GlobalLootChanceModifier = v
 		}
 	}
 }
