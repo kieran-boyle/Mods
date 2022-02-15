@@ -1,17 +1,14 @@
 "use strict"
 
-const CONFIG = require("../config/config.json")
-
 class RemoveTediousQuestConditions {
 
     static onLoadMod() {
-
+        
+        const config = require("../config/config.json")
         const database = DatabaseServer.tables
         const quests = database.templates.quests
         const locales = database.locales.global.en.quest
-
         const conditionsToRemove = []
-
         const conditionFirstWord = [
             "Eliminate",
             "Headshot",
@@ -57,8 +54,8 @@ class RemoveTediousQuestConditions {
             }
         }
 
-        for (let eachOption in CONFIG) {
-            if (CONFIG[eachOption] != false) {
+        for (let eachOption in config) {
+            if (config[eachOption] != false) {
                 switch (eachOption) {
                     case "setPMC":
                         quests["5a27c99a86f7747d2c6bdd8e"].conditions.AvailableForFinish[0]._props.counter.conditions[0]._props.target = "AnyPmc"

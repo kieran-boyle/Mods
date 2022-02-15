@@ -1,12 +1,11 @@
 "use strict"
 
-const config = require("../config/config.json")
-const items = DatabaseServer.tables.templates.items
-
 class AntigravArmbands {
 
     static onLoadMod() {
 
+        const config = require("../config/config.json")
+        const items = DatabaseServer.tables.templates.items
         let armbands = [
             "5b3f16c486f7747c327f55f7",
             "5b3f3af486f774679e752c1f",
