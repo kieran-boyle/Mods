@@ -16,7 +16,7 @@
 		"if bodyPartMode.enabled is false": "then",
 		"healthMultiplier": 1
 	},
-	
+
 	"PMC": {
 		"enabled": false,
 		"bodyPartMode": {
@@ -65,7 +65,7 @@
 		"healthMultiplier": 1
 	},
 
-	"Rougue": {
+	"Rogue": {
 		"enabled": false,
 		"bodyPartMode": {
 			"enabled": false,

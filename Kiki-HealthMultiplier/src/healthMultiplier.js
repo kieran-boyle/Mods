@@ -86,7 +86,7 @@ class HealthMultiplier {
 						return input === "bosstest" || input === "test" ? "PMC" :
 							input === "assault" || input === "marksman" ? "Scav"  :
 							input === "pmcbot" ? "Raider"  :
-							input === "exusec" ? "Rougue" :
+							input === "exusec" ? "Rogue" :
 							botTypes[input].experience.reward.min >= 1000 ? "Boss" : 
 							"Follower"
 					}
