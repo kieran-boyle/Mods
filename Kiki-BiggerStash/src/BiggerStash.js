@@ -1,12 +1,15 @@
 "use strict"
 
-class BiggerStash {
+class BiggerStash 
+{
 	
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 
 		const config = require("../config/config.json")
 		const items = DatabaseServer.tables.templates.items
-		const stashArray = [
+		const stashs = 
+		[
 			"566abbc34bdc2d92178b4576", //Standard stash 10x28
 			"5811ce572459770cba1a34ea", //Left Behind stash 10x38
 			"5811ce662459770f6f490f32", //Prepare for escape stash 10x48
@@ -15,11 +18,14 @@ class BiggerStash {
 
 		config.ChangeAll !== false ?
 
-			stashArray.forEach(stash => {
+			stashs.forEach(stash => 
+			{
 				items[stash]._props.Grids[0]._props.cellsV = config.ChangeAll
-			}) :
+			}) 
 			
-			stashArray.forEach(stash => {
+		:
+			stashs.forEach(stash => 
+			{
 				items[stash]._props.Grids[0]._props.cellsV = config[stash].size
 				Logger.log(`[kiki-BiggerStash] : ${config[stash].name} stash size changed to ${config[stash].size}`, "yellow", "black")
 			})
