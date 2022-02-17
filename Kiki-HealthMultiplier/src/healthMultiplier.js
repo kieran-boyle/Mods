@@ -1,7 +1,6 @@
 "use strict"
 
 const CONFIG = require("../config/config.json")
-const BOTTYPES = DatabaseServer.tables.bots.types
 const PHEALTH = DatabaseServer.tables.globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
 class HealthMultiplier {
@@ -13,6 +12,7 @@ class HealthMultiplier {
 		let scavData = ProfileController.getScavProfile(CONFIG.playerId)
 
 		var setProfileHealth = function(target) {
+
 			if (target.Health) {
 				let profileParts = target.Health.BodyParts
 
@@ -38,13 +38,13 @@ class HealthMultiplier {
 
 		setProfileHealth(pmcData)
 		setProfileHealth(scavData)
-		
+
 		return output
 	}
 
 	static onLoadMod() {
 
-		var setHealth = function (bot, target, bodyPartMode) {
+		var setBotHealth = function (bot, target, bodyPartMode) {
 
 			for (let eachPart in bot) {
 
@@ -59,10 +59,12 @@ class HealthMultiplier {
 			}
 		}
 
-		for (let eachBot in BOTTYPES) {
+		const botTypes = DatabaseServer.tables.bots.types
+		
+		for (let eachBot in botTypes) {
 
-			for (let eachHPSet in BOTTYPES[eachBot].health.BodyParts) {
-				let thisBot = BOTTYPES[eachBot].health.BodyParts[eachHPSet]
+			for (let eachHPSet in botTypes[eachBot].health.BodyParts) {
+				let thisBot = botTypes[eachBot].health.BodyParts[eachHPSet]
 
 				if (CONFIG.AllEqualToPlayer == true) {
 
@@ -79,11 +81,21 @@ class HealthMultiplier {
 					}
 
 				} else {
-					let isBoss = BOTTYPES[eachBot].experience.reward.min >= 1000 ? "Boss" : "AI"
-					let mode = isBoss == "Boss" ? CONFIG.Boss.bodyPartMode.enabled : CONFIG.AI.bodyPartMode.enabled
+
+					var dict = function(input) {
+						return input === "bosstest" || input === "test" ? "PMC" :
+							input === "assault" || input === "marksman" ? "Scav"  :
+							input === "pmcbot" ? "Raider"  :
+							input === "exusec" ? "Rogue" :
+							botTypes[input].experience.reward.min >= 1000 ? "Boss" : 
+							"Follower"
+					}
+
+					let isBoss = dict(eachBot)
+					let mode = CONFIG[isBoss].bodyPartMode.enabled
 
 					if (CONFIG[isBoss].enabled == true) {
-						setHealth(thisBot, isBoss, mode)
+						setBotHealth(thisBot, isBoss, mode)
 					}
 				}
 			}
