@@ -1,17 +1,21 @@
 "use strict"
 
-class ContainerTweaks {
+class ContainerTweaks 
+{
 
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 		
 		const containers = DatabaseServer.tables.loot.statics
 		const config = require("../config/config.json")
 
-		for (let eachContainer in containers) {
+		for (let eachContainer in containers) 
+		{
 			containers[eachContainer].chance = config.chance
 		}
 
-		if (config.debug === true) {
+		if (config.debug === true) 
+		{
 			Logger.log(`[Kiki-ContainerTweaks] : Containers loot spawn chance set to ${config.chance}`, "yellow", "black")
 		}
 	}

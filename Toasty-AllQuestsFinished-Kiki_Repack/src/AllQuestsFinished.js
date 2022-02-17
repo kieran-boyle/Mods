@@ -1,26 +1,32 @@
 "use strict"
 
-class AllQuestsFinished {
+class AllQuestsFinished 
+{
 
-    constructor() {
+    constructor() 
+    {
         this.mod = "Toasty-AllQuestsFinished-Kiki-Repack"
         Logger.info(`Loading: ${this.mod}`)
         ModLoader.onLoad[this.mod] = AllQuestsFinished.onLoadMod
     }
 
-    static onLoadMod() {
+    static onLoadMod() 
+    {
 
         const database = DatabaseServer.tables
         let base = database.templates.quests
 
         //The following is ripped straight from Ereshkigal's All Quests Available mod with minor changes
 
-        for (let file in base) {
+        for (let file in base) 
+        {
             let fileData = base[file]
 
-            fileData.conditions.AvailableForFinish = [{
+            fileData.conditions.AvailableForFinish = 
+            [{
                 "_parent": "Level",
-                "_props": {
+                "_props": 
+                {
                     "compareMethod": ">=",
                     "value": "1",
                     "index": 0,

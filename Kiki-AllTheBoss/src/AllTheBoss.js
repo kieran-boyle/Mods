@@ -1,8 +1,10 @@
 "use strict"
 
-class AllTheBoss {
+class AllTheBoss 
+{
 
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 
 		const database = DatabaseServer.tables.locations
 		const allBoss = require("./boss.json")
@@ -11,13 +13,16 @@ class AllTheBoss {
 		const config = require("../config/config.json")
 		var zones = []
 
-		var getRandomInt = function (max) {
+		var getRandomInt = function (max)
+		{
 			return Math.floor(Math.random() * max);
 		}
 
-		var chooseZone = function (zoneList) {
+		var chooseZone = function (zoneList)
+		{
 
-			if (zoneList.length === 1) {
+			if (zoneList.length === 1) 
+			{
 				return zoneList.toString()
 			}
 			let rand = getRandomInt(zoneList.length)
@@ -29,34 +34,42 @@ class AllTheBoss {
 		for (let eachMap in maps) {
 			let thisMap = []
 
-			if (config[eachMap].enabled === true) {
+			if (config[eachMap].enabled === true) 
+			{
 				zones = maps[eachMap].split(",")
 
-				for (let eachEntry in allBoss) {
+				for (let eachEntry in allBoss) 
+				{
 					let thisBoss = allBoss[eachEntry]
 
-					if (config[eachMap].bossList[thisBoss.BossName] > 0) {
+					if (config[eachMap].bossList[thisBoss.BossName] > 0) 
+					{
 						thisBoss.BossChance = config[eachMap].bossList[thisBoss.BossName]
 						thisBoss.BossZone = chooseZone(zones)
 
-						if (zones.length <= 1) {
+						if (zones.length <= 1) 
+						{
 							zones = maps[eachMap].split(",")
 						}
 
 						thisMap.push(thisBoss)
 
-						if (config.debug === true) {
+						if (config.debug === true) 
+						{
 							Logger.log(`[Kiki-AllTheBoss] : ${thisBoss.BossName} has a ${thisBoss.BossChance}% chance to spawn on ${eachMap}`, "yellow", "black")
 						}
 					}
 				}
 
-				if (eachMap === "rezervbase") {
+				if (eachMap === "rezervbase") 
+				{
 
-					for (let eachBot in raiders.rezervbase) {
+					for (let eachBot in raiders.rezervbase) 
+					{
 						let thisRaider = raiders.rezervbase[eachBot]
 
-						if (config.boostRaiders.enabled === true) {
+						if (config.boostRaiders.enabled === true) 
+						{
 							thisRaider.BossChance = config.boostRaiders.chance
 							thisRaider.Time = config.boostRaiders.time
 							thisRaider.BossEscortAmount = config.boostRaiders.escortAmount - 1
@@ -65,12 +78,15 @@ class AllTheBoss {
 					}
 				}
 
-				if (eachMap === "laboratory") {
+				if (eachMap === "laboratory") 
+				{
 
-					for (let eachBot in raiders.laboratory) {
+					for (let eachBot in raiders.laboratory) 
+					{
 						let thisRaider = raiders.laboratory[eachBot]
 
-						if (config.boostRaiders.enabled === true) {
+						if (config.boostRaiders.enabled === true) 
+						{
 							thisRaider.BossChance = config.boostRaiders.chance
 							thisRaider.Time = config.boostRaiders.time
 							thisRaider.BossEscortAmount = config.boostRaiders.escortAmount - 1

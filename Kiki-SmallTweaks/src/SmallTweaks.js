@@ -1,13 +1,16 @@
 "use strict"
 
-class smallTweaks {
+class smallTweaks 
+{
 
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 		
 		const database = DatabaseServer.tables.templates.items
 		const globals = DatabaseServer.tables.globals
 		const locations = DatabaseServer.tables.locations
-		const lootConfig = { //from AIO but mini
+		const lootConfig = //from AIO but mini
+		{
 			"globalsMul": 3,
 			"bigmap": 1,
 			"factory4_day": 1,
@@ -23,11 +26,13 @@ class smallTweaks {
 		globals.config.TimeBeforeDeploy = 1
 		globals.config.TimeBeforeDeployLocal = 1
 
-		for (const i in database) {
+		for (const i in database) 
+		{
 			let item = database[i]
 
 			//set baground colour of ammo depending on pen
-			if (item._parent === "5485a8684bdc2da71d8b4567") {
+			if (item._parent === "5485a8684bdc2da71d8b4567") 
+			{
 				let pen = item._props.PenetrationPower
 				let colour = ""
 
@@ -42,7 +47,8 @@ class smallTweaks {
 		}
 
 		//Changing maps loots spawn chances multiplier
-		for (let [k, v] of Object.entries(lootConfig)) {
+		for (let [k, v] of Object.entries(lootConfig)) 
+		{
 
 			k === "globalsMul" ?
 				DatabaseServer.tables.globals.config.GlobalLootChanceModifier = v :

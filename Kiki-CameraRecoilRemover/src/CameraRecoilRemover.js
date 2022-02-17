@@ -1,12 +1,15 @@
 "use strict"
 
-class CameraRecoilRemover {
+class CameraRecoilRemover 
+{
 
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 
 		const config = require("../config/config.json")
 		const items = DatabaseServer.tables.templates.items
-		const weaponClassList = [
+		const weaponClassList = 
+		[
 			"pistol",
 			"smg",
 			"shotgun",
@@ -17,14 +20,17 @@ class CameraRecoilRemover {
 			"sniperRifle"
 		]
 
-		for (let eachItem in items) {
+		for (let eachItem in items) 
+		{
 
-			if (weaponClassList.includes(items[eachItem]._props.weapClass)) {
+			if (weaponClassList.includes(items[eachItem]._props.weapClass)) 
+			{
 				items[eachItem]._props.CameraRecoil *= config.CameraRecoil
 			}
 		}
 
-		if (config.debug === true) {
+		if (config.debug === true) 
+		{
 			Logger.log(`[Kiki-CameraRecoilRemover] : Camera recoil is multiplied by ${config.CameraRecoil}`, "yellow", "black")
 		}
 	}

@@ -1,20 +1,24 @@
 "use strict"
 
-class FenceTweaks {
+class FenceTweaks 
+{
 
-	static onLoadMod() {
+	static onLoadMod() 
+	{
 
 		const config = require("../config/config.json")
 		const items = DatabaseServer.tables.templates.items
 		const fenceAssort = DatabaseServer.tables.traders["579dc571d53a0658a154fbec"].assort
 		const ragfairAssort = DatabaseServer.tables.traders.ragfair.assort
 		const keys = ["5c99f98d86f7745c314214b3", "5c164d2286f774194c5e69fa"]
-		const parents = [
+		const parents = 
+		[
 			"5795f317245977243854e041", // Containers
 			"5448bf274bdc2dfc2f8b456a", // Secure containers
 			"543be5dd4bdc2deb348b4569" // Money
 		]
-		const IDs = [
+		const IDs = 
+		[
 			"58ac60eb86f77401897560ff", // Dev balaclava
 			"59e8936686f77467ce798647", // Test balaclava
 			"5c0a794586f77461c458f892", // Secure Container Boss
@@ -70,29 +74,37 @@ class FenceTweaks {
 			"609267a2bb3f46069c3e6c7d" // T-90M Commander Control Panel
 		]
 
-		var deleteItems = function (whichTrader) {
+		var deleteItems = function (whichTrader) 
+		{
 
-			for (let eachId in whichTrader) {
+			for (let eachId in whichTrader) 
+			{
 
-				if (Array.isArray(whichTrader)) { //is it an array? we have to use splice
+				if (Array.isArray(whichTrader)) //is it an array? we have to use splice
+				{ 
 
-					if (IDs.includes(whichTrader[eachId]._id)) {
+					if (IDs.includes(whichTrader[eachId]._id)) 
+					{
 						whichTrader.splice(eachId, 1)
 					}
 
-				} else if (IDs.includes(eachId)) {
+				} else if (IDs.includes(eachId)) 
+				{
 					delete whichTrader[eachId] //if its an object we can use delete
 				}
 			}
 		}
 
-		if (config.removeKeys === true) { //if you want to remove keys/keycards
+		if (config.removeKeys === true) //if you want to remove keys/keycards
+		{ 
 			keys.forEach(key => parents.push(key))
 		}
 
-		for (let eachItem in items) { //push all the ID's from parent catogories to remove.
+		for (let eachItem in items) //push all the ID's from parent catogories to remove.
+		{ 
 
-			if (parents.includes(items[eachItem]._parent)) {
+			if (parents.includes(items[eachItem]._parent)) 
+			{
 				IDs.push(items[eachItem]._id)
 			}
 		}
@@ -101,7 +113,8 @@ class FenceTweaks {
 		deleteItems(fenceAssort.loyal_level_items)
 		deleteItems(fenceAssort.items) //array
 
-		if (config.removeFromRagfair === true) { //do we want to remove from fleamarket too?
+		if (config.removeFromRagfair === true) //do we want to remove from fleamarket too?
+		{ 
 			deleteItems(ragfairAssort.barter_scheme)
 			deleteItems(ragfairAssort.loyal_level_items)
 			deleteItems(ragfairAssort.items) //array
