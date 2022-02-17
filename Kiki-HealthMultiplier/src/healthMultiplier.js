@@ -91,11 +91,11 @@ class HealthMultiplier {
 							"Follower"
 					}
 
-					let isBoss = dict(eachBot)
-					let mode = CONFIG[isBoss].bodyPartMode.enabled
+					let type = dict(eachBot)
+					let mode = CONFIG[type].bodyPartMode.enabled
 
-					if (CONFIG[isBoss].enabled == true) {
-						setBotHealth(thisBot, isBoss, mode)
+					if (CONFIG[type].enabled == true) {
+						setBotHealth(thisBot, type, mode)
 					}
 				}
 			}
