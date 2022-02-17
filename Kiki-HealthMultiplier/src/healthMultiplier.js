@@ -10,29 +10,35 @@ class HealthMultiplier {
 
 		CONFIG.playerId = sessionID //Make the player's ID accessible at any point
 		let pmcData = ProfileController.getPmcProfile(CONFIG.playerId)
+		let scavData = ProfileController.getScavProfile(CONFIG.playerId)
 
-		if (pmcData.Health) {
-			let profileParts = pmcData.Health.BodyParts
+		var setProfileHealth = function(target) {
+			if (target.Health) {
+				let profileParts = target.Health.BodyParts
 
-			if (CONFIG.Player.enabled === true) {
+				if (CONFIG.Player.enabled === true) {
 
-				for (let eachPart in profileParts) {
+					for (let eachPart in profileParts) {
 
-					if (CONFIG.Player.bodyPartMode.enabled === true) {
-						profileParts[eachPart].Health.Current = CONFIG.Player.bodyPartMode[eachPart]
-						profileParts[eachPart].Health.Maximum = CONFIG.Player.bodyPartMode[eachPart]
+						if (CONFIG.Player.bodyPartMode.enabled === true) {
+							profileParts[eachPart].Health.Current = CONFIG.Player.bodyPartMode[eachPart]
+							profileParts[eachPart].Health.Maximum = CONFIG.Player.bodyPartMode[eachPart]
 
-					} else {
-						profileParts[eachPart].Health.Current = Math.ceil(PHEALTH[eachPart].Maximum * CONFIG.Player.healthMultiplier)
-						profileParts[eachPart].Health.Maximum = Math.ceil(PHEALTH[eachPart].Maximum * CONFIG.Player.healthMultiplier)
+						} else {
+							profileParts[eachPart].Health.Current = Math.ceil(PHEALTH[eachPart].Maximum * CONFIG.Player.healthMultiplier)
+							profileParts[eachPart].Health.Maximum = Math.ceil(PHEALTH[eachPart].Maximum * CONFIG.Player.healthMultiplier)
+						}
 					}
 				}
-			}
 
-		} else {
-			Logger.log(`[Kiki-HealthMultiplier] : Warning, player health values will not be applied on the first run with a fresh profile.\nPlease reboot the game after you have created your character  `, "yellow", "red")
+			} else {
+				Logger.log(`[Kiki-HealthMultiplier] : Warning, player health values will not be applied on the first run with a fresh profile.\nPlease reboot the game after you have created your character  `, "yellow", "red")
+			}
 		}
 
+		setProfileHealth(pmcData)
+		setProfileHealth(scavData)
+		
 		return output
 	}
 
