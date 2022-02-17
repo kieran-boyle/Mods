@@ -46,6 +46,6 @@
 			"RightLeg": 65
 		},
 		"if bodyPartMode.enabled is false": "then",
-		"healthMultiplier": 5
+		"healthMultiplier": 1
 	}
 }
