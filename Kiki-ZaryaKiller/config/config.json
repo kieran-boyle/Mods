@@ -1,7 +1,7 @@
 {
-	"removeZarya": true,
-	"removeVog": false,
-	"removeImpact": false,
-	"removeAllGrenades": false,
-	"debug": false
+  "removeZarya": true,
+  "removeVog": false,
+  "removeImpact": false,
+  "removeAllGrenades": false,
+  "debug": false
 }

@@ -2,13 +2,15 @@
 
 const MedTweaker = require("./src/MedTweaker.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-MedTweaker")
-		ModLoader.onLoad["Kiki-MedTweaker"] = MedTweaker.onLoadMod
-	}
+    Logger.info("Loading: Kiki-MedTweaker")
+    ModLoader.onLoad["Kiki-MedTweaker"] = MedTweaker.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

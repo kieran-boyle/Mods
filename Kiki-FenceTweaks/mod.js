@@ -2,13 +2,15 @@
 
 const FenceTweaks = require("./src/FenceTweaks.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-FenceTweaks")
-		ModLoader.onLoad["Kiki-FenceTweaks"] = FenceTweaks.onLoadMod
-	}
+    Logger.info("Loading: Kiki-FenceTweaks")
+    ModLoader.onLoad["Kiki-FenceTweaks"] = FenceTweaks.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

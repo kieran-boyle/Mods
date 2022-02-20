@@ -2,13 +2,15 @@
 
 const ArmorDebuffRemover = require("./src/ArmorDebuffRemover.js")
 
-class Mod {
+class Mod
+{
 
-		constructor() {
-			
-			Logger.info("Loading: Kiki-ArmorDebuffRemover")
-			ModLoader.onLoad["Kiki-ArmorDebuffRemover"] = ArmorDebuffRemover.onLoadMod
-		}
-	}
+  constructor()
+  {
+
+    Logger.info("Loading: Kiki-ArmorDebuffRemover")
+    ModLoader.onLoad["Kiki-ArmorDebuffRemover"] = ArmorDebuffRemover.onLoadMod
+  }
+}
 
 module.exports.Mod = new Mod()

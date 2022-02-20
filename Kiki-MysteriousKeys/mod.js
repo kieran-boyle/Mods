@@ -2,13 +2,15 @@
 
 const MysteriousKeys = require("./src/MysteriousKeys.js")
 
-class Mod {
+class Mod
+{
 
-		constructor() {
-			
-			Logger.info("Loading: Kiki-MysteriousKeys")
-			ModLoader.onLoad["Kiki-MysteriousKeys"] = MysteriousKeys.onLoadMod
-		}
+  constructor()
+  {
+
+    Logger.info("Loading: Kiki-MysteriousKeys")
+    ModLoader.onLoad["Kiki-MysteriousKeys"] = MysteriousKeys.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

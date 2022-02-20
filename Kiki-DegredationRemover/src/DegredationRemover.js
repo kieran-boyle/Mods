@@ -1,39 +1,39 @@
 "use strict"
 
-class DegredationRemover 
+class DegredationRemover
 {
 
-	static onLoadMod() 
-	{
-		
-		const traders = DatabaseServer.tables.traders
-		const config = require("../config/config.json")
+  static onLoadMod()
+  {
 
-		for (let eachTrader in traders) 
-		{
-			let base = traders[eachTrader].base
+    const traders = DatabaseServer.tables.traders
+    const config = require("../config/config.json")
 
-			for (let eachLevel in base.loyaltyLevels) 
-			{
-				let level = base.loyaltyLevels[eachLevel]
+    for (let eachTrader in traders)
+    {
+      let base = traders[eachTrader].base
 
-				base.nickname === "Prapor" ?
-					level.repair_price_coef *= config.repairPriceMultiplier + 50 :
-					level.repair_price_coef *= config.repairPriceMultiplier
-			}
-			base.repair.quality *= config.qualityMultiplier
-		}
+      for (let eachLevel in base.loyaltyLevels)
+      {
+        let level = base.loyaltyLevels[eachLevel]
 
-		if (config.repairPriceMultiplier != 1 && config.debug === true) 
-		{
-			Logger.log(`[Kiki-DegredationRemover] : All trader repair prices have been multiplied by ${config.repairPriceMultiplier}`, "yellow", "black")
-		}
+        base.nickname === "Prapor" ?
+          level.repair_price_coef *= config.repairPriceMultiplier + 50 :
+          level.repair_price_coef *= config.repairPriceMultiplier
+      }
+      base.repair.quality *= config.qualityMultiplier
+    }
 
-		if (config.qualityMultiplier != 1 && config.debug === true) 
-		{
-			Logger.log(`[Kiki-DegredationRemover] : All trader repair quality have been multiplied by ${config.qualityMultiplier}`, "yellow", "black")
-		}
-	}
+    if (config.repairPriceMultiplier != 1 && config.debug === true)
+    {
+      Logger.log(`[Kiki-DegredationRemover] : All trader repair prices have been multiplied by ${config.repairPriceMultiplier}`, "yellow", "black")
+    }
+
+    if (config.qualityMultiplier != 1 && config.debug === true)
+    {
+      Logger.log(`[Kiki-DegredationRemover] : All trader repair quality have been multiplied by ${config.qualityMultiplier}`, "yellow", "black")
+    }
+  }
 }
 
 module.exports = DegredationRemover

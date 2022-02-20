@@ -1,45 +1,55 @@
 {
-	"MaxHpResource": 1,
-	"hpResourceRate": 1,
-	"medUseTime": 1,
+  "MaxHpResource": 1,
+  "hpResourceRate": 1,
+  "medUseTime": 1,
 
-	"effects_damage": {
+  "effects_damage":
+  {
 
-		"HeavyBleeding": {
-			"cost": 1,
-			"duration": 1,
-			"fadeOut": 1
-		},
-		"LightBleeding": {
-			"cost": 1,
-			"duration": 1,
-			"fadeOut": 1
-		},
-		"Fracture": {
-			"cost": 1
-		},
-		"DestroyedPart": {
-			"healthPenaltyMax": 1,
-			"healthPenaltyMin": 1
-		},
-		"Contusion": {
-			"duration": 1
-		},
-		"Pain": {
-			"duration": 1,
-			"fadeOut": 1
-		}
-	},
+    "HeavyBleeding":
+    {
+      "cost": 1,
+      "duration": 1,
+      "fadeOut": 1
+    },
+    "LightBleeding":
+    {
+      "cost": 1,
+      "duration": 1,
+      "fadeOut": 1
+    },
+    "Fracture":
+    {
+      "cost": 1
+    },
+    "DestroyedPart":
+    {
+      "healthPenaltyMax": 1,
+      "healthPenaltyMin": 1
+    },
+    "Contusion":
+    {
+      "duration": 1
+    },
+    "Pain":
+    {
+      "duration": 1,
+      "fadeOut": 1
+    }
+  },
 
-	"effects_health": {
+  "effects_health":
+  {
 
-		"Energy": {
-			"value": 1
-		},
-		"Hydration": {
-			"value": 1
-		}
-	},
+    "Energy":
+    {
+      "value": 1
+    },
+    "Hydration":
+    {
+      "value": 1
+    }
+  },
 
-	"debug": false
+  "debug": false
 }

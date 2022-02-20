@@ -2,13 +2,15 @@
 
 const CameraRecoilRemover = require("./src/CameraRecoilRemover.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-CameraRecoilRemover")
-		ModLoader.onLoad["Kiki-CameraRecoilRemover"] = CameraRecoilRemover.onLoadMod
-	}
+    Logger.info("Loading: Kiki-CameraRecoilRemover")
+    ModLoader.onLoad["Kiki-CameraRecoilRemover"] = CameraRecoilRemover.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()
