@@ -2,13 +2,15 @@
 
 const ChooseYourSpawn = require("./src/ChooseYourSpawn.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-ChooseYourSpawn")
-		ModLoader.onLoad["Kiki-ChooseYourSpawn"] = ChooseYourSpawn.onLoadMod
-	}
+    Logger.info("Loading: Kiki-ChooseYourSpawn")
+    ModLoader.onLoad["Kiki-ChooseYourSpawn"] = ChooseYourSpawn.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

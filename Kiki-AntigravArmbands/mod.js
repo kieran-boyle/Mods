@@ -2,12 +2,14 @@
 
 const AntigravArmbands = require("./src/AntigravArmbands.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
-		Logger.info("Loading: Kiki-AntigravArmbands")
-		ModLoader.onLoad["Kiki-AntigravArmbands"] = AntigravArmbands.onLoadMod
-	}
+  constructor()
+  {
+    Logger.info("Loading: Kiki-AntigravArmbands")
+    ModLoader.onLoad["Kiki-AntigravArmbands"] = AntigravArmbands.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

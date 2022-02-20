@@ -1,6 +1,6 @@
 {
-	"minLevel": true,
-	"minSalesSum": true,
-	"minStanding": true,
-	"cantBuy": false
+  "minLevel": true,
+  "minSalesSum": true,
+  "minStanding": true,
+  "cantBuy": false
 }

@@ -1,28 +1,33 @@
 {
-	"5b3f16c486f7747c327f55f7": {
-		"colour": "White",
-		"weight": -20,
-		"stackSize": 10
-	},
-	"5b3f3af486f774679e752c1f": {
-		"colour": "Blue",
-		"weight": -40,
-		"stackSize": 10
-	},
-	"5b3f3b0186f774021a2afef7": {
-		"colour": "Green",
-		"weight": -60,
-		"stackSize": 10
-	},
-	"5b3f3ade86f7746b6b790d8e": {
-		"colour": "Red",
-		"weight": -80,
-		"stackSize": 10
-	},
-	"5b3f3b0e86f7746752107cda": {
-		"colour": "Yellow",
-		"weight": -100,
-		"stackSize": 10
-	},
-	"debug": true
+  "5b3f16c486f7747c327f55f7":
+  {
+    "colour": "White",
+    "weight": -20,
+    "stackSize": 10
+  },
+  "5b3f3af486f774679e752c1f":
+  {
+    "colour": "Blue",
+    "weight": -40,
+    "stackSize": 10
+  },
+  "5b3f3b0186f774021a2afef7":
+  {
+    "colour": "Green",
+    "weight": -60,
+    "stackSize": 10
+  },
+  "5b3f3ade86f7746b6b790d8e":
+  {
+    "colour": "Red",
+    "weight": -80,
+    "stackSize": 10
+  },
+  "5b3f3b0e86f7746752107cda":
+  {
+    "colour": "Yellow",
+    "weight": -100,
+    "stackSize": 10
+  },
+  "debug": true
 }

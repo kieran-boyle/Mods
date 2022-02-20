@@ -2,14 +2,16 @@
 
 const HealthMultiplier = require("./src/HealthMultiplier.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-HealthMultiplier")
-		ModLoader.onLoad["Kiki-HealthMultiplier"] = HealthMultiplier.onLoadMod
-		HttpRouter.onStaticRoute["/client/game/start"]["healthmultiplier"] = HealthMultiplier.runOnGameStart
-	}
+    Logger.info("Loading: Kiki-HealthMultiplier")
+    ModLoader.onLoad["Kiki-HealthMultiplier"] = HealthMultiplier.onLoadMod
+    HttpRouter.onStaticRoute["/client/game/start"]["healthmultiplier"] = HealthMultiplier.runOnGameStart
+  }
 }
 
 module.exports.Mod = new Mod()

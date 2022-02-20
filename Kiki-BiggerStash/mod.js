@@ -2,13 +2,15 @@
 
 const BiggerStash = require("./src/BiggerStash.js")
 
-class Mod {
+class Mod
+{
 
-	constructor() {
+  constructor()
+  {
 
-		Logger.info("Loading: Kiki-BiggerStash")
-		ModLoader.onLoad["Kiki-BiggerStash"] = BiggerStash.onLoadMod
-	}
+    Logger.info("Loading: Kiki-BiggerStash")
+    ModLoader.onLoad["Kiki-BiggerStash"] = BiggerStash.onLoadMod
+  }
 }
 
 module.exports.Mod = new Mod()

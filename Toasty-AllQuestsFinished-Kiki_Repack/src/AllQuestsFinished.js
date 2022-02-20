@@ -1,41 +1,41 @@
 "use strict"
 
-class AllQuestsFinished 
+class AllQuestsFinished
 {
 
-    constructor() 
+  constructor()
+  {
+    this.mod = "Toasty-AllQuestsFinished-Kiki-Repack"
+    Logger.info(`Loading: ${this.mod}`)
+    ModLoader.onLoad[this.mod] = AllQuestsFinished.onLoadMod
+  }
+
+  static onLoadMod()
+  {
+
+    const database = DatabaseServer.tables
+    let base = database.templates.quests
+
+    //The following is ripped straight from Ereshkigal's All Quests Available mod with minor changes
+
+    for (let file in base)
     {
-        this.mod = "Toasty-AllQuestsFinished-Kiki-Repack"
-        Logger.info(`Loading: ${this.mod}`)
-        ModLoader.onLoad[this.mod] = AllQuestsFinished.onLoadMod
-    }
+      let fileData = base[file]
 
-    static onLoadMod() 
-    {
-
-        const database = DatabaseServer.tables
-        let base = database.templates.quests
-
-        //The following is ripped straight from Ereshkigal's All Quests Available mod with minor changes
-
-        for (let file in base) 
+      fileData.conditions.AvailableForFinish = [
+      {
+        "_parent": "Level",
+        "_props":
         {
-            let fileData = base[file]
-
-            fileData.conditions.AvailableForFinish = 
-            [{
-                "_parent": "Level",
-                "_props": 
-                {
-                    "compareMethod": ">=",
-                    "value": "1",
-                    "index": 0,
-                    "parentId": "",
-                    "id": "Exist"
-                }
-            }]
+          "compareMethod": ">=",
+          "value": "1",
+          "index": 0,
+          "parentId": "",
+          "id": "Exist"
         }
+      }]
     }
+  }
 }
 
 module.exports.Mod = AllQuestsFinished
