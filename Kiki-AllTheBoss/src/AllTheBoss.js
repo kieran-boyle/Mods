@@ -7,9 +7,6 @@ class AllTheBoss
   {
 
     const database = DatabaseServer.tables.locations
-    /* const allBoss = require("./boss.json")
-    const maps = require("./maps.json")
-    const raiders = require("./raiders.json") */
     const config = require("../config/config.json")
     var zoneList = []
     var bossList = []
@@ -32,7 +29,7 @@ class AllTheBoss
             eachBoss.BossName !== "exUsec")
           {
             bossNames.push(eachBoss.BossName)
-            bossList.push(eachBoss)
+            bossList.push(JSON.parse(JSON.stringify(eachBoss)))
           }
         }
       }
@@ -184,6 +181,31 @@ class AllTheBoss
       }
     }
 
+    var addRaiders = function(map)
+    {
+      let newRaider = JSON.parse(JSON.stringify(raider))
+      newRaider.BossChance = config.raiders.addRaiders.maps[map].chance
+      newRaider.Time = config.raiders.addRaiders.maps[map].time
+      newRaider.BossEscortAmount = config.raiders.addRaiders.maps[map].escortAmount
+      for (let i = 0; i < config.raiders.addRaiders.maps[map].amount; i++)
+      {
+        newRaider.BossZone = chooseZone(map)
+        thisMap.push(JSON.parse(JSON.stringify(newRaider)))
+      }
+    }
+
+    var addRogues = function(map)
+    {
+      let newRogue = JSON.parse(JSON.stringify(rogue))
+      newRogue.BossChance = config.rogues.addRogues.maps[map].chance
+      newRogue.Time = config.rogues.addRogues.maps[map].time
+      newRogue.BossEscortAmount = config.rogues.addRogues.maps[map].escortAmount
+      for (let i = 0; i < config.rogues.addRogues.maps[map].amount; i++)
+      {
+        newRogue.BossZone = chooseZone(map)
+        thisMap.push(JSON.parse(JSON.stringify(newRogue)))
+      }
+    }
     // ************************ Start of main ************************
 
     populateBossList()
@@ -197,15 +219,11 @@ class AllTheBoss
       if (config.maps[eachMap].enabled === true)
       {
         populateZoneList(eachMap)
-
-        if (config.debug === true)
-        {
-          Logger.log(`\n[Kiki-ATB] : ${eachMap} zones = \n${JSON.stringify(zoneList, 0, 1)}`, "yellow", "black")
-        }
         setBosses(eachMap)
         sanatizeMap(eachMap)
+      }
 
-        if (config.raiders.boostRaiders.enabled === true)
+      if (config.raiders.boostRaiders.enabled === true)
         {
           if (eachMap === "rezervbase" || eachMap === "laboratory")
           {
@@ -213,7 +231,7 @@ class AllTheBoss
           }
         }
 
-        if (config.raiders.boostRaiders.enabled === true)
+        if (config.rogues.boostRogues.enabled === true)
         {
           if (eachMap === "lighthouse")
           {
@@ -221,16 +239,19 @@ class AllTheBoss
           }
         }
 
-        if (config.raiders.boostRaiders.enabled === true)
+        if (config.raiders.addRaiders.enabled === true)
         {
-          //addRaider(eachMap)
+          addRaiders(eachMap)
         }
-      }
 
+        if (config.rogues.addRogues.enabled === true)
+        {
+          addRogues(eachMap)
+        }
+
+      database[eachMap].base.BossLocationSpawn = [...database[eachMap].base.BossLocationSpawn, ...thisMap]
+      Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
     }
-    Logger.log(raider)
-    Logger.log(rogue)
-    //Logger.log(bossNames)
   }
 }
 

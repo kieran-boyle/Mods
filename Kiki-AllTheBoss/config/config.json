@@ -1,12 +1,172 @@
 {
   "debug": false,
 
-  "boostRaiders":
+  "raiders" :
   {
-    "enabled": true,
-    "chance": 100,
-    "time": -1,
-    "escortAmount": 2
+    "removeRaiders" : false,
+
+    "boostRaiders":
+    {
+      "enabled": true,
+      "chance": 100,
+      "time": -1,
+      "escortAmount": 2
+    },
+
+    "addRaiders" :
+    {
+      "enabled" : true,
+      "maps" :
+      {
+        "bigmap" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "factory4_day" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "factory4_night" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "interchange" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "laboratory" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "lighthouse" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "rezervbase" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "shoreline" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "woods" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        }
+      }      
+    }
+  },
+
+  "rogues" :
+  {
+    "removeRogues" : false,
+
+    "boostRogues":
+    {
+      "enabled": true,
+      "chance": 100,
+      "time": -1,
+      "escortAmount": 2
+    },
+
+    "addRogues" :
+    {
+      "enabled" : true,
+      "maps" :
+      {
+        "bigmap" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "factory4_day" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "factory4_night" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "interchange" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "laboratory" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "lighthouse" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "rezervbase" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "shoreline" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "woods" :
+        {
+          "amount" : 5,
+          "chance": 100,
+          "time": -1,
+          "escortAmount": 2
+        }
+      }      
+    }
   },
 
   "maps" :
@@ -19,7 +179,7 @@
       {
         "bossGluhar":
         {
-          "number" : 10,
+          "number" : 1,
           "chance" : 100
         }, 
 
@@ -43,7 +203,7 @@
 
         "bossKilla":
         {
-          "number" : 10,
+          "number" : 1,
           "chance" : 100
         }, 
 
@@ -63,7 +223,7 @@
 
     "factory4_day":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -112,7 +272,7 @@
 
     "factory4_night":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -161,7 +321,7 @@
 
     "interchange":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -210,7 +370,7 @@
 
     "laboratory":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -259,7 +419,7 @@
 
     "rezervbase":
     {
-      "enabled":  false,
+      "enabled":  true,
       "bossList":
       {
         "bossGluhar":
@@ -308,7 +468,7 @@
 
     "shoreline":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -357,7 +517,7 @@
 
     "woods":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
@@ -406,7 +566,7 @@
     
     "lighthouse":
     {
-      "enabled": false,
+      "enabled": true,
       "bossList":
       {
         "bossGluhar":
