@@ -8,6 +8,8 @@ class AllTheBoss
 
     const database = DatabaseServer.tables.locations
     const config = require("../config/config.json")
+    const sniperFinder = new RegExp(/.*(snip).*/igm)
+    
     var zoneList = []
     var bossList = []
     var bossNames = []
@@ -87,6 +89,17 @@ class AllTheBoss
       {
         zoneList = ["BotZone"]
       }
+
+      for (let zone in zoneList)
+      {
+        if (sniperFinder.test(zoneList[zone]) === true)
+        {
+          Logger.log(`Found!! ${zoneList[zone]}`)
+          zoneList.splice(zone, 1)
+          
+        }
+      }
+      Logger.log(zoneList)
     }
 
     var getRandomInt = function(max)
@@ -217,10 +230,10 @@ class AllTheBoss
 
     for (let eachMap in config.maps)
     {
+      populateZoneList(eachMap)
 
       if (config.maps[eachMap].enabled === true)
       {
-        populateZoneList(eachMap)
         setBosses(eachMap)
         sanatizeMap(eachMap)
       }
@@ -252,7 +265,7 @@ class AllTheBoss
       }
 
       database[eachMap].base.BossLocationSpawn = [...database[eachMap].base.BossLocationSpawn, ...thisMap]
-      Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
+      //Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
     }
   }
 }
