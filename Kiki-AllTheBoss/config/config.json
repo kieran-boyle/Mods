@@ -1,5 +1,6 @@
 {
   "debug": false,
+
   "boostRaiders":
   {
     "enabled": true,
@@ -7,129 +8,449 @@
     "time": -1,
     "escortAmount": 2
   },
-  "bigmap":
+
+  "maps" :
   {
-    "enabled": true,
-    "bossList":
+
+    "bigmap":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "factory4_day":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 10,
+          "chance" : 100
+        }, 
+
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 10,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "factory4_day":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100
-    }
-  },
-  "factory4_night":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "factory4_night":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "interchange":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "interchange":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "laboratory":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "laboratory":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "rezervbase":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "rezervbase":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "shoreline":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled":  false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "shoreline":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "woods":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "woods":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "lighthouse":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+    
+    "lighthouse":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
+      "enabled": false,
+      "bossList":
+      {
+        "bossGluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "bossKojaniy":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossSanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossBully":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossKilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "bossTagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "sectantPriest":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
     }
   }
 }
