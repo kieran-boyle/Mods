@@ -166,7 +166,7 @@ class AllTheBoss
       {
         let thisBoss = config.maps[map].bossList[eachBoss]
         let name = bossDictionary[eachBoss]
-        for (let i = 0; i < thisBoss.number; i++)
+        for (let i = 0; i < thisBoss.amount; i++)
         {
           getBoss(name, thisBoss.chance, map)
         }

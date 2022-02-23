@@ -7,7 +7,7 @@
 
     "boostRaiders":
     {
-      "enabled": true,
+      "enabled": false,
       "chance": 100,
       "time": -1,
       "escortAmount": 2
@@ -15,69 +15,69 @@
 
     "addRaiders" :
     {
-      "enabled" : false,
+      "enabled" : true,
       "maps" :
       {
         "Customs" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryDay" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryNight" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Interchange" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Laboratory" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Lighthouse" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Reserve" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Shoreline" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Woods" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         }
@@ -91,7 +91,7 @@
 
     "boostRogues":
     {
-      "enabled": true,
+      "enabled": false,
       "chance": 100,
       "time": -1,
       "escortAmount": 2
@@ -99,69 +99,69 @@
 
     "addRogues" :
     {
-      "enabled" : false,
+      "enabled" : true,
       "maps" :
       {
         "Customs" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryDay" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryNight" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Interchange" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Laboratory" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Lighthouse" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Reserve" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Shoreline" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Woods" :
         {
-          "amount" : 5,
-          "chance": 100,
+          "amount" : 2,
+          "chance": 20,
           "time": -1,
           "escortAmount": 2
         }
@@ -169,6 +169,7 @@
     }
   },
 
+  
   "maps" :
   {
 
@@ -179,44 +180,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -228,44 +229,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -277,44 +278,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -326,44 +327,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -375,44 +376,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -424,44 +425,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -473,44 +474,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -522,44 +523,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     },
@@ -571,44 +572,44 @@
       {
         "Gluhar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
         
         "Shturman":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Sanitar":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Reshala":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Killa":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Tagilla":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }, 
 
         "Cultist":
         {
-          "number" : 1,
-          "chance" : 100
+          "amount" : 1,
+          "chance" : 20
         }
       }
     }
