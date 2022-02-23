@@ -20,63 +20,63 @@
       {
         "Customs" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryDay" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryNight" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Interchange" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Laboratory" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Lighthouse" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Reserve" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Shoreline" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Woods" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
@@ -104,63 +104,63 @@
       {
         "Customs" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryDay" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "FactoryNight" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Interchange" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Laboratory" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Lighthouse" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Reserve" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Shoreline" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
         },
         "Woods" :
         {
-          "amount" : 2,
+          "amount" : 1,
           "chance": 20,
           "time": -1,
           "escortAmount": 2
