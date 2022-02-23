@@ -1,135 +1,617 @@
 {
   "debug": false,
-  "boostRaiders":
+
+  "raiders" :
   {
-    "enabled": true,
-    "chance": 100,
-    "time": -1,
-    "escortAmount": 2
-  },
-  "bigmap":
-  {
-    "enabled": true,
-    "bossList":
+    "removeRaiders" : false,
+
+    "boostRaiders":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
+      "enabled": false,
+      "chance": 100,
+      "time": -1,
+      "escortAmount": 2
+    },
+
+    "addRaiders" :
+    {
+      "enabled" : true,
+      "maps" :
+      {
+        "Customs" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "FactoryDay" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "FactoryNight" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Interchange" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Laboratory" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Lighthouse" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Reserve" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Shoreline" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Woods" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        }
+      }      
     }
   },
-  "factory4_day":
+
+  "rogues" :
   {
-    "enabled": true,
-    "bossList":
+    "removeRogues" : false,
+
+    "boostRogues":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100
+      "enabled": false,
+      "chance": 100,
+      "time": -1,
+      "escortAmount": 2
+    },
+
+    "addRogues" :
+    {
+      "enabled" : true,
+      "maps" :
+      {
+        "Customs" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "FactoryDay" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "FactoryNight" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Interchange" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Laboratory" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Lighthouse" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Reserve" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Shoreline" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
+        "Woods" :
+        {
+          "amount" : 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        }
+      }      
     }
   },
-  "factory4_night":
+
+  
+  "maps" :
   {
-    "enabled": true,
-    "bossList":
+
+    "Customs":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "interchange":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "FactoryDay":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "laboratory":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "FactoryNight":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "rezervbase":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "Interchange":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "shoreline":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "Laboratory":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "woods":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "Reserve":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
-    }
-  },
-  "lighthouse":
-  {
-    "enabled": true,
-    "bossList":
+      "enabled":  true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "Shoreline":
     {
-      "bossGluhar": 100,
-      "bossKojaniy": 100,
-      "bossSanitar": 100,
-      "bossBully": 100,
-      "bossKilla": 100,
-      "bossTagilla": 100,
-      "sectantPriest": 100
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+
+    "Woods":
+    {
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
+    },
+    
+    "Lighthouse":
+    {
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
+        "Shturman":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Sanitar":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Reshala":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Killa":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Tagilla":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
+        "Cultist":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }
+      }
     }
   }
 }
