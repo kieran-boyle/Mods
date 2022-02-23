@@ -15,7 +15,7 @@
 
     "addRaiders" :
     {
-      "enabled" : true,
+      "enabled" : false,
       "maps" :
       {
         "bigmap" :
@@ -99,7 +99,7 @@
 
     "addRogues" :
     {
-      "enabled" : true,
+      "enabled" : false,
       "maps" :
       {
         "bigmap" :
@@ -177,43 +177,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -226,43 +226,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -275,43 +275,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -324,43 +324,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -373,43 +373,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -422,43 +422,43 @@
       "enabled":  true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -471,43 +471,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -520,43 +520,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100
@@ -569,43 +569,43 @@
       "enabled": true,
       "bossList":
       {
-        "bossGluhar":
+        "Gluhar":
         {
           "number" : 1,
           "chance" : 100
         }, 
         
-        "bossKojaniy":
+        "Shturman":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossSanitar":
+        "Sanitar":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossBully":
+        "Reshala":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossKilla":
+        "Killa":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "bossTagilla":
+        "Tagilla":
         {
           "number" : 1,
           "chance" : 100
         }, 
 
-        "sectantPriest":
+        "Cultist":
         {
           "number" : 1,
           "chance" : 100

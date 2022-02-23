@@ -10,6 +10,17 @@ class AllTheBoss
     const database = DatabaseServer.tables.locations
     const sniperFinder = new RegExp(/.*(snip).*/i)
     
+    const dict =
+    {
+      "Gluhar" : "bossGluhar",
+      "Shturman" : "bossKojaniy",
+      "Sanitar" : "bossSanitar",
+      "Reshala" : "bossBully",
+      "Killa" : "bossKilla",
+      "Tagilla" : "bossTagilla",
+      "Cultist" : "sectantPriest"
+    }
+
     var zoneList = []
     var bossList = []
     var bossNames = []
@@ -141,10 +152,11 @@ class AllTheBoss
       for (let eachBoss in config.maps[map].bossList)
       {
         let thisBoss = config.maps[map].bossList[eachBoss]
-
+        let name = dict[eachBoss]
+        Logger.log(name)
         for (let i = 0; i < thisBoss.number; i++)
         {
-          getBoss(eachBoss, thisBoss.chance, map)
+          getBoss(name, thisBoss.chance, map)
         }
       }
     }
@@ -257,7 +269,11 @@ class AllTheBoss
       }
 
       database[eachMap].base.BossLocationSpawn = [...database[eachMap].base.BossLocationSpawn, ...thisMap]
-      //Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
+      
+      if (config.debug === true)
+      {
+        Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
+      }
     }
   }
 }
