@@ -6,9 +6,9 @@ class AllTheBoss
   static onLoadMod()
   {
 
-    const database = DatabaseServer.tables.locations
     const config = require("../config/config.json")
-    const sniperFinder = new RegExp(/.*(snip).*/igm)
+    const database = DatabaseServer.tables.locations
+    const sniperFinder = new RegExp(/.*(snip).*/i)
     
     var zoneList = []
     var bossList = []
@@ -89,17 +89,8 @@ class AllTheBoss
       {
         zoneList = ["BotZone"]
       }
-
-      for (let zone in zoneList)
-      {
-        if (sniperFinder.test(zoneList[zone]) === true)
-        {
-          Logger.log(`Found!! ${zoneList[zone]}`)
-          zoneList.splice(zone, 1)
-          
-        }
-      }
-      Logger.log(zoneList)
+      let tempList = zoneList.filter(zone => !zone.match(sniperFinder)) //Thanks REV!
+      zoneList = tempList
     }
 
     var getRandomInt = function(max)
@@ -110,6 +101,7 @@ class AllTheBoss
 
     var chooseZone = function(map)
     {
+      
       if (zoneList === "BotZone")
       {
 
