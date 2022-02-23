@@ -3,7 +3,7 @@ The default settings give a 20% chance for every boss to spawn on each map and a
 
 Config explanation.
 
-debug : (true / false). will output the newely calculated boss waves in the server log.
+debug :  will output the newely calculated boss waves in the server log. (true / false)
 
 Raiders and rogues are split into sections with the following options.
 
@@ -14,11 +14,12 @@ Raiders and rogues are split into sections with the following options.
 	boostRaiders / boostRogues:
 
 		Boosts the following options of raiders / rogues that are in the original boss waves.
+
 			enabled : if true, will apply the following 3 settings. (true / false)
-			chance : the chance that each raider group will spawn (0 - 100).
+			chance : the chance that each raider group will spawn. (0 - 100)
 			time: if set to -1 it will spawn the raider groups as soon as the raid loads or button is pressed. 
 				otherwise will be the time after load / event that the group spawns. (number)
-			escortAmount : the number of raiders / rogues in each group (number)
+			escortAmount : the number of raiders / rogues in each group. (number)
 		
 	addRaiders / addRogues
 
@@ -39,6 +40,7 @@ maps :
 	Has a list of maps with the following options.
 
 		enabled : if true, will apply the following settings for the map. (true / false)
+
 		Then for each boss : 
-			amount : The amount of each boss to add to the spawn list (number).
-			chance : the chance that each boss added will spawn (number 0 - 100).
+			amount : The amount of each boss to add to the spawn list. (number)
+			chance : the chance that each boss added will spawn. (number 0 - 100)
