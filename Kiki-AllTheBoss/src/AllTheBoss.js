@@ -10,7 +10,7 @@ class AllTheBoss
     const database = DatabaseServer.tables.locations
     const sniperFinder = new RegExp(/.*(snip).*/i)
     
-    const dict =
+    const bossDictionary =
     {
       "Gluhar" : "bossGluhar",
       "Shturman" : "bossKojaniy",
@@ -19,6 +19,19 @@ class AllTheBoss
       "Killa" : "bossKilla",
       "Tagilla" : "bossTagilla",
       "Cultist" : "sectantPriest"
+    }
+
+    const mapDictionary =
+    {
+      "Customs" : "bigmap",
+      "FactoryDay" : "factory4_day",
+      "FactoryNight" : "factory4_night",
+      "Interchange" : "interchange",
+      "Laboratory" : "laboratory",
+      "Reserve" : "rezervbase",
+      "Shoreline" : "shoreline",
+      "Woods" : "woods",
+      "Lighthouse" : "lighthouse"
     }
 
     var zoneList = []
@@ -34,7 +47,7 @@ class AllTheBoss
       for (let map in config.maps)
       {
 
-        for (let eachBoss of database[map].base.BossLocationSpawn)
+        for (let eachBoss of database[mapDictionary[map]].base.BossLocationSpawn)
         {
 
           if (!bossNames.includes(eachBoss.BossName) &&
@@ -94,7 +107,7 @@ class AllTheBoss
 
     var populateZoneList = function(map)
     {
-      zoneList = database[map].base.OpenZones.split(",")
+      zoneList = database[mapDictionary[map]].base.OpenZones.split(",")
 
       if (zoneList == "")
       {
@@ -152,8 +165,7 @@ class AllTheBoss
       for (let eachBoss in config.maps[map].bossList)
       {
         let thisBoss = config.maps[map].bossList[eachBoss]
-        let name = dict[eachBoss]
-        Logger.log(name)
+        let name = bossDictionary[eachBoss]
         for (let i = 0; i < thisBoss.number; i++)
         {
           getBoss(name, thisBoss.chance, map)
@@ -164,24 +176,24 @@ class AllTheBoss
     var sanatizeMap = function(map)
     {
 
-      for (let i = Object.keys(database[map].base.BossLocationSpawn).length; i--; i < 0)
+      for (let i = Object.keys(database[mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
       {
-        let thisBoss = database[map].base.BossLocationSpawn[i]
+        let thisBoss = database[mapDictionary[map]].base.BossLocationSpawn[i]
 
         if (bossNames.includes(thisBoss.BossName) ||
           config.raiders.removeRaiders === true && thisBoss.BossName === "pmcBot" ||
           config.rogues.removeRogues === true && thisBoss.BossName === "exUsec")
         {
-          database[map].base.BossLocationSpawn.splice(i, 1)
+          database[mapDictionary[map]].base.BossLocationSpawn.splice(i, 1)
         }
       }
     }
 
     var boostRaiders = function(map)
     {
-      for (let eachBot in database[map].base.BossLocationSpawn)
+      for (let eachBot in database[mapDictionary[map]].base.BossLocationSpawn)
       {
-        let thisBot = database[map].base.BossLocationSpawn[eachBot]
+        let thisBot = database[mapDictionary[map]].base.BossLocationSpawn[eachBot]
         thisBot.BossChance = config.raiders.boostRaiders.chance
         thisBot.Time = config.raiders.boostRaiders.time
         thisBot.BossEscortAmount = config.raiders.boostRaiders.escortAmount
@@ -190,9 +202,9 @@ class AllTheBoss
 
     var boostRogues = function(map)
     {
-      for (let eachBot in database[map].base.BossLocationSpawn)
+      for (let eachBot in database[mapDictionary[map]].base.BossLocationSpawn)
       {
-        let thisBot = database[map].base.BossLocationSpawn[eachBot]
+        let thisBot = database[mapDictionary[map]].base.BossLocationSpawn[eachBot]
         thisBot.BossChance = config.rogues.boostRogues.chance
         thisBot.Time = config.rogues.boostRogues.time
         thisBot.BossEscortAmount = config.rogues.boostRogues.escortAmount
@@ -268,11 +280,10 @@ class AllTheBoss
         addRogues(eachMap)
       }
 
-      database[eachMap].base.BossLocationSpawn = [...database[eachMap].base.BossLocationSpawn, ...thisMap]
-      
+      database[mapDictionary[eachMap]].base.BossLocationSpawn = [...database[mapDictionary[eachMap]].base.BossLocationSpawn, ...thisMap]
       if (config.debug === true)
       {
-        Logger.log(`\n${eachMap} \n${JSON.stringify(database[eachMap].base.BossLocationSpawn, 0, 1)}`)
+        Logger.log(`\n${eachMap} \n${JSON.stringify(database[mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`)
       }
     }
   }

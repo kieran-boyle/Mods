@@ -1,5 +1,5 @@
 {
-  "debug": false,
+  "debug": true,
 
   "raiders" :
   {
@@ -18,63 +18,63 @@
       "enabled" : false,
       "maps" :
       {
-        "bigmap" :
+        "Customs" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "factory4_day" :
+        "FactoryDay" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "factory4_night" :
+        "FactoryNight" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "interchange" :
+        "Interchange" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "laboratory" :
+        "Laboratory" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "lighthouse" :
+        "Lighthouse" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "rezervbase" :
+        "Reserve" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "shoreline" :
+        "Shoreline" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "woods" :
+        "Woods" :
         {
           "amount" : 5,
           "chance": 100,
@@ -102,63 +102,63 @@
       "enabled" : false,
       "maps" :
       {
-        "bigmap" :
+        "Customs" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "factory4_day" :
+        "FactoryDay" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "factory4_night" :
+        "FactoryNight" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "interchange" :
+        "Interchange" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "laboratory" :
+        "Laboratory" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "lighthouse" :
+        "Lighthouse" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "rezervbase" :
+        "Reserve" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "shoreline" :
+        "Shoreline" :
         {
           "amount" : 5,
           "chance": 100,
           "time": -1,
           "escortAmount": 2
         },
-        "woods" :
+        "Woods" :
         {
           "amount" : 5,
           "chance": 100,
@@ -172,7 +172,7 @@
   "maps" :
   {
 
-    "bigmap":
+    "Customs":
     {
       "enabled": true,
       "bossList":
@@ -221,56 +221,7 @@
       }
     },
 
-    "factory4_day":
-    {
-      "enabled": true,
-      "bossList":
-      {
-        "Gluhar":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-        
-        "Shturman":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-
-        "Sanitar":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-
-        "Reshala":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-
-        "Killa":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-
-        "Tagilla":
-        {
-          "number" : 1,
-          "chance" : 100
-        }, 
-
-        "Cultist":
-        {
-          "number" : 1,
-          "chance" : 100
-        }
-      }
-    },
-
-    "factory4_night":
+    "FactoryDay":
     {
       "enabled": true,
       "bossList":
@@ -319,7 +270,7 @@
       }
     },
 
-    "interchange":
+    "FactoryNight":
     {
       "enabled": true,
       "bossList":
@@ -368,7 +319,7 @@
       }
     },
 
-    "laboratory":
+    "Interchange":
     {
       "enabled": true,
       "bossList":
@@ -417,7 +368,56 @@
       }
     },
 
-    "rezervbase":
+    "Laboratory":
+    {
+      "enabled": true,
+      "bossList":
+      {
+        "Gluhar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+        
+        "Shturman":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "Sanitar":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "Reshala":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "Killa":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "Tagilla":
+        {
+          "number" : 1,
+          "chance" : 100
+        }, 
+
+        "Cultist":
+        {
+          "number" : 1,
+          "chance" : 100
+        }
+      }
+    },
+
+    "Reserve":
     {
       "enabled":  true,
       "bossList":
@@ -466,7 +466,7 @@
       }
     },
 
-    "shoreline":
+    "Shoreline":
     {
       "enabled": true,
       "bossList":
@@ -515,7 +515,7 @@
       }
     },
 
-    "woods":
+    "Woods":
     {
       "enabled": true,
       "bossList":
@@ -564,7 +564,7 @@
       }
     },
     
-    "lighthouse":
+    "Lighthouse":
     {
       "enabled": true,
       "bossList":
