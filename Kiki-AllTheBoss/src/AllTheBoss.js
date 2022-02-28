@@ -9,29 +9,27 @@ class AllTheBoss
     const config = require("../config/config.json")
     const database = DatabaseServer.tables.locations
     const sniperFinder = new RegExp(/.*(snip).*/i)
-    
-    const bossDictionary =
-    {
-      "Gluhar" : "bossGluhar",
-      "Shturman" : "bossKojaniy",
-      "Sanitar" : "bossSanitar",
-      "Reshala" : "bossBully",
-      "Killa" : "bossKilla",
-      "Tagilla" : "bossTagilla",
-      "Cultist" : "sectantPriest"
+
+    const bossDictionary = {
+      "Gluhar": "bossGluhar",
+      "Shturman": "bossKojaniy",
+      "Sanitar": "bossSanitar",
+      "Reshala": "bossBully",
+      "Killa": "bossKilla",
+      "Tagilla": "bossTagilla",
+      "Cultist": "sectantPriest"
     }
 
-    const mapDictionary =
-    {
-      "Customs" : "bigmap",
-      "FactoryDay" : "factory4_day",
-      "FactoryNight" : "factory4_night",
-      "Interchange" : "interchange",
-      "Laboratory" : "laboratory",
-      "Reserve" : "rezervbase",
-      "Shoreline" : "shoreline",
-      "Woods" : "woods",
-      "Lighthouse" : "lighthouse"
+    const mapDictionary = {
+      "Customs": "bigmap",
+      "FactoryDay": "factory4_day",
+      "FactoryNight": "factory4_night",
+      "Interchange": "interchange",
+      "Laboratory": "laboratory",
+      "Reserve": "rezervbase",
+      "Shoreline": "shoreline",
+      "Woods": "woods",
+      "Lighthouse": "lighthouse"
     }
 
     var zoneList = []
@@ -59,10 +57,6 @@ class AllTheBoss
           }
         }
       }
-    }
-
-    var sanatizeBossList = function()
-    {
 
       for (let eachBoss in bossList)
       {
@@ -125,7 +119,7 @@ class AllTheBoss
 
     var chooseZone = function(map)
     {
-      
+
       if (zoneList === "BotZone")
       {
 
@@ -240,7 +234,6 @@ class AllTheBoss
     // ************************ Start of main ************************
 
     populateBossList()
-    sanatizeBossList()
     cloneRaider()
     cloneRogue()
 
