@@ -93,20 +93,131 @@
 
   "Boss":
   {
-    "enabled": false,
-    "bodyPartMode":
+    "Gluhar":
     {
       "enabled": false,
-      "Head": 35,
-      "Chest": 85,
-      "Stomach": 70,
-      "LeftArm": 60,
-      "RightArm": 60,
-      "LeftLeg": 65,
-      "RightLeg": 65
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
     },
-    "If BodyPartMode.Enabled is false": "then",
-    "healthMultiplier": 1
+
+    "Shturman":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Sanitar":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Reshala":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Killa":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Tagilla":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Cultist":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }
   },
 
   "Follower":

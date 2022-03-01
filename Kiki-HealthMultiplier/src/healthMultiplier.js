@@ -39,7 +39,6 @@ class HealthMultiplier
             }
           }
         }
-
       }
       else
       {
@@ -56,6 +55,9 @@ class HealthMultiplier
   static onLoadMod()
   {
 
+
+    const botTypes = DatabaseServer.tables.bots.types
+
     var setBotHealth = function(bot, target, bodyPartMode)
     {
 
@@ -64,19 +66,17 @@ class HealthMultiplier
 
         if (bodyPartMode == true)
         {
-          bot[eachPart].min = CONFIG[target].bodyPartMode[eachPart]
-          bot[eachPart].max = CONFIG[target].bodyPartMode[eachPart]
+          bot[eachPart].min = target.bodyPartMode[eachPart]
+          bot[eachPart].max = target.bodyPartMode[eachPart]
 
         }
         else
         {
-          bot[eachPart].min *= CONFIG[target].healthMultiplier
-          bot[eachPart].max *= CONFIG[target].healthMultiplier
+          bot[eachPart].min *= target.healthMultiplier
+          bot[eachPart].max *= target.healthMultiplier
         }
       }
     }
-
-    const botTypes = DatabaseServer.tables.bots.types
 
     for (let eachBot in botTypes)
     {
@@ -103,7 +103,6 @@ class HealthMultiplier
               thisBot[eachPart].max = Math.ceil(PHEALTH[eachPart].Maximum * CONFIG.Player.healthMultiplier)
             }
           }
-
         }
         else
         {
@@ -118,12 +117,36 @@ class HealthMultiplier
               "Follower"
           }
 
-          let type = dict(eachBot)
-          let mode = CONFIG[type].bodyPartMode.enabled
+          const bossDictionary = {
+            "bossgluhar": "Gluhar",
+            "bosskojaniy": "Shturman",
+            "bosssanitar": "Sanitar",
+            "bossbully": "Reshala",
+            "bosskilla": "Killa",
+            "bosstagilla": "Tagilla",
+            "sectantpriest": "Cultist"
+          }
 
-          if (CONFIG[type].enabled == true)
+          let type = dict(eachBot)
+          let mode
+
+          if (type === "Boss")
           {
-            setBotHealth(thisBot, type, mode)
+
+            if (CONFIG.Boss[bossDictionary[eachBot]].enabled == true)
+            {
+              mode = CONFIG.Boss[bossDictionary[eachBot]].bodyPartMode.enabled
+              setBotHealth(thisBot, CONFIG.Boss[bossDictionary[eachBot]], mode)
+            }
+          }
+          else
+          {
+
+            if (CONFIG[type].enabled == true)
+            {
+              mode = CONFIG[type].bodyPartMode.enabled
+              setBotHealth(thisBot, CONFIG[type], mode)
+            }
           }
         }
       }
