@@ -1,7 +1,8 @@
-Allows you to edit the health values for players, AI and bosses individually.
+Allows you to edit the health values for the players (PMC and Scav) each type AI or boss individually.
 This can be done in a couple of ways.  bodyPartMode (if enabled) will directly set the health values of each bodypart to its corresponding config option.
 If disabled then the health value will be multiplied by the healthMultiplier instead (where 1 is default, 2 is double, 0.5 is half etc)
-If AllEqualToPlayer is set to true, then all bots will have their health values set to the same as the player (following whatever bodypart or multiplier settings applied to the player.)
+If AllEqualToPlayer is set to true, then all bots will have their health values set to the same as the player 
+(following whatever bodypart or multiplier settings are applied to the player.)
 The values in the config are from the default player health values.  Everything is disabled by default.
 
 ***Notice***
