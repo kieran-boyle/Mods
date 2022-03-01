@@ -67,6 +67,7 @@ class AllTheBoss
 
     var cloneRaider = function()
     {
+
       for (let eachBoss in database["rezervbase"].base.BossLocationSpawn)
       {
 
@@ -84,6 +85,7 @@ class AllTheBoss
 
     var cloneRogue = function()
     {
+
       for (let eachBoss in database["lighthouse"].base.BossLocationSpawn)
       {
 
@@ -160,6 +162,7 @@ class AllTheBoss
       {
         let thisBoss = config.maps[map].bossList[eachBoss]
         let name = bossDictionary[eachBoss]
+
         for (let i = 0; i < thisBoss.amount; i++)
         {
           getBoss(name, thisBoss.chance, map)
@@ -185,6 +188,7 @@ class AllTheBoss
 
     var boostRaiders = function(map)
     {
+
       for (let eachBot in database[mapDictionary[map]].base.BossLocationSpawn)
       {
         let thisBot = database[mapDictionary[map]].base.BossLocationSpawn[eachBot]
@@ -196,6 +200,7 @@ class AllTheBoss
 
     var boostRogues = function(map)
     {
+
       for (let eachBot in database[mapDictionary[map]].base.BossLocationSpawn)
       {
         let thisBot = database[mapDictionary[map]].base.BossLocationSpawn[eachBot]
@@ -211,6 +216,7 @@ class AllTheBoss
       newRaider.BossChance = config.raiders.addRaiders.maps[map].chance
       newRaider.Time = config.raiders.addRaiders.maps[map].time
       newRaider.BossEscortAmount = config.raiders.addRaiders.maps[map].escortAmount
+
       for (let i = 0; i < config.raiders.addRaiders.maps[map].amount; i++)
       {
         newRaider.BossZone = chooseZone(map)
@@ -224,6 +230,7 @@ class AllTheBoss
       newRogue.BossChance = config.rogues.addRogues.maps[map].chance
       newRogue.Time = config.rogues.addRogues.maps[map].time
       newRogue.BossEscortAmount = config.rogues.addRogues.maps[map].escortAmount
+
       for (let i = 0; i < config.rogues.addRogues.maps[map].amount; i++)
       {
         newRogue.BossZone = chooseZone(map)
@@ -249,6 +256,7 @@ class AllTheBoss
 
       if (config.raiders.boostRaiders.enabled === true)
       {
+
         if (eachMap === "rezervbase" || eachMap === "laboratory")
         {
           boostRaiders(eachMap)
@@ -257,6 +265,7 @@ class AllTheBoss
 
       if (config.rogues.boostRogues.enabled === true)
       {
+
         if (eachMap === "lighthouse")
         {
           boostRogues(eachMap)
@@ -274,6 +283,7 @@ class AllTheBoss
       }
 
       database[mapDictionary[eachMap]].base.BossLocationSpawn = [...database[mapDictionary[eachMap]].base.BossLocationSpawn, ...thisMap]
+
       if (config.debug === true)
       {
         Logger.log(`\n${eachMap} \n${JSON.stringify(database[mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`)
