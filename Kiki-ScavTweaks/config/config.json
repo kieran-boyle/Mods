@@ -1,5 +1,5 @@
 {
   "ScavTimeIfSurvive": 1,
-  "ScavTimeRunThrough": 600,
+  "ScavTimeRunThrough": 300,
   "ScavTimeDead": 1200
 }
