@@ -283,7 +283,8 @@ class AllTheBoss
       }
 
       database[mapDictionary[eachMap]].base.BossLocationSpawn = [...database[mapDictionary[eachMap]].base.BossLocationSpawn, ...thisMap]
-
+      thisMap = []
+      
       if (config.debug === true)
       {
         Logger.log(`\n${eachMap} \n${JSON.stringify(database[mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`)
