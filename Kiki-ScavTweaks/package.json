@@ -4,5 +4,5 @@
   "version": "1.0.1",
   "license": "NCSA",
   "main": "mod.js",
-  "akiVersion": "2.2.*"
+  "akiVersion": "2.3.*"
 }
