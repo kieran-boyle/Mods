@@ -11,7 +11,7 @@ class smallTweaks
     const locations = DatabaseServer.tables.locations
     const lootConfig = //from AIO but mini
       {
-        "globalsMul": 3,
+        "globalsMul": 1,
         "bigmap": 1,
         "factory4_day": 1,
         "factory4_night": 1,
@@ -25,6 +25,7 @@ class smallTweaks
     //set the 5 second deploy counter to be instant.
     globals.config.TimeBeforeDeploy = 1
     globals.config.TimeBeforeDeployLocal = 1
+    BotConfig.maxBotCap = 40
 
     for (const i in database)
     {
@@ -50,9 +51,16 @@ class smallTweaks
     for (let [k, v] of Object.entries(lootConfig))
     {
 
-      k === "globalsMul" ?
-        DatabaseServer.tables.globals.config.GlobalLootChanceModifier = v :
+      if (k === "globalsMul")
+      {
+        DatabaseServer.tables.globals.config.GlobalLootChanceModifier = v 
+      }
+      else
+      {
         locations[k].base.GlobalLootChanceModifier = v
+        locations[k].base.exit_access_time = 120
+        locations[k].base.escape_time_limit = 120
+      }
     }
   }
 }
