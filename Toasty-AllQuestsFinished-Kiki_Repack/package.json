@@ -1,7 +1,7 @@
 {
   "name": "allquestsfinished",
   "author": "Toasty,Kiki",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "license": "MIT",
   "dependencies":{},
   "main": "package.js",

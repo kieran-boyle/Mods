@@ -1,7 +1,7 @@
 {
   "name": "alltheboss",
   "author": "Kiki",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "license": "NCSA",
   "main": "mod.js",
   "akiVersion": "2.3.*"
