@@ -5,5 +5,5 @@
   "license": "NCSA",
   "dependencies": {},
   "main": "mod.js",
-  "akiVersion": "2.2.*"
+  "akiVersion": "2.3.*"
 }
