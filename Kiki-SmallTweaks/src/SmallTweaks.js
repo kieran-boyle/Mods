@@ -25,8 +25,39 @@ class smallTweaks
     //set the 5 second deploy counter to be instant.
     globals.config.TimeBeforeDeploy = 1
     globals.config.TimeBeforeDeployLocal = 1
-    //more bots, who needs fps?
+
     BotConfig.maxBotCap = 40
+
+    const setLocations = function(loc)
+    {
+      for (let x in loc.base.exits) 
+      {
+        let eachLocation = loc.base.exits[x]
+
+        if (eachLocation.Name !== "EXFIL_Train") 
+        {
+          if (eachLocation.Chance !== 100) 
+          {
+            eachLocation.Chance = 100;
+          }
+
+          if (eachLocation.PassageRequirement === "ScavCooperation")
+          {
+            eachLocation.PassageRequirement = "None"
+            eachLocation.RequirementTip = ""
+          }
+        }
+      }
+    }
+
+    //Open extracts.
+    for (let i in locations)
+    {
+      if (i !== "base") 
+      {
+        setLocations(locations[i])        
+      }
+    }
 
     for (const i in database)
     {
@@ -59,7 +90,6 @@ class smallTweaks
       else
       {
         locations[k].base.GlobalLootChanceModifier = v
-        //increased raid times
         locations[k].base.exit_access_time = 120
         locations[k].base.escape_time_limit = 120
       }
