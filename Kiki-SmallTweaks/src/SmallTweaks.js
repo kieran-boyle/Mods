@@ -28,7 +28,26 @@ class smallTweaks
 
     BotConfig.maxBotCap = 40
 
-    const setLocations = function(loc)
+    const findEnterences = function(loc)
+    {
+      var enterences = []
+      for (let exfil in loc.base.exits)
+      {
+        let thisLoc = loc.base.exits[exfil].EntryPoints.split(",")
+
+        for (let entry in thisLoc)
+        {
+          if (!enterences.includes(thisLoc[entry]))
+          {
+            enterences.push(thisLoc[entry])
+          }
+        }
+      }
+
+      return enterences.join(",")
+    }
+
+    const setLocations = function(loc, ent)
     {
       for (let x in loc.base.exits) 
       {
@@ -46,6 +65,7 @@ class smallTweaks
             eachLocation.PassageRequirement = "None"
             eachLocation.RequirementTip = ""
           }
+          eachLocation.EntryPoints = ent
         }
       }
     }
@@ -55,7 +75,7 @@ class smallTweaks
     {
       if (i !== "base") 
       {
-        setLocations(locations[i])        
+        setLocations(locations[i], findEnterences(locations[i]))        
       }
     }
 
