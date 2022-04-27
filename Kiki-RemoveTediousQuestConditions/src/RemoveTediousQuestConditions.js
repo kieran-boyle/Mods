@@ -30,6 +30,11 @@ class RemoveTediousQuestConditions
       {
         localesCleaner(questId)
         key !== "distance" ? object[key] = [] : object[key].value = 0
+        
+        if (config.debug === true)
+        {
+          Logger.log(`${quests[questId].QuestName}`, "green", "black")
+        }
       }
 
       for (var i = 0; i < Object.keys(object).length; i++)
@@ -37,6 +42,38 @@ class RemoveTediousQuestConditions
         if (typeof object[Object.keys(object)[i]] == "object")
         {
           keyClearer(object[Object.keys(object)[i]], key, questId)
+        }
+      }
+    }
+
+    var removeLocations = function()
+    {
+      if (config.debug === true)
+      {
+        Logger.log(`\nLocations\n`, "green")
+      }
+      for (let eachQuest in quests)
+      {
+        for (let eachCondition in quests[eachQuest].conditions.AvailableForFinish)
+        {
+          let thisCondition = quests[eachQuest].conditions.AvailableForFinish[eachCondition]
+
+          if (thisCondition._parent === "CounterCreator")
+          {
+            for (let condition = Object.keys(thisCondition._props.counter.conditions).length; condition--; condition < 0)
+            {
+              let finalCondition = thisCondition._props.counter.conditions[condition]
+
+              if (finalCondition._parent === "Location")
+              {
+                thisCondition._props.counter.conditions.splice(condition, 1)
+              }
+            }
+          }
+        }
+        if (config.debug === true)
+        {
+          Logger.log(quests[eachQuest].QuestName, "green")
         }
       }
     }
@@ -72,8 +109,15 @@ class RemoveTediousQuestConditions
       {
         switch (eachOption)
         {
+          case "debug":
+            break
+
           case "setPMC":
             quests["5a27c99a86f7747d2c6bdd8e"].conditions.AvailableForFinish[0]._props.counter.conditions[0]._props.target = "AnyPmc"
+            break
+
+          case "Location":
+            removeLocations()
             break
 
           default:
@@ -85,6 +129,11 @@ class RemoveTediousQuestConditions
 
     conditionsToRemove.forEach(condition =>
     {
+
+      if (config.debug === true)
+      {
+        Logger.log(`\n${condition}\n`, "green", "black")
+      }
       for (let eachQuest in quests)
       {
         keyClearer(quests[eachQuest], condition, eachQuest)
