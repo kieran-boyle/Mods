@@ -6,5 +6,7 @@
   "equipmentExclusive": false,
   "distance": false,
   "bodyPart": false,
-  "setPMC": false
+  "Location" : false,
+  "setPMC": false,
+  "debug" : false
 }
