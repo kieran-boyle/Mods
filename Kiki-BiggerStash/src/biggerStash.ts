@@ -1,5 +1,5 @@
 import { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 
@@ -7,7 +7,7 @@ class biggerStash implements IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger;
+  private logger
 
   public postDBLoad(container: DependencyContainer):void
   {
