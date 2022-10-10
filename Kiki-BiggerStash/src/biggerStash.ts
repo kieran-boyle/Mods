@@ -13,7 +13,7 @@ class biggerStash implements IPostDBLoadMod
   {
 
     this.container = container    
-    this.logger = this.container.resolve<ILogger>("WinstonLogger");
+    this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const items = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.items
     const stashes = [
       "566abbc34bdc2d92178b4576", //Standard stash 10x28
