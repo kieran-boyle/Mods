@@ -37,7 +37,7 @@ class CameraRecoilRemover implements IPostDBLoadMod
 
     if (this.config.debug === true)
     {
-      this.Logger.log(`[Kiki-CameraRecoilRemover] : Camera recoil is multiplied by ${this.config.CameraRecoil}`, "yellow", "black")
+      this.logger.log(`[Kiki-CameraRecoilRemover] : Camera recoil is multiplied by ${this.config.CameraRecoil}`, "yellow", "black")
     }
   }
 }
