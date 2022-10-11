@@ -178,6 +178,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -227,6 +233,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -276,6 +288,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -325,6 +343,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -374,6 +398,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -423,6 +453,12 @@
       "enabled":  true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -472,6 +508,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -521,6 +563,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+
         "Gluhar":
         {
           "amount" : 1,
@@ -570,6 +618,12 @@
       "enabled": true,
       "bossList":
       {
+        "Knight":
+        {
+          "amount" : 1,
+          "chance" : 20
+        }, 
+        
         "Gluhar":
         {
           "amount" : 1,
