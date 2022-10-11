@@ -1,5 +1,5 @@
 import { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger";
+import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 
@@ -14,7 +14,7 @@ class DegredationRemover implements IPostDBLoadMod
   {
 
     this.container = container
-    this.logger = this.container.resolve<ILogger>("WinstonLogger");
+    this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const traders = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().traders
 
     for (let eachTrader in traders)
