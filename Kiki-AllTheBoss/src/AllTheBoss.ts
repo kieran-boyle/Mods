@@ -2,22 +2,16 @@ import { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-private Locations
+
 class AllTheBoss implements IPostDBLoadMod
 {
-  
-
-  
-  constructor(@inject('DatabaseServer') DatabaseServer databaseServer) {
-    this.locations = databaseServer.getTables().locations;
-  }
-
   private container: DependencyContainer
   private config = require("../config/config.json")
   private logger
   private sniperFinder = new RegExp(/.*(snip).*/i)
 
   private bossDictionary = {
+    "Knight": "bossKnight",
     "Gluhar": "bossGluhar",
     "Shturman": "bossKojaniy",
     "Sanitar": "bossSanitar",
@@ -48,21 +42,22 @@ class AllTheBoss implements IPostDBLoadMod
 
   public postDBLoad(container: DependencyContainer):void
   {
-    
+    this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
+    const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
 
-    this.populateBossList()
-    this.cloneRaider()
-    this.cloneRogue()
+    this.populateBossList(locations)
+    this.cloneRaider(locations)
+    this.cloneRogue(locations)
 
     for (let eachMap in this.config.maps)
     {
-      this.populateZoneList(eachMap)
+      this.populateZoneList(eachMap, locations)
 
       if (this.config.maps[eachMap].enabled === true)
       {
-        this.setBosses(eachMap)
-        this.sanatizeMap(eachMap)
+        this.setBosses(eachMap, locations)
+        this.sanatizeMap(eachMap, locations)
       }
 
       if (this.config.raiders.boostRaiders.enabled === true)
@@ -70,7 +65,7 @@ class AllTheBoss implements IPostDBLoadMod
 
         if (eachMap === "rezervbase" || eachMap === "laboratory")
         {
-          this.boostRaiders(eachMap)
+          this.boostRaiders(eachMap, locations)
         }
       }
 
@@ -79,36 +74,36 @@ class AllTheBoss implements IPostDBLoadMod
 
         if (eachMap === "lighthouse")
         {
-          this.boostRogues(eachMap)
+          this.boostRogues(eachMap, locations)
         }
       }
 
       if (this.config.raiders.addRaiders.enabled === true)
       {
-        this.addRaiders(eachMap)
+        this.addRaiders(eachMap, locations)
       }
 
       if (this.config.rogues.addRogues.enabled === true)
       {
-        this.addRogues(eachMap)
+        this.addRogues(eachMap, locations)
       }
 
-      this.locations[this.mapDictionary[eachMap]].base.BossLocationSpawn = [...this.locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
+      locations[this.mapDictionary[eachMap]].base.BossLocationSpawn = [...locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
       this.thisMap = []
       
       if (this.config.debug === true)
       {
-        this.logger.log(`\n${eachMap} \n${JSON.stringify(this.locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`)
+        this.logger.log(`\n${eachMap} \n${JSON.stringify(locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`, 'yellow', 'black')
       }
     }
   }
-  private populateBossList():void
-    {
 
+  private populateBossList(locations):void
+    {      
       for (let map in this.config.maps)
       {
 
-        for (let eachBoss of this.locations[this.mapDictionary[map]].base.BossLocationSpawn)
+        for (let eachBoss of locations[this.mapDictionary[map]].base.BossLocationSpawn)
         {
 
           if (!this.bossNames.includes(eachBoss.BossName) &&
@@ -128,15 +123,14 @@ class AllTheBoss implements IPostDBLoadMod
       }
     }
 
-    private cloneRaider():void
+    private cloneRaider(locations):void
     {
-
-      for (let eachBoss in this.locations["rezervbase"].base.BossLocationSpawn)
+      for (let eachBoss in locations["rezervbase"].base.BossLocationSpawn)
       {
 
-        if (this.locations["rezervbase"].base.BossLocationSpawn[eachBoss].BossName === "pmcBot")
+        if (locations["rezervbase"].base.BossLocationSpawn[eachBoss].BossName === "pmcBot")
         {
-          this.raider = JSON.parse(JSON.stringify(this.locations["rezervbase"].base.BossLocationSpawn[eachBoss]))
+          this.raider = JSON.parse(JSON.stringify(locations["rezervbase"].base.BossLocationSpawn[eachBoss]))
           break
         }
       }
@@ -146,15 +140,14 @@ class AllTheBoss implements IPostDBLoadMod
       this.raider.BossEscortAmount = 0
     }
 
-    private cloneRogue():void
+    private cloneRogue(locations):void
     {
-
-      for (let eachBoss in this.locations["lighthouse"].base.BossLocationSpawn)
+      for (let eachBoss in locations["lighthouse"].base.BossLocationSpawn)
       {
 
-        if (this.locations["lighthouse"].base.BossLocationSpawn[eachBoss].BossName === "exUsec")
+        if (locations["lighthouse"].base.BossLocationSpawn[eachBoss].BossName === "exUsec")
         {
-          this.rogue = JSON.parse(JSON.stringify(this.locations["lighthouse"].base.BossLocationSpawn[eachBoss]))
+          this.rogue = JSON.parse(JSON.stringify(locations["lighthouse"].base.BossLocationSpawn[eachBoss]))
           break
         }
       }
@@ -164,47 +157,33 @@ class AllTheBoss implements IPostDBLoadMod
       this.rogue.BossEscortAmount = 0
     }
 
-    private populateZoneList(map :string):void
+    private populateZoneList(map :string, locations):void
     {
-      this.zoneList = this.locations[this.mapDictionary[map]].base.OpenZones.split(",")
-
-      if (this.zoneList == "")
-      {
-        this.zoneList = ["BotZone"]
-      }
+      this.zoneList = locations[this.mapDictionary[map]].base.OpenZones.split(",")
       let tempList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
       this.zoneList = tempList
     }
 
     private getRandomInt(max :number):number
     {
-
       return Math.floor(Math.random() * max)
     }
 
-    private chooseZone(map :string):string
+    private chooseZone(map :string, locations):string
     {
-
-      if (this.zoneList === "BotZone")
-      {
-
-        return this.zoneList
-      }
-
       if (this.zoneList.length < 1)
       {
-        this.populateZoneList(map)
+        this.populateZoneList(map, locations)
       }
       let rand = this.getRandomInt(this.zoneList.length)
       let thisZone = this.zoneList[rand]
       this.zoneList.splice(rand, 1)
 
-      return thisZone.toString()
+      return `${thisZone}`
     }
 
-    private getBoss(name :string, chance :number, map :string):void
+    private getBoss(name :string, chance :number, map :string, locations):void
     {
-
       for (let eachBoss of this.bossList)
       {
 
@@ -212,15 +191,21 @@ class AllTheBoss implements IPostDBLoadMod
         {
           let thisBoss = eachBoss
           thisBoss.BossChance = chance
-          thisBoss.BossZone = this.chooseZone(map)
+          if(map === 'FactoryDay' || map === 'FactoryNight')
+          {
+            thisBoss.BossZone = 'BotZone'
+          }
+          else
+          {
+            thisBoss.BossZone = this.chooseZone(map, locations)
+          }
           this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
         }
       }
     }
 
-    private setBosses(map :string)
+    private setBosses(map :string, locations):void
     {
-
       for (let eachBoss in this.config.maps[map].bossList)
       {
         let thisBoss = this.config.maps[map].bossList[eachBoss]
@@ -228,52 +213,49 @@ class AllTheBoss implements IPostDBLoadMod
 
         for (let i = 0; i < thisBoss.amount; i++)
         {
-          this.getBoss(name, thisBoss.chance, map)
+          this.getBoss(name, thisBoss.chance, map, locations)
         }
       }
     }
 
-    private sanatizeMap(map :string):void
+    private sanatizeMap(map :string, locations):void
     {
-
-      for (let i = Object.keys(this.locations[this.mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
+      for (let i = Object.keys(locations[this.mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
       {
-        let thisBoss = this.locations[this.mapDictionary[map]].base.BossLocationSpawn[i]
+        let thisBoss = locations[this.mapDictionary[map]].base.BossLocationSpawn[i]
 
         if (this.bossNames.includes(thisBoss.BossName) ||
           this.config.raiders.removeRaiders === true && thisBoss.BossName === "pmcBot" ||
           this.config.rogues.removeRogues === true && thisBoss.BossName === "exUsec")
         {
-          this.locations[this.mapDictionary[map]].base.BossLocationSpawn.splice(i, 1)
+          locations[this.mapDictionary[map]].base.BossLocationSpawn.splice(i, 1)
         }
       }
     }
 
-    private boostRaiders(map :string):void
+    private boostRaiders(map :string, locations):void
     {
-
-      for (let eachBot in this.locations[this.mapDictionary[map]].base.BossLocationSpawn)
+      for (let eachBot in locations[this.mapDictionary[map]].base.BossLocationSpawn)
       {
-        let thisBot = this.locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
+        let thisBot = locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
         thisBot.BossChance = this.config.raiders.boostRaiders.chance
         thisBot.Time = this.config.raiders.boostRaiders.time
         thisBot.BossEscortAmount = this.config.raiders.boostRaiders.escortAmount
       }
     }
 
-    private boostRogues(map :string):void
+    private boostRogues(map :string, locations):void
     {
-
-      for (let eachBot in this.locations[this.mapDictionary[map]].base.BossLocationSpawn)
+      for (let eachBot in locations[this.mapDictionary[map]].base.BossLocationSpawn)
       {
-        let thisBot = this.locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
+        let thisBot = locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
         thisBot.BossChance = this.config.rogues.boostRogues.chance
         thisBot.Time = this.config.rogues.boostRogues.time
         thisBot.BossEscortAmount = this.config.rogues.boostRogues.escortAmount
       }
     }
 
-    private addRaiders(map :string):void
+    private addRaiders(map :string, locations):void
     {
       let newRaider = JSON.parse(JSON.stringify(this.raider))
       newRaider.BossChance = this.config.raiders.addRaiders.maps[map].chance
@@ -282,12 +264,19 @@ class AllTheBoss implements IPostDBLoadMod
 
       for (let i = 0; i < this.config.raiders.addRaiders.maps[map].amount; i++)
       {
-        newRaider.BossZone = this.chooseZone(map)
+        if(map === 'FactoryDay' || map === 'FactoryNight')
+        {
+          newRaider.BossZone = 'BotZone'
+        }
+        else
+        {
+          newRaider.BossZone = this.chooseZone(map, locations)
+        }        
         this.thisMap.push(JSON.parse(JSON.stringify(newRaider)))
       }
     }
 
-    private addRogues(map :string):void
+    private addRogues(map :string, locations):void
     {
       let newRogue = JSON.parse(JSON.stringify(this.rogue))
       newRogue.BossChance = this.config.rogues.addRogues.maps[map].chance
@@ -296,7 +285,14 @@ class AllTheBoss implements IPostDBLoadMod
 
       for (let i = 0; i < this.config.rogues.addRogues.maps[map].amount; i++)
       {
-        newRogue.BossZone = this.chooseZone(map)
+        if(map === 'FactoryDay' || map === 'FactoryNight')
+        {
+          newRogue.BossZone = 'BotZone'
+        }
+        else
+        {
+          newRogue.BossZone = this.chooseZone(map, locations)
+        }
         this.thisMap.push(JSON.parse(JSON.stringify(newRogue)))
       }
     }
