@@ -20,7 +20,7 @@ class HealthMultiplier implements IPostDBLoadMod
     const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
     const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
     const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
-    const profileController = new ProfileController()
+    
 
     //let t = profileController.getScavProfile()
     //console.log(t)
@@ -110,19 +110,24 @@ class HealthMultiplier implements IPostDBLoadMod
           url: "/client/game/start",
           action: (url, info, sessionId, output) => 
           {
-            this.config.playerId = sessionId //Make the player's ID accessible at any point
-            let pmcData = profileController.getPmcProfile()
-            let scavData = profileController.getScavProfile()
-
-            this.setProfileHealth(pmcData(this.config.playerId), playerHealth)
-            this.setProfileHealth(scavData(this.config.playerId), playerHealth)
-
+            this.setProfiles(sessionId, playerHealth)
             return output
           }
         }
       ],
-      "aki"
+    "aki"
     )
+  }
+
+  private setProfiles(sessionId, playerHealth):void
+  {
+    const profileController = new ProfileController()
+    this.config.playerId = sessionId //Make the player's ID accessible at any point
+    let pmcData = profileController.getPmcProfile(this.config.playerId)
+    let scavData = profileController.getScavProfile(this.config.playerId)
+
+    this.setProfileHealth(pmcData, playerHealth)
+    this.setProfileHealth(scavData, playerHealth)
   }
 
   private setBotHealth(bot :any, target :any, bodyPartMode :boolean):void
