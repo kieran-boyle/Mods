@@ -17,11 +17,8 @@ class HealthMultiplier implements IPostDBLoadMod
     
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")    
-    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
-    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
-    const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
-    const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
-    
+    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")    
+    const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types    
 
     //let t = profileController.getScavProfile()
     //console.log(t)
@@ -111,7 +108,7 @@ class HealthMultiplier implements IPostDBLoadMod
           url: "/client/game/start",
           action: (url, info, sessionId, output) => 
           {
-            this.setProfiles(sessionId, playerHealth)
+            this.setProfiles(sessionId, this.container)
             return output
           }
         }
@@ -120,9 +117,14 @@ class HealthMultiplier implements IPostDBLoadMod
     )
   }
 
-  private setProfiles(sessionId, playerHealth):void
+  private setProfiles(sessionId, container: DependencyContainer):void
   {
+    this.container = container
+    this.logger = this.container.resolve<ILogger>("WinstonLogger")
+    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+    const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
     const profileController = this.container.resolve<ProfileController>("ProfileController")
+    this.logger.log(profileController, 'yellow', 'black')
     this.config.playerId = sessionId //Make the player's ID accessible at any point
     let pmcData = profileController.getPmcProfile()
     let scavData = profileController.getScavProfile()
