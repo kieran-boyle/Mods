@@ -10,7 +10,8 @@ class HealthMultiplier implements IPostDBLoadMod
   private container: DependencyContainer
   private config = require("../config/config.json")
   private logger
- 
+  //private profileController = new ProfileController()
+
   public postDBLoad(container: DependencyContainer):void
   {
     
@@ -121,13 +122,13 @@ class HealthMultiplier implements IPostDBLoadMod
 
   private setProfiles(sessionId, playerHealth):void
   {
-    const profileController = new ProfileController()
+    const profileController = this.container.resolve<ProfileController>("ProfileController")
     this.config.playerId = sessionId //Make the player's ID accessible at any point
-    let pmcData = profileController.getPmcProfile(this.config.playerId)
-    let scavData = profileController.getScavProfile(this.config.playerId)
+    let pmcData = profileController.getPmcProfile()
+    let scavData = profileController.getScavProfile()
 
-    this.setProfileHealth(pmcData, playerHealth)
-    this.setProfileHealth(scavData, playerHealth)
+    this.setProfileHealth(pmcData(this.config.playerId), playerHealth)
+    this.setProfileHealth(scavData(this.config.playerId), playerHealth)
   }
 
   private setBotHealth(bot :any, target :any, bodyPartMode :boolean):void
