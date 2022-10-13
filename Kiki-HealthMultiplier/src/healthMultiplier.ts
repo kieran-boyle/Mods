@@ -2,7 +2,7 @@ import { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ProfileController } from "@spt-aki/controllers/ProfileController"
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class HealthMultiplier implements IPostDBLoadMod
@@ -10,18 +10,16 @@ class HealthMultiplier implements IPostDBLoadMod
   private container: DependencyContainer
   private config = require("../config/config.json")
   private logger
-  //private profileController = new ProfileController()
-
+ 
   public postDBLoad(container: DependencyContainer):void
-  {
-    
+  {    
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")    
-    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")    
-    const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types    
-
-    //let t = profileController.getScavProfile()
-    //console.log(t)
+    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
+    const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
+    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+    const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+        
     for (let eachBot in botTypes)
     {
 
@@ -31,15 +29,12 @@ class HealthMultiplier implements IPostDBLoadMod
 
         if (this.config.AllEqualToPlayer == true)
         {
-
           for (let eachPart in thisBot)
           {
-
             if (this.config.Player.bodyPartMode.enabled == true)
             {
               thisBot[eachPart].min = this.config.Player.bodyPartMode[eachPart]
               thisBot[eachPart].max = this.config.Player.bodyPartMode[eachPart]
-
             }
             else
             {
@@ -50,7 +45,6 @@ class HealthMultiplier implements IPostDBLoadMod
         }
         else
         {
-          console.log('hit 1')
           var dict = function(input :string):string
           {
             return input === "bosstest" || input === "test" ? "PMC" :
@@ -75,13 +69,10 @@ class HealthMultiplier implements IPostDBLoadMod
           }
 
           let type = dict(eachBot)
-          console.log(type)
           let mode :boolean
 
           if (type === "Boss")
           {
-            console.log('boss found')
-            console.log(eachBot)
             if (this.config.Boss[bossDictionary[eachBot]].enabled == true)
             {
               mode = this.config.Boss[bossDictionary[eachBot]].bodyPartMode.enabled
@@ -90,7 +81,6 @@ class HealthMultiplier implements IPostDBLoadMod
           }
           else
           {
-
             if (this.config[type].enabled == true)
             {
               mode = this.config[type].bodyPartMode.enabled
@@ -108,7 +98,7 @@ class HealthMultiplier implements IPostDBLoadMod
           url: "/client/game/start",
           action: (url, info, sessionId, output) => 
           {
-            this.setProfiles(sessionId, this.container)
+            this.setProfiles(sessionId, playerHealth)
             return output
           }
         }
@@ -117,33 +107,24 @@ class HealthMultiplier implements IPostDBLoadMod
     )
   }
 
-  private setProfiles(sessionId, container: DependencyContainer):void
+  private setProfiles(sessionId, playerHealth):void
   {
-    this.container = container
-    this.logger = this.container.resolve<ILogger>("WinstonLogger")
-    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
-    const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
-    const profileController = this.container.resolve<ProfileController>("ProfileController")
-    this.logger.log(profileController, 'yellow', 'black')
-    this.config.playerId = sessionId //Make the player's ID accessible at any point
-    let pmcData = profileController.getPmcProfile()
-    let scavData = profileController.getScavProfile()
+    const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+    let pmcData = profileHelper.getPmcProfile(sessionId)
+    let scavData = profileHelper.getScavProfile(sessionId)
 
-    this.setProfileHealth(pmcData(this.config.playerId), playerHealth)
-    this.setProfileHealth(scavData(this.config.playerId), playerHealth)
+    this.setProfileHealth(pmcData, playerHealth)
+    this.setProfileHealth(scavData, playerHealth)
   }
 
   private setBotHealth(bot :any, target :any, bodyPartMode :boolean):void
   {
-    console.log('setBotHealth')
     for (let eachPart in bot)
     {
-
       if (bodyPartMode == true)
       {
         bot[eachPart].min = target.bodyPartMode[eachPart]
         bot[eachPart].max = target.bodyPartMode[eachPart]
-
       }
       else
       {
@@ -161,10 +142,8 @@ class HealthMultiplier implements IPostDBLoadMod
 
       if (this.config.Player.enabled === true)
       {
-
         for (let eachPart in profileParts)
         {
-
           if (this.config.Player.bodyPartMode.enabled === true)
           {
             profileParts[eachPart].Health.Current = this.config.Player.bodyPartMode[eachPart]
