@@ -63,18 +63,18 @@ class AllTheBoss implements IPostDBLoadMod
       if (this.config.raiders.boostRaiders.enabled === true)
       {
 
-        if (eachMap === 'rezervbase' || eachMap === 'laboratory')
+        if (eachMap === 'Reserve' || eachMap === 'Laboratory')
         {
-          this.boostRaiders(eachMap, locations)
+          this.boostSubBoss('raiders', eachMap, locations)
         }
       }
 
       if (this.config.rogues.boostRogues.enabled === true)
       {
-
-        if (eachMap === 'lighthouse')
+        
+        if (eachMap === 'Lighthouse')
         {
-          this.boostRogues(eachMap, locations)
+          this.boostSubBoss('rogues', eachMap, locations)
         }
       }
 
@@ -217,25 +217,15 @@ class AllTheBoss implements IPostDBLoadMod
     }
   }
 
-  private boostRaiders(map :string, locations):void
+  private boostSubBoss(target :string, map :string, locations):void
   {
+    let targetType = target === 'raiders' ? 'boostRaiders' : 'boostRogues'
     for (let eachBot in locations[this.mapDictionary[map]].base.BossLocationSpawn)
     {
       let thisBot = locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
-      thisBot.BossChance = this.config.raiders.boostRaiders.chance
-      thisBot.Time = this.config.raiders.boostRaiders.time
-      thisBot.BossEscortAmount = this.config.raiders.boostRaiders.escortAmount
-    }
-  }
-
-  private boostRogues(map :string, locations):void
-  {
-    for (let eachBot in locations[this.mapDictionary[map]].base.BossLocationSpawn)
-    {
-      let thisBot = locations[this.mapDictionary[map]].base.BossLocationSpawn[eachBot]
-      thisBot.BossChance = this.config.rogues.boostRogues.chance
-      thisBot.Time = this.config.rogues.boostRogues.time
-      thisBot.BossEscortAmount = this.config.rogues.boostRogues.escortAmount
+      thisBot.BossChance = this.config[target][targetType].chance
+      thisBot.Time = this.config[target][targetType].time
+      thisBot.BossEscortAmount = this.config[target][targetType].escortAmount
     }
   }
 
