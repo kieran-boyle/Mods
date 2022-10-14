@@ -155,6 +155,10 @@ class AllTheBoss implements IPostDBLoadMod
 
   private chooseZone(map :string, locations):string
   {
+    if(map === 'FactoryDay' || map === 'FactoryNight')
+    {
+      return 'BotZone'
+    }
     if (this.zoneList.length < 1)
     {
       this.populateZoneList(map, locations)
@@ -170,19 +174,11 @@ class AllTheBoss implements IPostDBLoadMod
   {
     for (let eachBoss of this.bossList)
     {
-
       if (eachBoss.BossName === name)
       {
         let thisBoss = eachBoss
         thisBoss.BossChance = chance
-        if(map === 'FactoryDay' || map === 'FactoryNight')
-        {
-          thisBoss.BossZone = 'BotZone'
-        }
-        else
-        {
-          thisBoss.BossZone = this.chooseZone(map, locations)
-        }
+        thisBoss.BossZone = this.chooseZone(map, locations)
         this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
       }
     }
@@ -240,14 +236,7 @@ class AllTheBoss implements IPostDBLoadMod
 
     for (let i = 0; i < this.config[target][targetType].maps[map].amount; i++)
     {
-      if(map === 'FactoryDay' || map === 'FactoryNight')
-      {
-        newSubBoss.BossZone = 'BotZone'
-      }
-      else
-      {
-        newSubBoss.BossZone = this.chooseZone(map, locations)
-      }
+      newSubBoss.BossZone = this.chooseZone(map, locations)
       this.thisMap.push(JSON.parse(JSON.stringify(newSubBoss)))
     }
   }
