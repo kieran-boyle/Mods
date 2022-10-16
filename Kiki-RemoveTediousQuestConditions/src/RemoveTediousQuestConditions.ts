@@ -40,7 +40,11 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
             break
 
           case 'Location':
-            this.removeLocations(this.logger, quests)
+            this.removeNested('Location', this.logger, quests)
+            break
+
+          case 'InZone':
+            this.removeNested('InZone', this.logger, quests)
             break
 
           default:
@@ -87,11 +91,11 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
     }
   }
 
-  private removeLocations(logger :any, quests: any):void
+  private removeNested(target :string, logger :any, quests: any):void
   {
     if (this.config.debug === true)
     {
-      logger.log(`\nLocations\n`, 'green', 'black')
+      logger.log(`\n${target}s\n`, 'green', 'black')
     }
     for (let eachQuest in quests)
     {
@@ -105,17 +109,18 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
           {
             let finalCondition = thisCondition._props.counter.conditions[condition]
 
-            if (finalCondition._parent === 'Location')
+            if (finalCondition._parent === target)
             {
               thisCondition._props.counter.conditions.splice(condition, 1)
+              
+              if (this.config.debug === true)
+              {
+                logger.log(quests[eachQuest].QuestName, 'green', 'black')
+              }
             }
           }
         }
-      }
-      if (this.config.debug === true)
-      {
-        logger.log(quests[eachQuest].QuestName, 'green', 'black')
-      }
+      }      
     }
   }
 }
