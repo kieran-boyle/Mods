@@ -1,29 +1,28 @@
 import { DependencyContainer } from "tsyringe"
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
-class ScavTweaks implements IPostDBLoadMod
+class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
 {
 
   private container: DependencyContainer
   private config = require("../config/config.json")
 
-  public postDBLoad(container: DependencyContainer):void
+  public preAkiLoad(container: DependencyContainer):void
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
-    const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
-
-    gConfig.SavagePlayCooldown = this.config.ScavTimeDead
 
     staticRouterModService.registerStaticRouter(
       "ScavTweaks",
       [
         {
           url: "/raid/profile/save",
-          action: (url, info, sessionId, output) => 
+          action: (url :string, info :any, sessionId :string, output :string) => 
           {
+            const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
             if (info.isPlayerScav === true)
             {
               switch (info.exit)
@@ -45,13 +44,20 @@ class ScavTweaks implements IPostDBLoadMod
                   break
               }
             }
-            return output;
+            return output
           }
         }
-      ],
-      "aki"
+      ],"aki"
     )
   }
 
-  module.exports = {mod: new ScavTweaks()}
+  public postDBLoad(container: DependencyContainer):void
+  {
+    this.container = container
+    const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
+
+    gConfig.SavagePlayCooldown = this.config.ScavTimeDead
+  }  
 }
+
+module.exports = {mod: new ScavTweaks()}
