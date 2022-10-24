@@ -1,31 +1,34 @@
 import { DependencyContainer } from "tsyringe"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
-class ScavTweaks implements IPostDBLoadMod
+class ScavTweaks implements IPreAkiLoadMod
 {
 
   private container: DependencyContainer
   private config = require("../config/config.json")
 
-  public postDBLoad(container: DependencyContainer):void
+  public preAkiLoad(container: DependencyContainer):void
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
     const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
 
     gConfig.SavagePlayCooldown = this.config.ScavTimeDead
-
+    console.log("test")
     staticRouterModService.registerStaticRouter(
       "ScavTweaks",
       [
         {
           url: "/raid/profile/save",
-          action: (url, info, sessionId, output) => 
+          action: (url :string, info :any, sessionId :string, output :string) => 
           {
+            console.log('route hit!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+            console.log(info.isPlayerScav)
             if (info.isPlayerScav === true)
             {
+              console.log(info.exit)
               switch (info.exit)
               {
                 case "survived":
@@ -45,13 +48,13 @@ class ScavTweaks implements IPostDBLoadMod
                   break
               }
             }
-            return output;
+            console.log(gConfig.SavagePlayCooldown)
+            return output
           }
         }
-      ],
-      "aki"
+      ],"aki"
     )
   }
-
-  module.exports = {mod: new ScavTweaks()}
 }
+
+module.exports = {mod: new ScavTweaks()}
