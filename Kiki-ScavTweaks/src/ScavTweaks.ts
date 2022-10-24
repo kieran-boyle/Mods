@@ -1,9 +1,10 @@
 import { DependencyContainer } from "tsyringe"
 import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
-class ScavTweaks implements IPreAkiLoadMod
+class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
 {
 
   private container: DependencyContainer
@@ -13,10 +14,7 @@ class ScavTweaks implements IPreAkiLoadMod
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
-    const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
 
-    gConfig.SavagePlayCooldown = this.config.ScavTimeDead
-    console.log("test")
     staticRouterModService.registerStaticRouter(
       "ScavTweaks",
       [
@@ -24,11 +22,9 @@ class ScavTweaks implements IPreAkiLoadMod
           url: "/raid/profile/save",
           action: (url :string, info :any, sessionId :string, output :string) => 
           {
-            console.log('route hit!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-            console.log(info.isPlayerScav)
+            const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
             if (info.isPlayerScav === true)
             {
-              console.log(info.exit)
               switch (info.exit)
               {
                 case "survived":
@@ -48,13 +44,20 @@ class ScavTweaks implements IPreAkiLoadMod
                   break
               }
             }
-            console.log(gConfig.SavagePlayCooldown)
             return output
           }
         }
       ],"aki"
     )
   }
+
+  public postDBLoad(container: DependencyContainer):void
+  {
+    this.container = container
+    const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
+
+    gConfig.SavagePlayCooldown = this.config.ScavTimeDead
+  }  
 }
 
 module.exports = {mod: new ScavTweaks()}

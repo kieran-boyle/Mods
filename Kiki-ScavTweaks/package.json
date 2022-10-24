@@ -1,10 +1,10 @@
 {
   "name": "scavtweaks",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "src/ScavTweaks.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.2.4",
+  "akiVersion": "3.2.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
