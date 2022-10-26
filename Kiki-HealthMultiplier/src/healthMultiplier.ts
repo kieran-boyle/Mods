@@ -1,11 +1,12 @@
 import { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
-class HealthMultiplier implements IPostDBLoadMod
+class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
@@ -14,8 +15,7 @@ class HealthMultiplier implements IPostDBLoadMod
   public postDBLoad(container: DependencyContainer):void
   {    
     this.container = container
-    this.logger = this.container.resolve<ILogger>("WinstonLogger")    
-    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
+    this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
     const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
     const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
@@ -90,14 +90,23 @@ class HealthMultiplier implements IPostDBLoadMod
         }
       }
     }
+  }
+
+  public preAkiLoad(container: DependencyContainer):void
+  {
+    this.container = container
+    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
 
     staticRouterModService.registerStaticRouter(
       "SetPlayerHealth",
       [
         {
           url: "/client/game/start",
-          action: (url, info, sessionId, output) => 
+          action: (url :string, info :any, sessionId :string, output :string) => 
           {
+            const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+            const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+
             this.setProfiles(sessionId, playerHealth)
             return output
           }
@@ -107,7 +116,7 @@ class HealthMultiplier implements IPostDBLoadMod
     )
   }
 
-  private setProfiles(sessionId, playerHealth):void
+  private setProfiles(sessionId :string, playerHealth :any):void
   {
     const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
     let pmcData = profileHelper.getPmcProfile(sessionId)
