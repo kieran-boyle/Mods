@@ -1,9 +1,5 @@
-!!!Warning!!!  The auto sort stash feature can cause issues, I would highly advise against using it. !!!Warning!!! 
+Hate RSI and want everything already examined, but can't remember if that was the key you were searching for? This is the mod for you!
 
-Set your desired stash sizes in config.json.
+This mod will mark everything in game as being already examined with the exception of keys and keycards (so you can get excited again when finding new keys)
 
-If ChangeAll = false, it will change the stash sizes for each account type individually, It is important to have these in ascending order, as you need to upgrade the stash in your hideout to unlock other upgrades.
-
-If ChangeAll = any whole number, it will set all of the accounts stash size to that value.
-
-!!!Warning!!!  The auto sort stash feature can cause issues, I would highly advise against using it. !!!Warning!!! 
+This will conflict with Ereshkigals AIO mod if AllExaminedItems in config.js is set to true. (not in a bad way just wont work) identify
