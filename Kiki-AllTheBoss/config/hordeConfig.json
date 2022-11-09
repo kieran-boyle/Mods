@@ -1,5 +1,5 @@
 {
-  "hordesEnabled": true,
+  "hordesEnabled": false,
   "maps": {
     "Customs": {
       "enabled": false,
@@ -63,13 +63,13 @@
     },
 
     "FactoryDay": {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
-        "numberToGenerate" : 3,
+        "enabled": false,
+        "numberToGenerate" : 1,
         "minimumSupports" : 2,
-        "maximumSupports" : 8
+        "maximumSupports" : 4
       },
       "bossList": {
         "Knight": {

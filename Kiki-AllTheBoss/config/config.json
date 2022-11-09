@@ -148,51 +148,186 @@
   "maps": {
 
     "Customs": {
-      "enabled": false,
+      "enabled": true,
       "bossList": {
         "Knight": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Gluhar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Shturman": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Sanitar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Reshala": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Killa": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Tagilla": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         }
       }
     },
 
     "FactoryDay": {
+      "enabled": true,
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Gluhar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Shturman": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Sanitar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Reshala": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Killa": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Cultist": {
+          "amount": 1,
+          "chance": 1000
+        }
+      }
+    },
+
+    "FactoryNight": {
+      "enabled": true,
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Gluhar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Shturman": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Sanitar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Reshala": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Killa": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Cultist": {
+          "amount": 1,
+          "chance": 100
+        }
+      }
+    },
+
+    "Interchange": {
+      "enabled": true,
+      "bossList": {
+        "Knight": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Gluhar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Shturman": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Sanitar": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Reshala": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Tagilla": {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Cultist": {
+          "amount": 1,
+          "chance": 100
+        }
+      }
+    },
+
+    "Laboratory": {
       "enabled": true,
       "bossList": {
         "Knight": {
@@ -237,317 +372,182 @@
       }
     },
 
-    "FactoryNight": {
-      "enabled": false,
-      "bossList": {
-        "Knight": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Gluhar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Shturman": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Sanitar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Reshala": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Killa": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Tagilla": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Cultist": {
-          "amount": 1,
-          "chance": 20
-        }
-      }
-    },
-
-    "Interchange": {
-      "enabled": false,
-      "bossList": {
-        "Knight": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Gluhar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Shturman": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Sanitar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Reshala": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Killa": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Tagilla": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Cultist": {
-          "amount": 1,
-          "chance": 20
-        }
-      }
-    },
-
-    "Laboratory": {
-      "enabled": false,
-      "bossList": {
-        "Knight": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Gluhar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Shturman": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Sanitar": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Reshala": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Killa": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Tagilla": {
-          "amount": 1,
-          "chance": 20
-        },
-
-        "Cultist": {
-          "amount": 1,
-          "chance": 20
-        }
-      }
-    },
-
     "Reserve": {
-      "enabled": false,
+      "enabled": true,
       "bossList": {
         "Knight": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Gluhar": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Shturman": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Sanitar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Reshala": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Killa": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Tagilla": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         }
       }
     },
 
     "Shoreline": {
-      "enabled": false,
+      "enabled": true,
       "bossList": {
         "Knight": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Gluhar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Shturman": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Sanitar": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Reshala": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Killa": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Tagilla": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         }
       }
     },
 
     "Woods": {
-      "enabled": false,
+      "enabled": true,
       "bossList": {
         "Knight": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Gluhar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Shturman": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Sanitar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Reshala": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Killa": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Tagilla": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         }
       }
     },
 
     "Lighthouse": {
-      "enabled": false,
+      "enabled": true,
       "bossList": {
         "Knight": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         },
 
         "Gluhar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Shturman": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Sanitar": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Reshala": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Killa": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Tagilla": {
-          "amount": 1,
-          "chance": 20
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist": {
           "amount": 1,
-          "chance": 20
+          "chance": 100
         }
       }
     }
