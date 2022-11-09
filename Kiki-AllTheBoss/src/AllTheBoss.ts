@@ -98,7 +98,6 @@ class AllTheBoss implements IPostDBLoadMod
             let thisHorde = this.hordeConfig.maps[eachMap].addRandomHorde
             for(let i = 0; i < thisHorde.numberToGenerate; i++)
             {
-              this.logger.log('adding hordes', 'yellow')
               this.addRandomHorde(thisHorde.minimumSupports, thisHorde.maximumSupports, eachMap, locations)
             }            
           }
@@ -111,6 +110,11 @@ class AllTheBoss implements IPostDBLoadMod
             }
           }
         }
+      }
+
+      if(this.config.shuffleBossOrder === true)
+      {
+        this.shuffleArray(this.thisMap)
       }
 
       locations[this.mapDictionary[eachMap]].base.BossLocationSpawn = [...locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
@@ -286,8 +290,6 @@ class AllTheBoss implements IPostDBLoadMod
         "BossEscortAmount": myAmounts[i]
       })
     })
-  
-    this.logger.log(JSON.stringify(thisBoss, 0, 1), 'red')
     this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
   }
 
@@ -322,6 +324,17 @@ class AllTheBoss implements IPostDBLoadMod
       if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports) done = true
     }
     this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
+  }
+
+  private shuffleArray(array):void
+  {
+    for (var i = array.length - 1; i > 0; i--) 
+    {
+      var j = Math.floor(Math.random() * (i + 1))
+      var temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
   }
 }
 

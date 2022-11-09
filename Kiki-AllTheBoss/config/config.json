@@ -1,5 +1,6 @@
 {
   "debug": false,
+  "shuffleBossOrder": true,
 
   "raiders": {
     "removeRaiders": false,
