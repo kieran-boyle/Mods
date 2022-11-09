@@ -1,5 +1,13 @@
 This mod will give you the option of which bosses you want to spawn on each map.
-The default settings give a 20% chance for every boss to spawn on each map and a 20% chance to spawn a raider and a rogue group.
+
+Now multiple example config files are included!  Just copy whichever you wish to use over the configs folder,
+and overwrite the existing files to use.
+If you come up with a cool config please share it in the comments, or feel free to message it to me, I may include it in future releases.
+
+The default config will set any bosses that normally spawn on the map to 100% with no other changes (this is the same as Standard Backup)
+Spicy config give a 20% chance for every boss to spawn on each map and a 20% chance to spawn a raider and a rogue group.
+BossesWithFriends config will set any bosses that normally spawn on the map to 100% and they will bring a friend.
+
 
 Config explanation.
 
