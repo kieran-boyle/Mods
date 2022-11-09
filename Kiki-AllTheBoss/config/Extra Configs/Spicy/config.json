@@ -8,7 +8,7 @@
 
     "boostRaiders":
     {
-      "enabled": false,
+      "enabled": true,
       "chance": 100,
       "time": -1,
       "escortAmount": 2
@@ -16,7 +16,7 @@
 
     "addRaiders":
     {
-      "enabled": false,
+      "enabled": true,
       "maps":
       {
         "Customs":
@@ -92,7 +92,7 @@
 
     "boostRogues":
     {
-      "enabled": false,
+      "enabled": true,
       "chance": 100,
       "time": -1,
       "escortAmount": 2
@@ -100,7 +100,7 @@
 
     "addRogues":
     {
-      "enabled": false,
+      "enabled": true,
       "maps":
       {
         "Customs":
@@ -182,49 +182,49 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -237,49 +237,49 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -292,49 +292,49 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -346,50 +346,50 @@
       {
         "Knight":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -401,50 +401,50 @@
       {
         "Knight":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         }
       }
     },
@@ -456,50 +456,50 @@
       {
         "Knight":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Gluhar":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -511,50 +511,50 @@
       {
         "Knight":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -566,50 +566,50 @@
       {
         "Knight":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     },
@@ -622,49 +622,49 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         },
 
         "Gluhar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Shturman":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Sanitar":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Reshala":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Killa":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Tagilla":
         {
-          "amount": 0,
-          "chance": 0
+          "amount": 1,
+          "chance": 20
         },
 
         "Cultist":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 20
         }
       }
     }

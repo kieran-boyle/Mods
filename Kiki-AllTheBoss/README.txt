@@ -1,9 +1,19 @@
 This mod will give you the option of which bosses you want to spawn on each map.
-The default settings give a 20% chance for every boss to spawn on each map and a 20% chance to spawn a raider and a rogue group.
+
+Now multiple example config files are included!  Just copy whichever you wish to use over the configs folder,
+and overwrite the existing files to use.
+If you come up with a cool config please share it in the comments, or feel free to message it to me, I may include it in future releases.
+
+The default config will set any bosses that normally spawn on the map to 100% with no other changes (this is the same as Standard Backup)
+Spicy config give a 20% chance for every boss to spawn on each map, a 20% chance to spawn both a raider and a rogue group, and spawns a boss horde of between 3 and 7 bosses.
+BossesWithFriends config will set any bosses that normally spawn on the map to 100% and they will bring a friend.
+Horde config will spawn some custom made hordes to ruin your day (good example on building custom hordes)
+
 
 Config explanation.
 
-debug :  will output the newely calculated boss waves in the server log. (true / false)
+debug :  Will output the newely calculated boss waves in the server log. (true / false)
+shuffleBossOrder: Will shuffle the order of the boss array (adds less predictability wth spawn order). (true / false)
 
 Raiders and rogues are split into sections with the following options.
 
@@ -44,3 +54,31 @@ maps :
 		Then for each boss : 
 			amount : The amount of each boss to add to the spawn list. (number)
 			chance : the chance that each boss added will spawn. (number 0 - 100)
+
+
+HordeConfig explanation.
+
+hordesEnabled : if true will apply horde settings. (true / false)
+
+maps :
+
+	Has a list of maps with the following options.
+
+		enabled : if true, will apply the following settings for the map. (true / false)
+		
+		addRandomHorde : adds random hordes with the follwoing settings
+
+			enabled : if true, will apply the following settings for the map. (true / false)
+			numberToGenerate : the number of boss hordes to generate. (number)
+			minimumSupports : the minimum number of bosses to support the main boss (number)
+			maximumSupports : the maximum number of bosses to support the main boss (number >= minimumSupports)
+
+		bossList : A list of each boss, which will serve as the leader for each group, with the following options.
+
+			amount : The amount of hordes to add. (number)
+			chance : The chance for the horde to spawn. (number 0 - 100)
+			escorts : Here you must put a list of the bosses you wish to spawn seperated with comma's with no spaces.
+				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Killa and Tagilla
+				if you wanted Killa and Tagilla as escort you would put "Killa,Tagilla" for example (string)
+			escortAmount : Here you must put a list of the number of each supporting boss to spawn seperated with comma's with no spaces.
+				following the above example, if you wanted 2 Killa and 4 Tagilla to support you would put "2,4" (string)

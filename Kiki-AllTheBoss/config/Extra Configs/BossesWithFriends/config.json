@@ -176,7 +176,7 @@
 
     "Customs":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -231,7 +231,7 @@
 
     "FactoryDay":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -286,7 +286,7 @@
 
     "FactoryNight":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -341,7 +341,7 @@
 
     "Interchange":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -396,7 +396,7 @@
 
     "Laboratory":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -451,7 +451,7 @@
 
     "Reserve":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -506,7 +506,7 @@
 
     "Shoreline":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -561,7 +561,7 @@
 
     "Woods":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":
@@ -616,7 +616,7 @@
 
     "Lighthouse":
     {
-      "enabled": true,
+      "enabled": false,
       "bossList":
       {
         "Knight":

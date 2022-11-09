@@ -7,6 +7,7 @@ class AllTheBoss implements IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require('../config/config.json')
+  private hordeConfig = require('../config/hordeConfig.json')
   private logger
   private sniperFinder = new RegExp(/.*(snip).*/i)
 
@@ -88,6 +89,34 @@ class AllTheBoss implements IPostDBLoadMod
         this.addSubBoss('rogues', eachMap, locations)
       }
 
+      if(this.hordeConfig.hordesEnabled === true)
+      {
+        if(this.hordeConfig.maps[eachMap].enabled === true)
+        {
+          if(this.hordeConfig.maps[eachMap].addRandomHorde.enabled === true)
+          {
+            let thisHorde = this.hordeConfig.maps[eachMap].addRandomHorde
+            for(let i = 0; i < thisHorde.numberToGenerate; i++)
+            {
+              this.addRandomHorde(thisHorde.minimumSupports, thisHorde.maximumSupports, eachMap, locations)
+            }            
+          }
+          for(let eachBoss in this.hordeConfig.maps[eachMap].bossList)
+          {
+            let thisBoss = this.hordeConfig.maps[eachMap].bossList[eachBoss]
+            for(let i = 0; i < thisBoss.amount; i++)
+            {
+              this.addBossHorde(this.bossDictionary[eachBoss], eachMap, thisBoss.chance, thisBoss.escorts, thisBoss.escortAmount, locations)
+            }
+          }
+        }
+      }
+
+      if(this.config.shuffleBossOrder === true)
+      {
+        this.shuffleArray(this.thisMap)
+      }
+
       locations[this.mapDictionary[eachMap]].base.BossLocationSpawn = [...locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
       this.thisMap = []
       
@@ -148,9 +177,9 @@ class AllTheBoss implements IPostDBLoadMod
     this.zoneList = tempList
   }
 
-  private getRandomInt(max :number):number
+  private getRandomInt(min :number, max :number):number
   {
-    return Math.floor(Math.random() * max)
+    return Math.floor(Math.random() * (max - min) + min)
   }
 
   private chooseZone(map :string, locations):string
@@ -163,7 +192,7 @@ class AllTheBoss implements IPostDBLoadMod
     {
       this.populateZoneList(map, locations)
     }
-    let rand = this.getRandomInt(this.zoneList.length)
+    let rand = this.getRandomInt(0, this.zoneList.length)
     let thisZone = this.zoneList[rand]
     this.zoneList.splice(rand, 1)
 
@@ -238,6 +267,73 @@ class AllTheBoss implements IPostDBLoadMod
     {
       newSubBoss.BossZone = this.chooseZone(map, locations)
       this.thisMap.push(JSON.parse(JSON.stringify(newSubBoss)))
+    }
+  }
+
+  private addBossHorde(target :string, map :string, chance :number, escorts :string, escortAmounts :string, locations):void
+  {
+    let myEscorts = escorts.split(',')
+    let myAmounts = escortAmounts.split(',')
+    let thisBoss = JSON.parse(JSON.stringify(this.bossList.find(e => e.BossName === target)))
+    thisBoss.BossChance = chance
+    thisBoss.BossZone = this.chooseZone(map, locations)
+
+    myEscorts.forEach((e, i) => 
+    {
+      if(!thisBoss.Supports) thisBoss.Supports = []
+      thisBoss.Supports.push(
+      {
+        "BossEscortType" : this.bossDictionary[e],
+        "BossEscortDifficult": [
+          "normal"
+        ],
+        "BossEscortAmount": myAmounts[i]
+      })
+    })
+    this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
+  }
+
+  private addRandomHorde(minimumSupports :number, maximumSupports :number, map :string, locations):void
+  {
+    let options = [
+      'Knight',
+      'Gluhar',
+      'Shturman',
+      'Sanitar',
+      'Reshala' ,
+      'Killa',
+      'Tagilla'
+    ]
+    let bigBossindex = this.getRandomInt(0, options.length - 1)
+    let bigBoss = this.bossDictionary[options[bigBossindex]]
+    options.splice(bigBossindex, 1)
+  
+    let tally = 0
+    let supports = []
+    let supportAmmounts = []
+    let done = false
+
+    while (done === false) 
+    {
+      let rand = this.getRandomInt(1, maximumSupports - tally)
+      tally += rand
+      let supportIndex = this.getRandomInt(0, options.length - 1)
+      supports.push(options[supportIndex])
+      options.splice(supportIndex, 1)      
+      supportAmmounts.push(rand)
+      if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports) done = true
+    }
+    this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
+  }
+
+  private shuffleArray(array):void
+  {
+    for (var i = array.length - 1; i > 0; i--) 
+    {
+      var j = Math.floor(Math.random() * (i + 1))
+      var temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
     }
   }
 }
