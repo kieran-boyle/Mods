@@ -279,7 +279,7 @@
         "Cultist":
         {
           "amount": 1,
-          "chance": 1000
+          "chance": 100
         }
       }
     },
