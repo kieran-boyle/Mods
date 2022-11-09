@@ -112,8 +112,8 @@
         {
           "amount": 0,
           "chance": 100,
-          "escorts": "Killa,Shturman,Gluhar",
-          "escortAmount": "2,1,3"
+          "escorts": "Killa",
+          "escortAmount": "2"
         },
 
         "Reshala":
@@ -136,8 +136,8 @@
         {
           "amount": 0,
           "chance": 100,
-          "escorts": "Killa,Sanitar",
-          "escortAmount": "2,2"
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },

@@ -5,8 +5,9 @@ and overwrite the existing files to use.
 If you come up with a cool config please share it in the comments, or feel free to message it to me, I may include it in future releases.
 
 The default config will set any bosses that normally spawn on the map to 100% with no other changes (this is the same as Standard Backup)
-Spicy config give a 20% chance for every boss to spawn on each map and a 20% chance to spawn a raider and a rogue group.
+Spicy config give a 20% chance for every boss to spawn on each map, a 20% chance to spawn both a raider and a rogue group, and spawns a boss horde of between 3 and 7 bosses.
 BossesWithFriends config will set any bosses that normally spawn on the map to 100% and they will bring a friend.
+Horde config will spawn some custom made hordes to ruin your day (good example on building custom hordes)
 
 
 Config explanation.
