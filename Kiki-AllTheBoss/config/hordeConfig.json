@@ -1,0 +1,553 @@
+{
+  "hordesEnabled": true,
+  "maps": {
+    "Customs": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "FactoryDay": {
+      "enabled": true,
+      "addRandomHorde":
+      {
+        "enabled": true,
+        "numberToGenerate" : 3,
+        "minimumSupports" : 2,
+        "maximumSupports" : 8
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 0,
+          "chance": 100,
+          "escorts": "Killa,Shturman,Gluhar",
+          "escortAmount": "2,1,3"
+        },
+
+        "Reshala": {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 0,
+          "chance": 100,
+          "escorts": "Killa,Sanitar",
+          "escortAmount": "2,2"
+        }
+      }
+    },
+
+    "FactoryNight": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Interchange": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Laboratory": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Reserve": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Shoreline": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Woods": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Lighthouse": {
+      "enabled": false,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate" : 1,
+        "minimumSupports" : 2,
+        "maximumSupports" : 4
+      },
+      "bossList": {
+        "Knight": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla": {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    }
+  }
+}
