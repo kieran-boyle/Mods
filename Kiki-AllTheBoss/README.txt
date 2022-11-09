@@ -66,7 +66,7 @@ maps :
 
 		enabled : if true, will apply the following settings for the map. (true / false)
 		
-		addRandomHorde : adds random hordes with the follwoing settings
+		addRandomHorde : adds random hordes with the following settings
 
 			enabled : if true, will apply the following settings for the map. (true / false)
 			numberToGenerate : the number of boss hordes to generate. (number)
@@ -77,8 +77,8 @@ maps :
 
 			amount : The amount of hordes to add. (number)
 			chance : The chance for the horde to spawn. (number 0 - 100)
-			escorts : Here you must put a list of the bosses you wish to spawn seperated with comma's with no spaces.
+			escorts : Here you must put a list of the bosses you wish to spawn separated with comma's with no spaces.
 				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Killa and Tagilla
 				if you wanted Killa and Tagilla as escort you would put "Killa,Tagilla" for example (string)
-			escortAmount : Here you must put a list of the number of each supporting boss to spawn seperated with comma's with no spaces.
+			escortAmount : Here you must put a list of the number of each supporting boss to spawn separated with comma's with no spaces.
 				following the above example, if you wanted 2 Killa and 4 Tagilla to support you would put "2,4" (string)
