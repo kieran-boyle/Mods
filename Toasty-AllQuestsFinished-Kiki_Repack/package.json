@@ -1,10 +1,10 @@
 {
   "name": "allquestsfinished",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/AllQuestsFinished.js",
   "license": "MIT",
   "author": "Toasty,Kiki",
-  "akiVersion": "3.2.4",
+  "akiVersion": "3.3.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

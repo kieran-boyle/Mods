@@ -1,10 +1,10 @@
 {
   "name": "alltheboss",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "main": "src/AllTheBoss.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.2.*",
+  "akiVersion": "3.3.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

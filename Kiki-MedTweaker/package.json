@@ -1,10 +1,10 @@
 {
   "name": "medtweaker",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/MedTweaker.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.2.4",
+  "akiVersion": "3.3.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

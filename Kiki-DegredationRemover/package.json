@@ -1,10 +1,10 @@
 {
   "name": "degredationremover",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "src/DegredationRemover.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.2.4",
+  "akiVersion": "3.3.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
