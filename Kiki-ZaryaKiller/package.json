@@ -4,7 +4,7 @@
   "main": "src/ZaryaKiller.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.2.4",
+  "akiVersion": "3.3.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
