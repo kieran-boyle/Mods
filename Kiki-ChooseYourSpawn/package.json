@@ -1,6 +1,6 @@
 {
   "name": "chooseyourspawn",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "src/ChooseYourSpawn.js",
   "license": "NCSA",
   "author": "Kiki",

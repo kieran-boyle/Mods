@@ -1,6 +1,6 @@
 {
   "name": "healthmultiplier",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "main": "src/HealthMultiplier.js",
   "license": "NCSA",
   "author": "Kiki",

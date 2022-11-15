@@ -1,6 +1,6 @@
 {
   "name": "camerarecoilremover",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/CameraRecoilRemover.js",
   "license": "NCSA",
   "author": "Kiki",
