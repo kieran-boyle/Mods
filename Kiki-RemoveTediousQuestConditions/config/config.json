@@ -7,6 +7,7 @@
   "distance": false,
   "bodyPart": false,
   "Location" : false,
+  "$InZone": false,
   "setPMC": false,
   "debug" : false
 }
