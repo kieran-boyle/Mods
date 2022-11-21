@@ -1,0 +1,1 @@
+Makes all bots unable to talk, warning this adds considerable difficulty.
