@@ -1,0 +1,12 @@
+{
+  "muteAll": true,
+  "botTypes":
+  {
+    "pmc": false,
+    "scav": false,
+    "raider": false,
+    "rogue": false,
+    "boss": false,
+    "follower": false
+  }
+}
