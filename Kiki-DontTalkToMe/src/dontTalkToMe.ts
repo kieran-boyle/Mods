@@ -26,7 +26,7 @@ class dontTalkToMe implements IPostDBLoadMod
         if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec")) this.shutUp(bots[i])
         if(this.config.botTypes.raider === true && i === "cursedassault") this.shutUp(bots[i])
         if(this.config.botTypes.rogue === true && i === "exusec") this.shutUp(bots[i])
-      }      
+      }
     }
   }
 
