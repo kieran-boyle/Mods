@@ -20,12 +20,12 @@ class dontTalkToMe implements IPostDBLoadMod
       }
       else
       {
-        if((i === "assault" || i === "marksman") && this.config.botTypes.scav === true) this.shutUp(bots[i])
-        if((i === "bear" || i === "usec" )&& this.config.botTypes.pmc === true) this.shutUp(bots[i])
-        if(i === "cursedassault" && this.config.botTypes.raider === true) this.shutUp(bots[i])
-        if(i === "exusec" && this.config.botTypes.rogue === true) this.shutUp(bots[i])
-        if((i.includes("boss") || i === "sectantpriest" )&& this.config.botTypes.boss === true) this.shutUp(bots[i])
-        if((i.includes("follower") || i === "sectantwarrior" ) && this.config.botTypes.follower === true) this.shutUp(bots[i])
+        if(this.config.botTypes.follower === true && (i.includes("follower") || i === "sectantwarrior" )) this.shutUp(bots[i])
+        if(this.config.botTypes.boss === true && (i.includes("boss") || i === "sectantpriest" )) this.shutUp(bots[i])
+        if(this.config.botTypes.scav === true && (i === "assault" || i === "marksman")) this.shutUp(bots[i])
+        if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec" )) this.shutUp(bots[i])
+        if(this.config.botTypes.raider === true && i === "cursedassault") this.shutUp(bots[i])
+        if(this.config.botTypes.rogue === true && i === "exusec") this.shutUp(bots[i])
       }      
     }
   }
