@@ -20,10 +20,10 @@ class dontTalkToMe implements IPostDBLoadMod
       }
       else
       {
-        if(this.config.botTypes.follower === true && (i.includes("follower") || i === "sectantwarrior" )) this.shutUp(bots[i])
-        if(this.config.botTypes.boss === true && (i.includes("boss") || i === "sectantpriest" )) this.shutUp(bots[i])
+        if(this.config.botTypes.follower === true && (i.includes("follower") || i === "sectantwarrior")) this.shutUp(bots[i])
+        if(this.config.botTypes.boss === true && (i.includes("boss") || i === "sectantpriest")) this.shutUp(bots[i])
         if(this.config.botTypes.scav === true && (i === "assault" || i === "marksman")) this.shutUp(bots[i])
-        if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec" )) this.shutUp(bots[i])
+        if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec")) this.shutUp(bots[i])
         if(this.config.botTypes.raider === true && i === "cursedassault") this.shutUp(bots[i])
         if(this.config.botTypes.rogue === true && i === "exusec") this.shutUp(bots[i])
       }      
