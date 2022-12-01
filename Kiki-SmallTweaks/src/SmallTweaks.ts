@@ -24,7 +24,8 @@ class smallTweaks implements IPostDBLoadMod
       'laboratory': 1,
       'shoreline': 1,
       'woods': 1,
-      'rezervbase': 1
+      'rezervbase': 1,
+      'lighthouse': 1
     }
 
     //set the 5 second deploy counter to be instant.
