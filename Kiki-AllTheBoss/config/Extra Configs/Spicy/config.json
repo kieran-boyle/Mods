@@ -1,5 +1,6 @@
 {
   "debug": false,
+  "keepOriginalBossZones": false,
   "shuffleBossOrder": true,
 
   "raiders":

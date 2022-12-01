@@ -35,6 +35,7 @@ class AllTheBoss implements IPostDBLoadMod
   }
 
   private zoneList = []
+  private originalZones = {}
   private bossList = []
   private bossNames = []
   private raider = []
@@ -175,6 +176,17 @@ class AllTheBoss implements IPostDBLoadMod
     this.zoneList = locations[this.mapDictionary[map]].base.OpenZones.split(',')
     let tempList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
     this.zoneList = tempList
+    let zones = []
+
+    for(let boss in locations[this.mapDictionary[map]].base.BossLocationSpawn)
+    {
+      let thisBoss = locations[this.mapDictionary[map]].base.BossLocationSpawn[boss]
+      if(this.bossNames.includes(thisBoss.BossName) && thisBoss.BossName !== 'sectantPriest')
+      {
+        zones = [...zones, ...thisBoss.BossZone.split(',')]
+      }
+    }
+    this.originalZones[map] = [...new Set(zones)]
   }
 
   private getRandomInt(min :number, max :number):number
@@ -188,6 +200,12 @@ class AllTheBoss implements IPostDBLoadMod
     {
       return 'BotZone'
     }
+
+    if(this.config.keepOriginalBossZones === true && map !== 'Laboratory')
+    {
+      return this.originalZones[map].join(',')
+    }
+
     if (this.zoneList.length < 1)
     {
       this.populateZoneList(map, locations)
