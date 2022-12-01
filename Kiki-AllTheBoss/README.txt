@@ -13,7 +13,10 @@ Horde config will spawn some custom made hordes to ruin your day (good example o
 Config explanation.
 
 debug:  Will output the newely calculated boss waves in the server log. (true / false)
-keepOriginalBossZones: Will limit the zones that the bosses can spawn to zones that can normally spawn a boss in each map.
+keepOriginalBossZones: Will limit the zones that the bosses can spawn to zones that can normally spawn a boss in each map. (true / false)
+randomizeBossZonesEachRaid: When keepOriginalBossZones = false, Each boss gets set a single spawn zone, and the bosses are spread over the map.
+	If randomizeBossZonesEachRaid is set to true then every time you complete a raid, the zone that each boss is assigned will be reselected.
+	This will make make the locations each boss spawns different every raid. (true / false)
 shuffleBossOrder: Will shuffle the order of the boss array (adds less predictability wth spawn order). (true / false)
 
 Raiders and rogues are split into sections with the following options.

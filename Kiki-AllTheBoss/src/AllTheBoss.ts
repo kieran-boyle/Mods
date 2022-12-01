@@ -1,9 +1,11 @@
 import { DependencyContainer } from 'tsyringe'
 import type { ILogger } from '@spt-aki/models/spt/utils/ILogger'
 import type { IPostDBLoadMod } from '@spt-aki/models/external/IPostDBLoadMod'
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from '@spt-aki/servers/DatabaseServer'
+import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
-class AllTheBoss implements IPostDBLoadMod
+class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 {
   private container: DependencyContainer
   private config = require('../config/config.json')
@@ -126,6 +128,46 @@ class AllTheBoss implements IPostDBLoadMod
         this.logger.log(`\n${eachMap} \n${JSON.stringify(locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`, 'yellow', 'black')
       }
     }
+  }
+
+  public preAkiLoad(container: DependencyContainer):void
+  {
+    this.container = container
+    const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
+
+    if(this.config.randomizeBossZonesEachRaid === true)
+    {
+      staticRouterModService.registerStaticRouter(
+        "setBossZones",
+        [
+          {
+            url: "/raid/profile/save",
+            action: (url :string, info :any, sessionId :string, output :string) => 
+            {
+              const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
+              
+              for(let eachMap in locations)
+              {
+                if(eachMap !== 'base')
+                {
+                  for(let boss in locations[eachMap].base.BossLocationSpawn)
+                  {
+                    let thisBoss = locations[eachMap].base.BossLocationSpawn[boss]
+                    thisBoss.BossZone = this.chooseZone(this.getKeyByValue(this.mapDictionary, eachMap), locations)
+                  }
+                }
+              }
+              return output
+            }
+          }
+        ],"aki"
+      )
+    }
+  }
+
+  private getKeyByValue(object :any, value :string)
+  {
+    return Object.keys(object).find(key => object[key] === value)
   }
 
   private populateBossList(locations):void
