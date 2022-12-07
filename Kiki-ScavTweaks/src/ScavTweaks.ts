@@ -14,48 +14,48 @@ class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
-
     staticRouterModService.registerStaticRouter(
       "ScavTweaks",
-      [
+      [{
+        url: "/raid/profile/save",
+        action: (url :string, info :any, sessionId :string, output :string) => 
         {
-          url: "/raid/profile/save",
-          action: (url :string, info :any, sessionId :string, output :string) => 
-          {
-            const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
-            if (info.isPlayerScav === true)
-            {
-              switch (info.exit)
-              {
-                case "survived":
-                  gConfig.SavagePlayCooldown = this.config.ScavTimeIfSurvive
-                  break
-
-                case "runner":
-                  gConfig.SavagePlayCooldown = this.config.ScavTimeRunThrough
-                  break
-
-                case "killed":
-                  gConfig.SavagePlayCooldown = this.config.ScavTimeDead
-                  break
-
-                default:
-                  gConfig.SavagePlayCooldown = this.config.ScavTimeDead
-                  break
-              }
-            }
-            return output
-          }
+          this.setSpawnDelay(info)
+          return output
         }
-      ],"aki"
-    )
+      }],"aki")
+  }
+  
+  private setSpawnDelay(info :any):void
+  {
+    const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
+    if (info.isPlayerScav === true)
+    {
+      switch (info.exit)
+      {
+        case "survived":
+          gConfig.SavagePlayCooldown = this.config.ScavTimeIfSurvive
+          break
+
+        case "runner":
+          gConfig.SavagePlayCooldown = this.config.ScavTimeRunThrough
+          break
+
+        case "killed":
+          gConfig.SavagePlayCooldown = this.config.ScavTimeDead
+          break
+
+        default:
+          gConfig.SavagePlayCooldown = this.config.ScavTimeDead
+          break
+      }
+    }
   }
 
   public postDBLoad(container: DependencyContainer):void
   {
     this.container = container
     const gConfig = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals.config
-
     gConfig.SavagePlayCooldown = this.config.ScavTimeDead
   }  
 }
