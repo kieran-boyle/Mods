@@ -10,7 +10,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   private container: DependencyContainer
   private config = require('../config/config.json')
   private hordeConfig = require('../config/hordeConfig.json')
-  private logger
+  private logger :ILogger
   private sniperFinder = new RegExp(/.*(snip).*/i)
 
   private bossDictionary = {
