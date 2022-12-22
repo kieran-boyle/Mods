@@ -62,28 +62,25 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     {
       this.populateZoneList(eachMap, locations)
 
+      if(this.config.keepOriginalBossZones === true)
+      {
+        this.populateOriginalZones(eachMap, locations)
+      }
+
       if (this.config.maps[eachMap].enabled === true)
       {
         this.setBosses(eachMap, locations)
         this.sanatizeMap(eachMap, locations)
       }
 
-      if (this.config.raiders.boostRaiders.enabled === true)
+      if (this.config.raiders.boostRaiders.enabled === true && (eachMap === 'Reserve' || eachMap === 'Laboratory'))
       {
-
-        if (eachMap === 'Reserve' || eachMap === 'Laboratory')
-        {
-          this.boostSubBoss('raiders', eachMap, locations)
-        }
+        this.boostSubBoss('raiders', eachMap, locations)
       }
 
-      if (this.config.rogues.boostRogues.enabled === true)
+      if (this.config.rogues.boostRogues.enabled === true && eachMap === 'Lighthouse')
       {
-        
-        if (eachMap === 'Lighthouse')
-        {
-          this.boostSubBoss('rogues', eachMap, locations)
-        }
+        this.boostSubBoss('rogues', eachMap, locations)
       }
 
       if (this.config.raiders.addRaiders.enabled === true)
@@ -96,12 +93,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
         this.addSubBoss('rogues', eachMap, locations)
       }
 
-      if(this.hordeConfig.hordesEnabled === true)
+      if(this.hordeConfig.hordesEnabled === true && this.hordeConfig.maps[eachMap].enabled === true)
       {
-        if(this.hordeConfig.maps[eachMap].enabled === true)
-        {
-          this.setBossHordes(eachMap, locations)
-        }
+        this.setBossHordes(eachMap, locations)
       }
 
       if(this.config.shuffleBossOrder === true)
@@ -232,26 +226,27 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   }
 
   /**
-   * Finds all available zones for boss spawns.
+   * Populates zoneList with the maps openZones
    * @param map The map to extract the zones from
    * @param locations The container/locations
    */
   private populateZoneList(map :string, locations :any):void
   {
     this.zoneList = locations[this.mapDictionary[map]].base.OpenZones.split(',')
-    let tempList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
-    this.zoneList = tempList
-    let zones :string[] = [] 
+    this.zoneList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
+  }
 
-    for(let boss in locations[this.mapDictionary[map]].base.BossLocationSpawn)
-    {
-      let thisBoss = locations[this.mapDictionary[map]].base.BossLocationSpawn[boss]
-      if(this.bossNames.includes(thisBoss.BossName) && thisBoss.BossName !== 'sectantPriest')
-      {
-        zones = [...zones, ...thisBoss.BossZone.split(',')]
-      }
-    }
-    this.originalZones[map] = [...new Set(zones)]
+  /**
+   * populates originalZones with bosses original spawn zones
+   * @param map The map to extract the zones from
+   * @param locations The container/locations
+   */
+  private populateOriginalZones(map :string, locations :any):void
+  {
+    let bossLocations = locations[this.mapDictionary[map]].base.BossLocationSpawn
+    bossLocations = bossLocations.filter(boss => this.bossNames.includes(boss.BossName) && boss.BossName !== 'sectantPriest')
+    let bossZones = bossLocations.map(boss => boss.BossZone.split(',')).flat()
+    this.originalZones[map] = [...new Set(bossZones)]
   }
 
   /**
