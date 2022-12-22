@@ -37,7 +37,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   }
 
   private zoneList :string[] = []
-  private originalZones = {}
+  private originalZones :string[] = []
   private bossList :any[] = []
   private bossNames :string[] = []
   private raider :any[] = []
