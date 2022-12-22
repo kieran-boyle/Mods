@@ -1,4 +1,4 @@
-import { DependencyContainer } from 'tsyringe'
+import type { DependencyContainer } from 'tsyringe'
 import type { IPostDBLoadMod } from '@spt-aki/models/external/IPostDBLoadMod'
 import type { DatabaseServer } from '@spt-aki/servers/DatabaseServer'
 
@@ -28,9 +28,10 @@ class smallTweaks implements IPostDBLoadMod
       'lighthouse': 1
     }
 
-    //set the 5 second deploy counter to be instant.
+    //set the 5 second deploy counter to be instant.  Raise flea level to 99
     globals.config.TimeBeforeDeploy = 1
     globals.config.TimeBeforeDeployLocal = 1
+    globals.config.RagFair.minUserLevel = 99
     
     //Open extracts.
     for (let i in locations)
@@ -61,7 +62,7 @@ class smallTweaks implements IPostDBLoadMod
       }
     }
 
-   //Changing maps loots spawn chances multiplier and set raid time to 2 hours.
+   //Changing maps loots spawn chances multiplier and set raid time to 2 hours
     for (let [k, v] of Object.entries(lootConfig))
     {
 
@@ -77,9 +78,14 @@ class smallTweaks implements IPostDBLoadMod
     }
   }
 
-  findEnterences(loc):string
+  /**
+   * Find all entery points in map
+   * @param loc database locations
+   * @returns comma seperated string of all entery points in map
+   */
+  findEnterences(loc :any):string
   {
-    var enterences = []
+    var enterences :string[] = []
 
     for (let exfil in loc.base.exits)
     {
@@ -97,7 +103,12 @@ class smallTweaks implements IPostDBLoadMod
     return enterences.join(',') 
   }
 
-  setLocations(loc, ent)
+  /**
+   * Opens extracts to make available under all conditions
+   * @param loc database locations
+   * @param ent comma seperated string of all entery points in map
+   */
+  setLocations(loc :any, ent :string):void
   {
     for (let x in loc.base.exits) 
     {
