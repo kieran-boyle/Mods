@@ -1,10 +1,10 @@
 {
   "name": "donttalktome",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/dontTalkToMe.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.3.*",
+  "akiVersion": "3.4.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
