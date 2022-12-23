@@ -1,4 +1,4 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
@@ -8,7 +8,7 @@ class ChooseYourSpawn implements IPostDBLoadMod
 
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger
+  private logger :ILogger
   private bugFix = {
     "Id": "e17e24b8-476b-49d0-b420-d9f620bugfix",
     "Position":
@@ -65,7 +65,12 @@ class ChooseYourSpawn implements IPostDBLoadMod
     }
   }
 
-  private sortSpawns(map :string, locations):void
+  /**
+   * Removes any player spawns that are set to false in the config
+   * @param map map
+   * @param locations database/locations
+   */
+  private sortSpawns(map :string, locations :any):void
   {
     //One of the clusters is missing a point (thanks BSG!) breaks the function, so created and pushed new point.
     if (map == "rezervbase")
@@ -74,9 +79,9 @@ class ChooseYourSpawn implements IPostDBLoadMod
     }
 
     let playerSpawns = () => locations[map].base.SpawnPointParams.filter(spawn => spawn.Categories.includes('Player'))
-    let points = []
-    let sorted = []
-    let whitelist = []
+    let points :any[] = []
+    let sorted :any[] = []
+    let whitelist :any[] = []
 
     if (this.config.debug === true)
     {
