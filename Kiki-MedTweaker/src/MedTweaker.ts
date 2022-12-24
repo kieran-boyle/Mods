@@ -9,6 +9,10 @@ class MedTweaker implements IPostDBLoadMod
   private config = require("../config/config.json")
   private logger :ILogger
 
+  /**
+   * Loops through the items and if the parent is a med then sends the item to setMedStats
+   * @param container container
+   */
   public postDBLoad(container: DependencyContainer):void
   {
     this.container = container
@@ -27,6 +31,10 @@ class MedTweaker implements IPostDBLoadMod
     }
   }
 
+  /**
+   * Multiplies the stats of passed in item in accordance to the config 
+   * @param item item
+   */
   private setMedStats(item :any):void
   {
     if (item._props.MaxHpResource) item._props.MaxHpResource *= this.config.MaxHpResource
@@ -36,6 +44,11 @@ class MedTweaker implements IPostDBLoadMod
     if (item._props.effects_health != []) this.setEffects(item, 'effects_health')   
   }
 
+  /**
+   * Multiplies nested stats of the item in accordance to the config
+   * @param item item
+   * @param target 'effects_damage', 'effects_health'
+   */
   private setEffects(item :any, target :string):void
   {
     for (let effect in item._props[target])
