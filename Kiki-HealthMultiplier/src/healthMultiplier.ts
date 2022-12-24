@@ -1,16 +1,16 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
+import type { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger
+  private logger :ILogger
  
   public postDBLoad(container: DependencyContainer):void
   {    
@@ -22,7 +22,6 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         
     for (let eachBot in botTypes)
     {
-
       for (let eachHPSet in botTypes[eachBot].health.BodyParts)
       {
         let thisBot = botTypes[eachBot].health.BodyParts[eachHPSet]
@@ -31,16 +30,12 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         {
           for (let eachPart in thisBot)
           {
-            if (this.config.Player.bodyPartMode.enabled == true)
-            {
-              thisBot[eachPart].min = this.config.Player.bodyPartMode[eachPart]
-              thisBot[eachPart].max = this.config.Player.bodyPartMode[eachPart]
-            }
-            else
-            {
-              thisBot[eachPart].min = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-              thisBot[eachPart].max = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-            }
+            let newHealth = this.config.Player.bodyPartMode.enabled === true ? 
+                            this.config.Player.bodyPartMode[eachPart] : 
+                            Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+            
+            thisBot[eachPart].min = newHealth
+            thisBot[eachPart].max = newHealth            
           }
         }
         else
@@ -145,6 +140,15 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 
   private setProfileHealth(target :any, playerHealth :any):void
   {
+    for (let eachPart in target)
+    {
+      let newHealth = this.config.Player.bodyPartMode.enabled === true ? 
+                      this.config.Player.bodyPartMode[eachPart] : 
+                      Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+      
+      target[eachPart].min = newHealth
+      target[eachPart].max = newHealth            
+    }
     if (target.Health)
     {
       let profileParts = target.Health.BodyParts
