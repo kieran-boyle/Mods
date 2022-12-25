@@ -2,6 +2,5 @@
   "removeZarya": true,
   "removeVog": false,
   "removeImpact": false,
-  "removeAllGrenades": false,
-  "debug": false
+  "removeAllGrenades": false
 }

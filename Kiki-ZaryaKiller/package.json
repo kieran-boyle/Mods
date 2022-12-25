@@ -1,10 +1,10 @@
 {
   "name": "zaryakiller",
-  "version": "3.2.1",
+  "version": "3.3.0",
   "main": "src/ZaryaKiller.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.3.*",
+  "akiVersion": "3.4.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
