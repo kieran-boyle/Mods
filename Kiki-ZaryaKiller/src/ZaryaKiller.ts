@@ -40,15 +40,15 @@ class ZaryaKiller implements IPostDBLoadMod
    * @param input section of bot inventory to search
    */
   private removeGrenades(input :any):void
+  {
+    for(let i = input.length; i > 0; i--)
     {
-      for(let i = input.length; i > 0; i--)
-      {
-        if((this.impacts.includes(input[i]) && this.config.removeImpact === true) 
-          || (this.VOGs.includes(input[i]) && this.config.removeVog === true)
-          || (input[i] === this.zarya && this.config.removeZarya === true))
-            input.splice(i, 1)
-      }
+      if((this.impacts.includes(input[i]) && this.config.removeImpact === true) 
+        || (this.VOGs.includes(input[i]) && this.config.removeVog === true)
+        || (input[i] === this.zarya && this.config.removeZarya === true))
+          input.splice(i, 1)
     }
+  }
 }
 
 module.exports = {mod: new ZaryaKiller()}
