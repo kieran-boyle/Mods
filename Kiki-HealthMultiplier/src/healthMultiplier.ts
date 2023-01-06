@@ -57,7 +57,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
   }
 
   /**
-   * Sets routes to set the profile at game start, and revert back to default on logout
+   * Sets routes to set the profile at game start, scav before raid start, and revert back to default on logout
    * @param container container
    */
   public preAkiLoad(container: DependencyContainer):void
@@ -67,65 +67,52 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 
     staticRouterModService.registerStaticRouter(
       "SetPlayerHealth",
-      [
+      [{
+        url: "/client/game/start",
+        action: (url :string, info :any, sessionId :string, output :string) => 
         {
-          url: "/client/game/start",
-          action: (url :string, info :any, sessionId :string, output :string) => 
-          {
-            const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
-            const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
-            const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
-            this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
-            this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
-            return output
-          }
+          this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+          return output
         }
-      ],
-    "aki"
+      }], "aki"
+    )
+  
+    staticRouterModService.registerStaticRouter(
+      "SetPlayerScavHealth",
+      [{
+        url: "/client/customization", //had to find a route between scav being regenerated, and loaded into the match
+        action: (url :string, info :any, sessionId :string, output :string) => 
+        {
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+
+          this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
+          return output
+        }
+      }], "aki"
     )
 
     staticRouterModService.registerStaticRouter(
       "RevertPlayerHealth",
-      [
+      [{
+        url: "/client/game/logout",
+        action: (url :string, info :any, sessionId :string, output :string) => 
         {
-          url: "/client/game/logout",
-          action: (url :string, info :any, sessionId :string, output :string) => 
-          {
-            const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
-            const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
-            const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
-            this.revertProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
-            this.revertProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
-            return output
-          }
+          this.revertProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+          this.revertProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
+          return output
         }
-      ],
-    "aki"
+      }], "aki"
     )
-  }
-
-  /**
-   * Sets bot health to corresponding config options
-   * @param bot bot
-   * @param configOptions config options
-   */
-  private setBotHealth(bot :any, configOptions :any):void
-  {
-    for (let eachPart in bot)
-    {
-      if (configOptions.bodyPartMode == true)
-      {
-        bot[eachPart].min = configOptions.bodyPartMode[eachPart]
-        bot[eachPart].max = configOptions.bodyPartMode[eachPart]
-      }
-      else
-      {
-        bot[eachPart].min *= configOptions.healthMultiplier
-        bot[eachPart].max *= configOptions.healthMultiplier
-      }
-    }
   }
 
   /**
@@ -154,7 +141,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
    * @param playerHealth container/playerHealth
    */
   private setProfileHealth(target :any, playerHealth :any):void
-  {    
+  {
     for (let eachPart in target.Health.BodyParts)
     {
       let thisPart = target.Health.BodyParts[eachPart]
@@ -169,7 +156,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         thisPart.Health.Current = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
         thisPart.Health.Maximum = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
       }
-    }      
+    }
   }
 
   /**
@@ -189,6 +176,44 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         thisPart.Health.Maximum = playerHealth[eachPart].Maximum
       }
     }    
+  }
+
+  /**
+   * Finds the type of bot to target with the config
+   * @param input bot name
+   * @param botTypes container/bots/types
+   * @returns type of bot
+   */
+  private findBotType(input :string, botTypes :any):string
+  {
+    return input === "bosstest" || input === "test" ? "PMC" :
+      input === "assault" || input === "marksman" ? "Scav" :
+      input === "pmcbot" ? "Raider" :
+      input === "exusec" ? "Rogue" :
+      botTypes[input].experience.reward.min >= 1000 ? "Boss" :
+      "Follower"    
+  }
+
+  /**
+ * Sets bot health to corresponding config options
+ * @param bot bot
+ * @param configOptions config options
+ */
+  private setBotHealth(bot :any, configOptions :any):void
+  {
+    for (let eachPart in bot)
+    {
+      if (configOptions.bodyPartMode.enabled === true)
+      {
+        bot[eachPart].min = configOptions.bodyPartMode[eachPart]
+        bot[eachPart].max = configOptions.bodyPartMode[eachPart]
+      }
+      else
+      {
+        bot[eachPart].min *= configOptions.healthMultiplier
+        bot[eachPart].max *= configOptions.healthMultiplier
+      }
+    }
   }
 
   /**
@@ -212,22 +237,6 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
       }
     }
   }
-
-  /**
-   * Finds the type of bot to target with the config
-   * @param input bot name
-   * @param botTypes container/bots/types
-   * @returns type of bot
-   */
-  private findBotType(input :string, botTypes :any):string
-  {
-    return input === "bosstest" || input === "test" ? "PMC" :
-      input === "assault" || input === "marksman" ? "Scav" :
-      input === "pmcbot" ? "Raider" :
-      input === "exusec" ? "Rogue" :
-      botTypes[input].experience.reward.min >= 1000 ? "Boss" :
-      "Follower"    
-  }  
 }
 
 module.exports = {mod: new HealthMultiplier()}
