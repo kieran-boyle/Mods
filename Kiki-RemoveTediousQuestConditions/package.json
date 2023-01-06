@@ -1,10 +1,10 @@
 {
   "name": "removetediousquestconditions",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "main": "src/RemoveTediousQuestConditions.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.3.*",
+  "akiVersion": "3.4.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
