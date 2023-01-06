@@ -1,9 +1,9 @@
 {
-  "AllEqualToPlayer": true,
+  "AllEqualToPlayer": false,
 
   "Player":
   {
-    "enabled": true,
+    "enabled": false,
     "bodyPartMode":
     {
       "enabled": false,

@@ -1,11 +1,10 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 
 class MysteriousKeys implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private debug = false
 
   public postDBLoad(container: DependencyContainer):void
   {

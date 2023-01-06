@@ -1,4 +1,4 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
@@ -7,11 +7,10 @@ class CameraRecoilRemover implements IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger
+  private logger :ILogger
 
   public postDBLoad(container: DependencyContainer):void
   {
-
     this.container = container    
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const items = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.items
@@ -28,7 +27,6 @@ class CameraRecoilRemover implements IPostDBLoadMod
 
     for (let eachItem in items)
     {
-
       if (weaponClassList.includes(items[eachItem]._props.weapClass))
       {
         items[eachItem]._props.CameraRecoil *= this.config.CameraRecoil

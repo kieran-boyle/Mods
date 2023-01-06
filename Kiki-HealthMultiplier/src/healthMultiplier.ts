@@ -1,17 +1,33 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
+import type { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
 import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger
- 
+  private logger :ILogger
+  private bossDictionary = {
+    "bossgluhar": "Gluhar",
+    "bosskojaniy": "Shturman",
+    "bosssanitar": "Sanitar",
+    "bossbully": "Reshala",
+    "bosskilla": "Killa",
+    "bosstagilla": "Tagilla",
+    "sectantpriest": "Cultist",
+    "bossknight" : "Knight",
+    "followerbigpipe" : "BigPipe",
+    "followerbirdeye" : "BirdEye"
+  }
+
+  /**
+   * Loops through bots and sends each to be set to the corresponding config option
+   * @param container container
+   */
   public postDBLoad(container: DependencyContainer):void
   {    
     this.container = container
@@ -22,76 +38,28 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         
     for (let eachBot in botTypes)
     {
-
       for (let eachHPSet in botTypes[eachBot].health.BodyParts)
       {
         let thisBot = botTypes[eachBot].health.BodyParts[eachHPSet]
 
         if (this.config.AllEqualToPlayer == true)
         {
-          for (let eachPart in thisBot)
-          {
-            if (this.config.Player.bodyPartMode.enabled == true)
-            {
-              thisBot[eachPart].min = this.config.Player.bodyPartMode[eachPart]
-              thisBot[eachPart].max = this.config.Player.bodyPartMode[eachPart]
-            }
-            else
-            {
-              thisBot[eachPart].min = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-              thisBot[eachPart].max = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-            }
-          }
+          this.setBotHealthToPlayers(thisBot, playerHealth)
         }
         else
         {
-          var dict = function(input :string):string
-          {
-            return input === "bosstest" || input === "test" ? "PMC" :
-              input === "assault" || input === "marksman" ? "Scav" :
-              input === "pmcbot" ? "Raider" :
-              input === "exusec" ? "Rogue" :
-              botTypes[input].experience.reward.min >= 1000 ? "Boss" :
-              "Follower"
-          }
-
-          const bossDictionary = {
-            "bossgluhar": "Gluhar",
-            "bosskojaniy": "Shturman",
-            "bosssanitar": "Sanitar",
-            "bossbully": "Reshala",
-            "bosskilla": "Killa",
-            "bosstagilla": "Tagilla",
-            "sectantpriest": "Cultist",
-            "bossknight" : "Knight",
-            "followerbigpipe" : "BigPipe",
-            "followerbirdeye" : "BirdEye"
-          }
-
-          let type = dict(eachBot)
-          let mode :boolean
-
-          if (type === "Boss")
-          {
-            if (this.config.Boss[bossDictionary[eachBot]].enabled == true)
-            {
-              mode = this.config.Boss[bossDictionary[eachBot]].bodyPartMode.enabled
-              this.setBotHealth(thisBot, this.config.Boss[bossDictionary[eachBot]], mode)
-            }
-          }
-          else
-          {
-            if (this.config[type].enabled == true)
-            {
-              mode = this.config[type].bodyPartMode.enabled
-              this.setBotHealth(thisBot, this.config[type], mode)
-            }
-          }
+          let type = this.findBotType(eachBot, botTypes)
+          let configOption = type === "Boss" ? this.config.Boss[this.bossDictionary[eachBot]] : this.config[type]
+          this.setBotHealth(thisBot, configOption)                      
         }
       }
     }
   }
 
+  /**
+   * Sets routes to set the profile at game start, scav before raid start, and revert back to default on logout
+   * @param container container
+   */
   public preAkiLoad(container: DependencyContainer):void
   {
     this.container = container
@@ -99,77 +67,174 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 
     staticRouterModService.registerStaticRouter(
       "SetPlayerHealth",
-      [
+      [{
+        url: "/client/game/start",
+        action: (url :string, info :any, sessionId :string, output :string) => 
         {
-          url: "/client/game/start",
-          action: (url :string, info :any, sessionId :string, output :string) => 
-          {
-            const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
-            const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
-            this.setProfiles(sessionId, playerHealth)
-            return output
-          }
+          this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+          return output
         }
-      ],
-    "aki"
+      }], "aki"
+    )
+  
+    staticRouterModService.registerStaticRouter(
+      "SetPlayerScavHealth",
+      [{
+        url: "/client/customization", //had to find a route between scav being regenerated, and loaded into the match
+        action: (url :string, info :any, sessionId :string, output :string) => 
+        {
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+
+          this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
+          return output
+        }
+      }], "aki"
+    )
+
+    staticRouterModService.registerStaticRouter(
+      "RevertPlayerHealth",
+      [{
+        url: "/client/game/logout",
+        action: (url :string, info :any, sessionId :string, output :string) => 
+        {
+          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+          const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+
+          this.revertProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+          this.revertProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
+          return output
+        }
+      }], "aki"
     )
   }
 
-  private setProfiles(sessionId :string, playerHealth :any):void
-  {
-    const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
-    let pmcData = profileHelper.getPmcProfile(sessionId)
-    let scavData = profileHelper.getScavProfile(sessionId)
-
-    this.setProfileHealth(pmcData, playerHealth)
-    this.setProfileHealth(scavData, playerHealth)
-  }
-
-  private setBotHealth(bot :any, target :any, bodyPartMode :boolean):void
-  {
-    for (let eachPart in bot)
-    {
-      if (bodyPartMode == true)
-      {
-        bot[eachPart].min = target.bodyPartMode[eachPart]
-        bot[eachPart].max = target.bodyPartMode[eachPart]
-      }
-      else
-      {
-        bot[eachPart].min *= target.healthMultiplier
-        bot[eachPart].max *= target.healthMultiplier
-      }
-    }
-  }
-
-  private setProfileHealth(target :any, playerHealth :any):void
+  /**
+   * Checks the profile has been created then sends to setProfileHealth
+   * @param target pmc or scav profile
+   * @param playerHealth container/playerHealth
+   */
+  private checkProfileHealth(target :any, playerHealth :any):void
   {
     if (target.Health)
     {
-      let profileParts = target.Health.BodyParts
-
       if (this.config.Player.enabled === true)
       {
-        for (let eachPart in profileParts)
-        {
-          if (this.config.Player.bodyPartMode.enabled === true)
-          {
-            profileParts[eachPart].Health.Current = this.config.Player.bodyPartMode[eachPart]
-            profileParts[eachPart].Health.Maximum = this.config.Player.bodyPartMode[eachPart]
-
-          }
-          else
-          {
-            profileParts[eachPart].Health.Current = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-            profileParts[eachPart].Health.Maximum = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
-          }
-        }
+        this.setProfileHealth(target, playerHealth)
       }
     }
     else
     {
       this.logger.log(`[Kiki-HealthMultiplier] : Warning, player health values will not be applied on the first run with a fresh profile.\nPlease reboot the game after you have created your character`, "yellow", "red")
+    }
+  }
+
+  /**
+   * Sets health in pmc or scav profile to corresponding config options
+   * @param target pmc or scav profile
+   * @param playerHealth container/playerHealth
+   */
+  private setProfileHealth(target :any, playerHealth :any):void
+  {
+    for (let eachPart in target.Health.BodyParts)
+    {
+      let thisPart = target.Health.BodyParts[eachPart]
+
+      if (this.config.Player.bodyPartMode.enabled === true)
+      {
+        thisPart.Health.Current = this.config.Player.bodyPartMode[eachPart]
+        thisPart.Health.Maximum = this.config.Player.bodyPartMode[eachPart]
+      }
+      else
+      {
+        thisPart.Health.Current = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+        thisPart.Health.Maximum = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+      }
+    }
+  }
+
+  /**
+   * Reverts players health back to original values
+   * Credit to MaxBIT for the idea from https://hub.sp-tarkov.com/files/file/667-hiwl/
+   * @param target pmc or scav profile
+   * @param playerHealth container/playerHealth
+   */
+  private revertProfileHealth(target :any, playerHealth :any):void
+  {
+    if (target.Health)
+    {
+      for(let eachPart in target.Health.BodyParts)
+      {
+        let thisPart = target.Health.BodyParts[eachPart]
+        thisPart.Health.Current = playerHealth[eachPart].Maximum
+        thisPart.Health.Maximum = playerHealth[eachPart].Maximum
+      }
+    }    
+  }
+
+  /**
+   * Finds the type of bot to target with the config
+   * @param input bot name
+   * @param botTypes container/bots/types
+   * @returns type of bot
+   */
+  private findBotType(input :string, botTypes :any):string
+  {
+    return input === "bosstest" || input === "test" ? "PMC" :
+      input === "assault" || input === "marksman" ? "Scav" :
+      input === "pmcbot" ? "Raider" :
+      input === "exusec" ? "Rogue" :
+      botTypes[input].experience.reward.min >= 1000 ? "Boss" :
+      "Follower"    
+  }
+
+  /**
+ * Sets bot health to corresponding config options
+ * @param bot bot
+ * @param configOptions config options
+ */
+  private setBotHealth(bot :any, configOptions :any):void
+  {
+    for (let eachPart in bot)
+    {
+      if (configOptions.bodyPartMode.enabled === true)
+      {
+        bot[eachPart].min = configOptions.bodyPartMode[eachPart]
+        bot[eachPart].max = configOptions.bodyPartMode[eachPart]
+      }
+      else
+      {
+        bot[eachPart].min *= configOptions.healthMultiplier
+        bot[eachPart].max *= configOptions.healthMultiplier
+      }
+    }
+  }
+
+  /**
+   * Sets bots health to be equal to that of the players
+   * @param thisBot bot to change
+   * @param playerHealth container/playerHealth
+   */
+  private setBotHealthToPlayers(thisBot :any, playerHealth :any):void
+  {
+    for (let eachPart in thisBot)
+    {
+      if (this.config.Player.bodyPartMode.enabled == true)
+      {
+        thisBot[eachPart].min = this.config.Player.bodyPartMode[eachPart]
+        thisBot[eachPart].max = this.config.Player.bodyPartMode[eachPart]
+      }
+      else
+      {
+        thisBot[eachPart].min = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+        thisBot[eachPart].max = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+      }
     }
   }
 }

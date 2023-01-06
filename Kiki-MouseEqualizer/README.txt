@@ -1,2 +1,0 @@
-Sets the mouse sensitivity for all optics and all zoom levels, to MouseSensitivity in the config (float between 0.00 and 1, eg 0.65)
-RemoveGearPenalties will remove any mouse sensitivty debuffs from heavier gear.

@@ -1,4 +1,4 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 
@@ -30,6 +30,10 @@ class dontTalkToMe implements IPostDBLoadMod
     }
   }
 
+  /**
+   * Sets the Mind.CAN_TALK of given bot to false 
+   * @param bot bot to silence
+   */
   private shutUp(bot :any):void
   {
     for(let i in bot.difficulty)

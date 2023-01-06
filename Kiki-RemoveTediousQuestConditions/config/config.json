@@ -1,13 +1,15 @@
 {
-  "weaponModsInclusive": false,
-  "weaponModsExclusive": false,
-  "weapon": false,
-  "equipmentInclusive": false,
-  "equipmentExclusive": false,
-  "distance": false,
-  "bodyPart": false,
-  "Location" : false,
-  "InZone": false,
-  "setPMC": false,
-  "debug" : false
+  "weaponModsInclusive": true,
+  "weaponModsExclusive": true,
+  "weapon": true,
+  "equipmentInclusive": true,
+  "equipmentExclusive": true,
+  "distance": true,
+  "bodyPart": true,
+  "Location" : true,
+  "InZone": true,
+  "setPMC": true,
+  "VisitPlace": true,
+  "HealthEffect": true,
+  "debug" : true
 }

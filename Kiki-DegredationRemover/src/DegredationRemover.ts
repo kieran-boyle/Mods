@@ -1,14 +1,16 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes"
+import { ConfigServer } from "@spt-aki/servers/ConfigServer"
 
 class DegredationRemover implements IPostDBLoadMod
 {
 
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger;
+  private logger :ILogger
 
   public postDBLoad(container: DependencyContainer):void
   {
@@ -16,7 +18,16 @@ class DegredationRemover implements IPostDBLoadMod
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const traders = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().traders
+    const traderConfig  = this.container.resolve<ConfigServer>("ConfigServer").getConfig(ConfigTypes.TRADER)
 
+    if (this.config.fullDurabilityFence) //All items from fence can be fully repaired to 100% durability
+    {
+      traderConfig.fence.presetMaxDurabilityPercentMinMax.min = 100
+      traderConfig.fence.presetMaxDurabilityPercentMinMax.max = 100
+      traderConfig.fence.armorMaxDurabilityPercentMinMax.min = 100
+      traderConfig.fence.armorMaxDurabilityPercentMinMax.max = 100
+    }
+    
     for (let eachTrader in traders)
     {
       let base = traders[eachTrader].base

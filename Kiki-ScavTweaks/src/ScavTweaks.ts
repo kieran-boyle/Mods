@@ -1,12 +1,11 @@
-import { DependencyContainer } from "tsyringe"
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import type{ DependencyContainer } from "tsyringe"
+import type{ IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
+import type { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
 {
-
   private container: DependencyContainer
   private config = require("../config/config.json")
 

@@ -1,5 +1,6 @@
 {
   "repairPriceMultiplier": 1,
   "qualityMultiplier": 0,
+  "fullDurabilityFence": true,
   "debug": false
 }

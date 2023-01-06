@@ -1,4 +1,4 @@
-import { DependencyContainer } from "tsyringe"
+import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
@@ -7,24 +7,15 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
-  private logger
-  private conditionFirstWord = [
-    'Eliminate',
-    'Headshot',
-    'Make'
-  ]
-  private conditionTargetWord = [
-    'while',
-    'with',
-    'without'
-  ]
+  private logger :ILogger
+  private loggerBuffer :string[] = []
 
-  public postDBLoad(container: DependencyContainer):void
+  public postDBLoad(container :DependencyContainer):void
   {
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const quests = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.quests
-    const conditionsToRemove = []
+    const conditionsToRemove :string[] = []    
 
     for (let eachOption in this.config)
     {
@@ -40,11 +31,11 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
             break
 
           case 'Location':
-            this.removeNested('Location', this.logger, quests)
-            break
-
           case 'InZone':
-            this.removeNested('InZone', this.logger, quests)
+          case 'VisitPlace':
+          case 'Shots':
+          case 'HealthEffect':
+            this.findCounterCreators(eachOption, quests)
             break
 
           default:
@@ -56,72 +47,73 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
 
     conditionsToRemove.forEach(condition =>
     {
-
-      if (this.config.debug === true)
-      {
-        this.logger.log(`\n${condition}\n`, 'green', 'black')
-      }
-      for (let eachQuest in quests)
-      {
-        this.keyClearer(quests[eachQuest], condition, eachQuest, this.logger, quests)
-      }
+      if (this.config.debug === true) this.logger.info(`\n${condition}`)
+      for (let eachQuest in quests) this.keyClearer(quests[eachQuest], condition, eachQuest, quests)
+      if (this.config.debug === true && this.loggerBuffer.length > 0) this.logger.info([... new Set(this.loggerBuffer)])
+      this.loggerBuffer = []  
     })
   }
 
-  //Recursive function that clears a given keys value to [] in a nested object.
-  private keyClearer(object :any, key :string, questId :string, logger :any, quests :any):void
+  /**
+   * Recursive function that clears a given keys value to [] in a nested object
+   * @param object object to search thorugh
+   * @param key key to find
+   * @param questId questId for logging
+   * @param quests container/database/quests
+   */
+  private keyClearer(object :any, key :string, questId :string, quests :any):void
   {
-
     if (Object.prototype.hasOwnProperty.call(object, key))
     {
       key !== 'distance' ? object[key] = [] : object[key].value = 0
-      
-      if (this.config.debug === true)
-      {
-        logger.log(`${quests[questId].QuestName}`, 'green', 'black')
-      }
+      this.loggerBuffer.push(quests[questId].QuestName)
     }
 
     for (var i = 0; i < Object.keys(object).length; i++)
     {
       if (typeof object[Object.keys(object)[i]] == 'object')
       {
-        this.keyClearer(object[Object.keys(object)[i]], key, questId, logger, quests)
+        this.keyClearer(object[Object.keys(object)[i]], key, questId, quests)
       }
-    }
+    }  
   }
 
-  private removeNested(target :string, logger :any, quests: any):void
+  /**
+   * Passes any quests with _parent of CounterCreator to removeNested()
+   * @param target key to search for
+   * @param quests container/database/quests
+   */
+  private findCounterCreators(target :string, quests :any):void
   {
-    if (this.config.debug === true)
-    {
-      logger.log(`\n${target}s\n`, 'green', 'black')
-    }
+    if (this.config.debug === true) this.logger.info(`\n${target}`)  
+    
     for (let eachQuest in quests)
     {
       for (let eachCondition in quests[eachQuest].conditions.AvailableForFinish)
       {
-        let thisCondition = quests[eachQuest].conditions.AvailableForFinish[eachCondition]
-
-        if (thisCondition._parent === 'CounterCreator')
-        {
-          for (let condition = Object.keys(thisCondition._props.counter.conditions).length; condition--; condition < 0)
-          {
-            let finalCondition = thisCondition._props.counter.conditions[condition]
-
-            if (finalCondition._parent === target)
-            {
-              thisCondition._props.counter.conditions.splice(condition, 1)
-              
-              if (this.config.debug === true)
-              {
-                logger.log(quests[eachQuest].QuestName, 'green', 'black')
-              }
-            }
-          }
-        }
+        if(quests[eachQuest].conditions.AvailableForFinish[eachCondition]._parent === 'CounterCreator')
+          this.removeNested(quests[eachQuest].conditions.AvailableForFinish[eachCondition], target, quests[eachQuest].QuestName)
       }      
     }
+    if (this.config.debug === true && this.loggerBuffer.length > 0) this.logger.info([... new Set(this.loggerBuffer)])
+    this.loggerBuffer = []
+  }
+
+  /**
+   * Finds object with parent of target and removes
+   * @param input each condition in CounterCreator
+   * @param target the _parent condition to find
+   * @param questName the name fo the quest for logging
+   */
+   private removeNested(input :any, target :string, questName :string):void 
+   {
+    let thisCondition = input._props.counter.conditions
+    thisCondition.filter((finalCondition :any) => finalCondition._parent === target)
+      .forEach((finalCondition :any) => 
+      {
+        thisCondition.splice(thisCondition.indexOf(finalCondition), 1)
+        this.loggerBuffer.push(questName)
+      })
   }
 }
 

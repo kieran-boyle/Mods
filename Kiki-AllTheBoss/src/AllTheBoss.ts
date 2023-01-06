@@ -37,13 +37,17 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   }
 
   private zoneList :string[] = []
-  private originalZones = {}
+  private originalZones :string[] = []
   private bossList :any[] = []
   private bossNames :string[] = []
   private raider :any[] = []
   private rogue :any[] = []
   private thisMap :any[] = []
 
+  /**
+   * Loops through the configs, adding any required bosses to thismap[] then merges with the maps BossLocationSpawn[]
+   * @param container container
+   */
   public postDBLoad(container: DependencyContainer):void
   {
     this.container = container
@@ -58,28 +62,25 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     {
       this.populateZoneList(eachMap, locations)
 
+      if(this.config.keepOriginalBossZones === true)
+      {
+        this.populateOriginalZones(eachMap, locations)
+      }
+
       if (this.config.maps[eachMap].enabled === true)
       {
         this.setBosses(eachMap, locations)
         this.sanatizeMap(eachMap, locations)
       }
 
-      if (this.config.raiders.boostRaiders.enabled === true)
+      if (this.config.raiders.boostRaiders.enabled === true && (eachMap === 'Reserve' || eachMap === 'Laboratory'))
       {
-
-        if (eachMap === 'Reserve' || eachMap === 'Laboratory')
-        {
-          this.boostSubBoss('raiders', eachMap, locations)
-        }
+        this.boostSubBoss('raiders', eachMap, locations)
       }
 
-      if (this.config.rogues.boostRogues.enabled === true)
+      if (this.config.rogues.boostRogues.enabled === true && eachMap === 'Lighthouse')
       {
-        
-        if (eachMap === 'Lighthouse')
-        {
-          this.boostSubBoss('rogues', eachMap, locations)
-        }
+        this.boostSubBoss('rogues', eachMap, locations)
       }
 
       if (this.config.raiders.addRaiders.enabled === true)
@@ -92,12 +93,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
         this.addSubBoss('rogues', eachMap, locations)
       }
 
-      if(this.hordeConfig.hordesEnabled === true)
+      if(this.hordeConfig.hordesEnabled === true && this.hordeConfig.maps[eachMap].enabled === true)
       {
-        if(this.hordeConfig.maps[eachMap].enabled === true)
-        {
-          this.setBossHordes(eachMap, locations)
-        }
+        this.setBossHordes(eachMap, locations)
       }
 
       if(this.config.shuffleBossOrder === true)
@@ -105,6 +103,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
         this.shuffleArray(this.thisMap)
       }
 
+      //Set the maps BossLocationSpawn[] and clear thisMap[]
       locations[this.mapDictionary[eachMap]].base.BossLocationSpawn = [...locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
       this.thisMap = []
       
@@ -115,6 +114,10 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * If randomizeBossZonesEachRaid is enabled, randomizes each bosses spawn zone each raid with setBossZones()
+   * @param container Container
+   */
   public preAkiLoad(container: DependencyContainer):void
   {
     this.container = container
@@ -137,6 +140,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Randomizes each bosses spawn zone
+   */
   private setBossZones():void
   {
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
@@ -154,11 +160,23 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+     * Return the key from the provided value in an object
+     * Used as a reverse dictionary search
+     * @param object The object to search
+     * @param value The value to search for
+     * @returns The key that holds the value
+     */
   private getKeyByValue(object :any, value :any):any
   {
     return Object.keys(object).find(key => object[key] === value)
   }
 
+  /**
+   * Searches through the boss waves of each map, if each boss is not already found
+   * It then copies the boss object to bossList, and the name to BossNames for quick reference
+   * @param locations The container/locations
+   */
   private populateBossList(locations :any):void
   {      
     for (let map in this.config.maps)
@@ -184,6 +202,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Makes a copy of the target sub-boss
+   * @param target 'raider' or 'rogue'
+   * @param locations The container/locations
+   */
   private cloneSubBoss(target :string, locations :any):void
   {
     let loc = target === 'raider' ? 'rezervbase' : 'lighthouse'
@@ -202,29 +225,46 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this[target].BossEscortAmount = 0
   }
 
+  /**
+   * Populates zoneList with the maps openZones
+   * @param map The map to extract the zones from
+   * @param locations The container/locations
+   */
   private populateZoneList(map :string, locations :any):void
   {
     this.zoneList = locations[this.mapDictionary[map]].base.OpenZones.split(',')
-    let tempList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
-    this.zoneList = tempList
-    let zones :string[] = [] 
-
-    for(let boss in locations[this.mapDictionary[map]].base.BossLocationSpawn)
-    {
-      let thisBoss = locations[this.mapDictionary[map]].base.BossLocationSpawn[boss]
-      if(this.bossNames.includes(thisBoss.BossName) && thisBoss.BossName !== 'sectantPriest')
-      {
-        zones = [...zones, ...thisBoss.BossZone.split(',')]
-      }
-    }
-    this.originalZones[map] = [...new Set(zones)]
+    this.zoneList = this.zoneList.filter(zone => !zone.match(this.sniperFinder)) //Thanks REV!
   }
 
+  /**
+   * populates originalZones with bosses original spawn zones
+   * @param map The map to extract the zones from
+   * @param locations The container/locations
+   */
+  private populateOriginalZones(map :string, locations :any):void
+  {
+    let bossLocations = locations[this.mapDictionary[map]].base.BossLocationSpawn
+    bossLocations = bossLocations.filter(boss => this.bossNames.includes(boss.BossName) && boss.BossName !== 'sectantPriest')
+    let bossZones = bossLocations.map(boss => boss.BossZone.split(',')).flat()
+    this.originalZones[map] = [...new Set(bossZones)]
+  }
+
+  /**
+   * @param min Min
+   * @param max Max
+   * @returns Random int between min and max
+   */
   private getRandomInt(min :number, max :number):number
   {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
+  /**
+   * Pick a random zone from zoneList
+   * @param map Map
+   * @param locations The container/locations
+   * @returns Random zone
+   */
   private chooseZone(map :string, locations :any):string
   {
     if(map === 'FactoryDay' || map === 'FactoryNight')
@@ -248,6 +288,13 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     return `${thisZone}`
   }
 
+  /**
+   * Finds the specified boss in bossList and pushes a copy to thisMap with the chance and zone set
+   * @param name Name of boss
+   * @param chance Chance to spawn
+   * @param map Map
+   * @param locations The container/locations 
+   */
   private getBoss(name :string, chance :number, map :string, locations :any):void
   {
     for (let eachBoss of this.bossList)
@@ -262,6 +309,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Loops through the maps potential bosses, and sets those required to spawn with getboss()
+   * @param map Map
+   * @param locations The container/locations
+   */
   private setBosses(map :string, locations :any):void
   {
     for (let eachBoss in this.config.maps[map].bossList)
@@ -276,6 +328,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Removes any unwanted bosses from the maps original bossSpawns[]
+   * @param map Map
+   * @param locations The container/locations
+   */
   private sanatizeMap(map :string, locations :any):void
   {
     for (let i = Object.keys(locations[this.mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
@@ -291,6 +348,12 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Sets the chance, time and escort amount for raiders / rogues in the maps original bossSpawns[]
+   * @param target 'raider' / 'rogue' 
+   * @param map Map
+   * @param locations The container/locations
+   */
   private boostSubBoss(target :string, map :string, locations :any):void
   {
     let targetType = target === 'raiders' ? 'boostRaiders' : 'boostRogues'
@@ -303,6 +366,12 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Add additional raider / rogue groups to the map.
+   * @param target 'raider' / 'rogue' 
+   * @param map Map
+   * @param locations The container/locations
+   */
   private addSubBoss(target :string, map :string, locations :any):void
   {
     let targetType = target === 'raiders' ? 'addRaiders' : 'addRogues'
@@ -319,6 +388,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Add any boss hordes requested in the hordeConfig
+   * @param map Map
+   * @param locations The container/locations
+   */
   private setBossHordes(map :string, locations :any):void
   {
     if(this.hordeConfig.maps[map].addRandomHorde.enabled === true)
@@ -339,6 +413,15 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Adds a boss horde to thisMap
+   * @param target Boss to use as leader
+   * @param map Map
+   * @param chance Spawn chance
+   * @param escorts Comma seperated string with the names of the bosses to escort the leader
+   * @param escortAmounts Comma seperated string with the ammount of each escort
+   * @param locations The container/locations
+   */
   private addBossHorde(target :string, map :string, chance :number, escorts :string, escortAmounts :string, locations :any):void
   {
     let myEscorts = escorts.split(',')
@@ -362,6 +445,13 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
   }
 
+  /**
+   * Add a randomized boss horde using addBossHorde()
+   * @param minimumSupports Minimum number of supports
+   * @param maximumSupports Maximum number of supports
+   * @param map Map
+   * @param locations The container/locations
+   */
   private addRandomHorde(minimumSupports :number, maximumSupports :number, map :string, locations :any):void
   {
     let options = [
@@ -378,7 +468,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     options.splice(bigBossindex, 1)
   
     let tally = 0
-    let supports :string[]= []
+    let supports :string[] = []
     let supportAmmounts :number[] = []
     let done = false
 
@@ -395,11 +485,15 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
   }
 
+  /**
+   * Shuffles elements in an array into a random order
+   * @param array Array
+   */
   private shuffleArray(array :any):void
   {
     for (var i = array.length - 1; i > 0; i--) 
     {
-      var j = Math.floor(Math.random() * (i + 1))
+      var j = this.getRandomInt(0, i + 1)
       var temp = array[i]
       array[i] = array[j]
       array[j] = temp
