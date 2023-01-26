@@ -22,7 +22,9 @@ class CameraRecoilRemover implements IPostDBLoadMod
       "assaultCarbine",
       "machinegun",
       "marksmanRifle",
-      "sniperRifle"
+      "sniperRifle",
+      "grenadeLauncher",
+      "specialWeapon"
     ]
 
     for (let eachItem in items)
