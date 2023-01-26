@@ -4,7 +4,7 @@ import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 import type { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
-import type {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
+import type { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 {
@@ -23,6 +23,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     "followerbigpipe" : "BigPipe",
     "followerbirdeye" : "BirdEye"
   }
+  private GPlayerHealth
 
   /**
    * Loops through bots and sends each to be set to the corresponding config option
@@ -35,7 +36,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
     const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
     const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
-        
+    this.GPlayerHealth = playerHealth
     for (let eachBot in botTypes)
     {
       for (let eachHPSet in botTypes[eachBot].health.BodyParts)
@@ -103,12 +104,10 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         url: "/client/game/logout",
         action: (url :string, info :any, sessionId :string, output :string) => 
         {
-          const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
           const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
-          const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
-          this.revertProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
-          this.revertProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
+          this.revertProfileHealth(profileHelper.getPmcProfile(sessionId), this.GPlayerHealth)
+          this.revertProfileHealth(profileHelper.getScavProfile(sessionId), this.GPlayerHealth)
           return output
         }
       }], "aki"
