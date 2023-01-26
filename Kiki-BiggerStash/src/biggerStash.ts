@@ -15,16 +15,16 @@ class biggerStash implements IPostDBLoadMod
     this.container = container    
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const items = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.items
-    const stashes = [
-      "566abbc34bdc2d92178b4576", //Standard stash 10x28
-      "5811ce572459770cba1a34ea", //Left Behind stash 10x38
-      "5811ce662459770f6f490f32", //Prepare for escape stash 10x48
-      "5811ce772459770e9e5f9532" //Edge of darkness stash 10x68
-    ]    
+    const stashes = {
+      "566abbc34bdc2d92178b4576" : 'Standard', //Standard stash 10x28
+      "5811ce572459770cba1a34ea" : 'LeftBehind', //Left Behind stash 10x38
+      "5811ce662459770f6f490f32" : 'PrepareForEscape', //Prepare for escape stash 10x48
+      "5811ce772459770e9e5f9532" : 'Edge of darkness' //Edge of darkness stash 10x68
+    }
 
-    for (let stash of stashes)
+    for (let [stash, name] of Object.entries(stashes))
     {
-      let newSize = this.config.ChangeAll !== false ? this.config.ChangeAll : this.config[stash].size
+      let newSize = this.config.ChangeAll !== "false" ? parseInt(this.config.ChangeAll) : parseInt(this.config[name])
       items[stash]._props.Grids[0]._props.cellsV = newSize
     
       if(this.config.debug === true)

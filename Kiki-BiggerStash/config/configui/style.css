@@ -1,0 +1,40 @@
+.body{
+  display: flex;
+  flex-direction: row;
+}
+
+.CA {
+  flex-basis: 90%;
+  background-color: blue;
+  border: 10px;
+}
+
+.debug{
+  flex-basis: 10%;
+  background-color: rgb(72, 255, 0);
+  border: 10px;
+}
+
+.stand{
+  flex-basis: 25%;
+  background-color: rgb(93, 93, 216);
+  margin: 10px;
+}
+
+.LB{
+  flex-basis: 25%;
+  background-color: rgb(131, 4, 99);
+  margin: 10px;
+}
+
+.PFE{
+  flex-basis: 25%;
+  background-color: rgb(204, 201, 48);
+  margin: 10px;
+}
+
+.EOD{
+  flex-basis: 25%;
+  background-color: rgb(255, 30, 0);
+  margin: 10px;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "configui",
+  "version": "1.0.0",
+  "description": "A simple UI for config.json",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kiki",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^22.0.3"
+  }
+}
