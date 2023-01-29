@@ -1,40 +1,94 @@
 .body{
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 50px repeat(2, 1fr);
+  grid-template-areas: "topbar topbar" "left-top right-top" "left-bottom right-bottom";
+  height: 100vh;
+}
+
+.topbar{
+  grid-area: topbar;
+  display: grid;
+  grid-template-columns: 9fr 1fr;
+  grid-template-areas: "CA debug"
 }
 
 .CA {
-  flex-basis: 90%;
-  background-color: blue;
-  border: 10px;
+  grid-area: CA;
+  background-color: aqua;
+  height: 50px;
 }
 
 .debug{
-  flex-basis: 10%;
-  background-color: rgb(72, 255, 0);
-  border: 10px;
+  grid-area: debug;
+  background-color: yellow;  
+  height: 50px;
 }
 
 .stand{
-  flex-basis: 25%;
-  background-color: rgb(93, 93, 216);
-  margin: 10px;
+  display: grid;
+  grid-area: left-top;
+  background-color: lightblue;
+  grid-template-rows: 7fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "spacer" "stashlabelsstand" "stashinputsstand" "margin";
 }
 
 .LB{
-  flex-basis: 25%;
-  background-color: rgb(131, 4, 99);
-  margin: 10px;
+  display: grid;
+  grid-area: right-top;
+  background-color: pink;
+  grid-template-rows: 7fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "spacer" "stashlabelsLB" "stashinputsLB" "margin";
 }
 
 .PFE{
-  flex-basis: 25%;
-  background-color: rgb(204, 201, 48);
-  margin: 10px;
+  display: grid;
+  grid-area: left-bottom;
+  background-color: lightgreen;
+  grid-template-rows: 7fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "spacer" "stashlabelsPFE" "stashinputsPFE" "margin";
 }
 
 .EOD{
-  flex-basis: 25%;
-  background-color: rgb(255, 30, 0);
-  margin: 10px;
+  display: grid;
+  grid-area: right-bottom;
+  background-color: lightyellow;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 7fr 1fr 1fr 1fr;
+  grid-template-areas: "spacer" "stashlabelsEOD" "stashinputsEOD" "margin";
+}
+
+.stashlabelsstand{
+  grid-area: stashlabelsstand;
+}
+
+.stashinputsstand{  
+  grid-area: stashinputsstand;
+}
+
+.stashlabelsLB{
+  grid-area: stashlabelsLB;
+}
+
+.stashinputsLB{  
+  grid-area: stashinputsLB;
+}
+
+.stashlabelsPFE{
+  grid-area: stashlabelsPFE;
+}
+
+.stashinputsPFE{  
+  grid-area: stashinputsPFE;
+}
+
+.stashlabelsEOD{
+  grid-area: stashlabelsEOD;
+}
+
+.stashinputsEOD{  
+  grid-area: stashinputsEOD;
 }

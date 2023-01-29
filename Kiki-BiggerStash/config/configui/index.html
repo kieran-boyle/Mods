@@ -10,45 +10,41 @@
   </head>
 
   <body>
-    
-    <div class="debug">
-      <h3>Debug</h3>
-      <input id="debug" type="checkbox"></dialog>
-    </div>
-    
+     <div class="body">
 
-    <div class="body">
-      <div class="CA">
-        <p>
-          <h2>ChangeAll</h2>   
+      <div class="topbar">
+        <div class="CA">
+          <label>ChangeAll</label>   
           <input id="ChangeAll" type="checkbox"></dialog>
-          <input id="ChangeAllAmount" type="number"></dialog>
-        </p>
+          <input id="ChangeAllAmount" type="number"></dialog>       
+        </div>
+
+        <div class="debug">
+          <label>Debug</label>
+          <input id="debug" type="checkbox"></dialog>
+        </div>   
       </div>
-      
 
       <div class="stand">
-        <label>Standard Stash Size</label>
-        <input id="Standard" type="number"></dialog>
+        <label class = "stashlabelsstand">Standard Stash Size</label>
+        <input class = "stashinputsstand" id="Standard" type="number"></dialog>
       </div>
       
       <div class="LB">
-        <label>Left Behind Stash Size</label>
-        <input id="LeftBehind" type="number"></dialog>
+        <label class = "stashlabelsLB">Left Behind Stash Size</label>
+        <input class = "stashinputsLB" id="LeftBehind" type="number"></dialog>
       </div>
       
       <div class="PFE">
-        <label>Prepare to Escape Stash Size</label>
-        <input id="PrepareForEscape" type="number"></dialog>
+        <label class = "stashlabelsPFE">Prepare to Escape Stash Size</label>
+        <input class = "stashinputsPFE" id="PrepareForEscape" type="number"></dialog>
       </div>
       
       <div class="EOD">
-        <label>Edge Of Darkness Stash Size</label>
-        <input id="EdgeOfDarkness" type="number"></dialog>
+        <label class = "stashlabelsEOD">Edge Of Darkness Stash Size</label>
+        <input class = "stashinputsEOD" id="EdgeOfDarkness" type="number"></dialog>
       </div>
     </div>
-
-
 
     <script src="./renderer.js"></script>
   </body>
