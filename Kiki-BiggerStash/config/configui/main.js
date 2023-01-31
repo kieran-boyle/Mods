@@ -15,7 +15,7 @@ const createWindow = () =>
       enableRemoteModule: true,
       sandbox:false,
       nodeIntegrationInSubFrames:true, //for subContent nodeIntegration Enable
-      webviewTag:true, //for webView          
+      webviewTag:true, //for webView npm
       preload: path.join(__dirname, 'preload.js')
     }
   })

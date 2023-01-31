@@ -1,9 +1,9 @@
 .body{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(2, 1fr);
+  grid-template-rows: 50px repeat(2, 2fr);
   grid-template-areas: "topbar topbar" "left-top right-top" "left-bottom right-bottom";
-  height: 100vh;
+  height: 95vh;
 }
 
 .topbar{
@@ -15,8 +15,24 @@
 
 .CA {
   grid-area: CA;
+  display: grid;
+  
+  grid-template-columns: 20px 5px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "calabel calabel" "cabutton cainput";
+}
+.cabutton{
   background-color: aqua;
-  height: 50px;
+  grid-area: cabutton;
+  justify-self: start;
+}
+.cainput{
+  background-color: rgb(85, 241, 22);
+  grid-area: cainput;
+  justify-self: start;
+}
+.calabel{
+  grid-area: calabel;
 }
 
 .debug{
@@ -29,66 +45,66 @@
   display: grid;
   grid-area: left-top;
   background-color: lightblue;
-  grid-template-rows: 7fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "spacer" "stashlabelsstand" "stashinputsstand" "margin";
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "stashlabelsstand" "stashinputsstand";
 }
+.stashlabelsstand{
+  grid-area: stashlabelsstand;  
+  justify-self: center;
+}
+.stashinputsstand{  
+  grid-area: stashinputsstand;
+  justify-self: center;
+}
+
 
 .LB{
   display: grid;
   grid-area: right-top;
-  background-color: pink;
-  grid-template-rows: 7fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "spacer" "stashlabelsLB" "stashinputsLB" "margin";
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "stashlabelsLB" "stashinputsLB";
+}
+.stashlabelsLB{
+  grid-area: stashlabelsLB;
+  justify-self: center;
+}
+.stashinputsLB{  
+  grid-area: stashinputsLB;
+  justify-self: center;
 }
 
 .PFE{
   display: grid;
   grid-area: left-bottom;
   background-color: lightgreen;
-  grid-template-rows: 7fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-areas: "spacer" "stashlabelsPFE" "stashinputsPFE" "margin";
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "stashlabelsPFE" "stashinputsPFE";
+}
+.stashlabelsPFE{
+  grid-area: stashlabelsPFE;
+  justify-self: center;
+}
+.stashinputsPFE{  
+  grid-area: stashinputsPFE;
+  justify-self: center;
 }
 
 .EOD{
   display: grid;
   grid-area: right-bottom;
   background-color: lightyellow;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 7fr 1fr 1fr 1fr;
-  grid-template-areas: "spacer" "stashlabelsEOD" "stashinputsEOD" "margin";
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: "stashlabelsEOD" "stashinputsEOD";
 }
-
-.stashlabelsstand{
-  grid-area: stashlabelsstand;
-}
-
-.stashinputsstand{  
-  grid-area: stashinputsstand;
-}
-
-.stashlabelsLB{
-  grid-area: stashlabelsLB;
-}
-
-.stashinputsLB{  
-  grid-area: stashinputsLB;
-}
-
-.stashlabelsPFE{
-  grid-area: stashlabelsPFE;
-}
-
-.stashinputsPFE{  
-  grid-area: stashinputsPFE;
-}
-
 .stashlabelsEOD{
   grid-area: stashlabelsEOD;
+  justify-self: center;
 }
-
 .stashinputsEOD{  
   grid-area: stashinputsEOD;
+  justify-self: center;
 }
