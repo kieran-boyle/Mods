@@ -1,9 +1,9 @@
 {
   "debug": false,
   "ChangeAll": false,
-  "ChangeAllAmount": 88,
-  "Standard": 33,
-  "LeftBehind": 36,
-  "PrepareForEscape": 67,
-  "EdgeOfDarkness": 79
+  "ChangeAllAmount": 84,
+  "Standard": 28,
+  "LeftBehind": 38,
+  "PrepareForEscape": 48,
+  "EdgeOfDarkness": 68
 }

@@ -8,9 +8,12 @@ const Standard = document.getElementById("Standard")
 const LeftBehind = document.getElementById("LeftBehind")
 const PrepareForEscape = document.getElementById("PrepareForEscape")
 const EdgeOfDarkness = document.getElementById("EdgeOfDarkness")
+const StandardReset = document.getElementById("StandardReset")
+const LeftBehindReset = document.getElementById("LeftBehindReset")
+const PrepareForEscapeReset = document.getElementById("PrepareForEscapeReset")
+const EdgeOfDarknessReset = document.getElementById("EdgeOfDarknessReset")
 
-
-const write = function(input)//writes any changes to the config to the file.
+const writeConfigValue = function(input)//writes any changes to the config to the file.
 {
     if(input === debug || input === ChangeAll) config[input.id] = input.checked
     else config[input.id] = parseInt(input.value)
@@ -42,13 +45,13 @@ const verifyValues = function()//stops it being possible for the stash size to n
 
 debug.addEventListener('change', () =>
 {
-    write(debug)
+    writeConfigValue(debug)
 })
 
 
 ChangeAll.addEventListener('change', () =>
 {
-    write(ChangeAll)
+    writeConfigValue(ChangeAll)
     if(ChangeAll.checked === true)
     {
         ChangeAllAmount.type = "number"
@@ -79,7 +82,7 @@ ChangeAll.addEventListener('change', () =>
 
 ChangeAllAmount.addEventListener('change', () =>
 {
-    write(ChangeAllAmount)
+    writeConfigValue(ChangeAllAmount)
     Standard.value = config.ChangeAllAmount
     LeftBehind.value = config.ChangeAllAmount
     PrepareForEscape.value = config.ChangeAllAmount
@@ -89,23 +92,47 @@ ChangeAllAmount.addEventListener('change', () =>
 Standard.addEventListener('change', () =>
 {
     verifyValues()
-    write(Standard)
+    writeConfigValue(Standard)
+})
+
+StandardReset.addEventListener('click', () =>
+{
+    Standard.value = 28
+    writeConfigValue(Standard)
 })
 
 LeftBehind.addEventListener('change', () =>
 {
     verifyValues()
-    write(LeftBehind)
+    writeConfigValue(LeftBehind)
+})
+
+LeftBehindReset.addEventListener('click', () =>
+{
+    LeftBehind.value = 38
+    writeConfigValue(LeftBehind)
 })
 
 PrepareForEscape.addEventListener('change', () =>
 {
     verifyValues()
-    write(PrepareForEscape)
+    writeConfigValue(PrepareForEscape)
+})
+
+PrepareForEscapeReset.addEventListener('click', () =>
+{
+    PrepareForEscape.value = 48
+    writeConfigValue(PrepareForEscape)
 })
 
 EdgeOfDarkness.addEventListener('change', () =>
 {
     verifyValues()
-    write(EdgeOfDarkness)
+    writeConfigValue(EdgeOfDarkness)
+})
+
+EdgeOfDarknessReset.addEventListener('click', () =>
+{
+    EdgeOfDarkness.value = 68
+    writeConfigValue(EdgeOfDarkness)
 })

@@ -1,4 +1,5 @@
 .body{
+  background-image: url("./stash.png");
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(2, 2fr);
@@ -13,7 +14,6 @@
   grid-template-areas: "CA debug"
 }
 
-/*Change all styling*/
 .CA {
   position: relative;
   grid-area: CA;
@@ -29,7 +29,6 @@
   justify-self: start;
 }
 .cainput{
-  background-color: rgb(85, 241, 22);
   grid-area: cainput;
   justify-self: start;
 }
@@ -67,11 +66,9 @@
   border-color: transparent transparent black transparent;
 }
 
-/*Debug button*/
 .debug{
   position: relative;
   grid-area: debug;
-  background-color: yellow;  
   height: 50px;
 }
 .debug .tooltiptext {
@@ -108,10 +105,9 @@
   position: relative;
   display: grid;
   grid-area: left-top;
-  background-color: lightblue;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: "stashlabelsstand" "stashinputsstand";
+  grid-template-rows: 40px 3fr 1fr;
+  grid-template-columns: 1fr 40px;
+  grid-template-areas: "space StandardReset" "stashlabelsstand stashlabelsstand" "stashinputsstand stashinputsstand";
 }
 .stashlabelsstand{
   grid-area: stashlabelsstand;  
@@ -119,6 +115,21 @@
 }
 .stashinputsstand{  
   grid-area: stashinputsstand;
+  justify-self: center;
+}
+.resetDivStand{  
+  position: relative;
+  grid-area: StandardReset;
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+}
+.StandardReset{  
+  position: relative;
+  grid-area: StandardReset;
+  width: 40px;
+  height: 40px;
+  color: red;
   justify-self: center;
 }
 .stand .tooltiptext {
@@ -142,21 +153,51 @@
 .stand .tooltiptext::after {
   content: " ";
   position: absolute;
-  bottom: 100%;  /* At the top of the tooltip */
+  bottom: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent black transparent;
 }
+.stand .resetDivStand .resetTooltip {
+  visibility: hidden;
+  top: -5px;
+  right: 105%; 
+  height: 40px;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 1s;
+  position: absolute;
+  z-index: 1;
+}
+.stand .resetDivStand:hover .resetTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.stand .resetDivStand .resetTooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
 
 .LB{
   position: relative;
   display: grid;
   grid-area: right-top;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: "stashlabelsLB" "stashinputsLB";
+  grid-template-rows: 40px 3fr 1fr;
+  grid-template-columns: 1fr 40px;
+  grid-template-areas: "space LeftBehindReset" "stashlabelsLB stashlabelsLB" "stashinputsLB stashinputsLB";
 }
 .stashlabelsLB{
   grid-area: stashlabelsLB;
@@ -164,6 +205,21 @@
 }
 .stashinputsLB{  
   grid-area: stashinputsLB;
+  justify-self: center;
+}
+.resetDivLB{  
+  position: relative;
+  grid-area: LeftBehindReset;
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+}
+.LeftBehindReset{
+  position: relative;
+  grid-area: LeftBehindReset;
+  width: 40px;
+  height: 40px;
+  color: red;
   justify-self: center;
 }
 .LB .tooltiptext {
@@ -194,15 +250,44 @@
   border-style: solid;
   border-color: transparent transparent black transparent;
 }
+.LB .resetDivLB .resetTooltip {
+  visibility: hidden;
+  top: -5px;
+  right: 105%; 
+  height: 40px;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 1s;
+  position: absolute;
+  z-index: 1;
+}
+.LB .resetDivLB:hover .resetTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.LB .resetDivLB .resetTooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
 
 .PFE{
   position: relative;
   display: grid;
   grid-area: left-bottom;
-  background-color: lightgreen;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: "stashlabelsPFE" "stashinputsPFE";
+  grid-template-rows: 40px 3fr 1fr;
+  grid-template-columns: 1fr 40px;
+  grid-template-areas: "space PrepareForEscapeReset" "stashlabelsPFE stashlabelsPFE" "stashinputsPFE stashinputsPFE";
 }
 .stashlabelsPFE{
   grid-area: stashlabelsPFE;
@@ -210,6 +295,20 @@
 }
 .stashinputsPFE{  
   grid-area: stashinputsPFE;
+  justify-self: center;
+}
+.resetDivPFE{  
+  position: relative;
+  grid-area: PrepareForEscapeReset;
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+}
+.PrepareForEscapeReset{
+  grid-area: PrepareForEscapeReset;
+  width: 40px;
+  height: 40px;
+  color: red;
   justify-self: center;
 }
 .PFE .tooltiptext {
@@ -240,15 +339,44 @@
   border-style: solid;
   border-color: black transparent transparent transparent;
 }
+.PFE .resetDivPFE .resetTooltip {
+  visibility: hidden;
+  top: -5px;
+  right: 105%; 
+  height: 40px;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 1s;
+  position: absolute;
+  z-index: 1;
+}
+.PFE .resetDivPFE:hover .resetTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.PFE .resetDivPFE .resetTooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
 
 .EOD{
   position: relative;
   display: grid;
   grid-area: right-bottom;
-  background-color: lightyellow;
-  grid-template-rows: 3fr 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas: "stashlabelsEOD" "stashinputsEOD";
+  grid-template-rows: 40px 3fr 1fr;
+  grid-template-columns: 1fr 40px;
+  grid-template-areas: "space EdgeOfDarknessReset" "stashlabelsEOD stashlabelsEOD" "stashinputsEOD stashinputsEOD";
 }
 .stashlabelsEOD{
   grid-area: stashlabelsEOD;
@@ -256,6 +384,20 @@
 }
 .stashinputsEOD{  
   grid-area: stashinputsEOD;
+  justify-self: center;
+}
+.resetDivEOD{  
+  position: relative;
+  grid-area: EdgeOfDarknessReset;
+  width: 40px;
+  height: 40px;
+  justify-self: center;
+}
+.EdgeOfDarknessReset{
+  grid-area: EdgeOfDarknessReset;
+  width: 40px;
+  height: 40px;
+  color: red;
   justify-self: center;
 }
 .EOD .tooltiptext {
@@ -285,4 +427,34 @@
   border-width: 5px;
   border-style: solid;
   border-color: black transparent transparent transparent;
+}
+.EOD .resetDivEOD .resetTooltip {
+  visibility: hidden;
+  top: -5px;
+  right: 105%; 
+  height: 40px;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 1s;
+  position: absolute;
+  z-index: 1;
+}
+.EOD .resetDivEOD:hover .resetTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.EOD .resetDivEOD .resetTooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
 }
