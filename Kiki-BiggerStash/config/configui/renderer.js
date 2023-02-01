@@ -12,6 +12,9 @@ const StandardReset = document.getElementById("StandardReset")
 const LeftBehindReset = document.getElementById("LeftBehindReset")
 const PrepareForEscapeReset = document.getElementById("PrepareForEscapeReset")
 const EdgeOfDarknessReset = document.getElementById("EdgeOfDarknessReset")
+const aboutButton = document.getElementById("aboutButton")
+var modal = document.getElementById("myModal")
+var span = document.getElementsByClassName("close")[0]
 
 const writeConfigValue = function(input)//writes any changes to the config to the file.
 {
@@ -26,20 +29,20 @@ const writeConfigValue = function(input)//writes any changes to the config to th
 
 const verifyValues = function()//stops it being possible for the stash size to not ascend in value
 {
-    if(EdgeOfDarkness.value < PrepareForEscape.value)
+    if(PrepareForEscape.value > EdgeOfDarkness.value)
     {
-        PrepareForEscape.value = EdgeOfDarkness.value
-        config.PrepareForEscape = parseInt(EdgeOfDarkness.value)
+        EdgeOfDarkness.value = PrepareForEscape.value
+        config.EdgeOfDarkness = parseInt(PrepareForEscape.value)
     }    
-    if(PrepareForEscape.value < LeftBehind.value)
+    if(LeftBehind.value > PrepareForEscape.value)
     {
-        LeftBehind.value = PrepareForEscape.value
-        config.LeftBehind = parseInt(PrepareForEscape.value)
+        PrepareForEscape.value = LeftBehind.value
+        config.PrepareForEscape = parseInt(LeftBehind.value)
     }
-    if(LeftBehind.value < Standard.value)
+    if(Standard.value > LeftBehind.value )
     {
-        Standard.value = LeftBehind.value
-        config.Standard = parseInt(LeftBehind.value)
+        LeftBehind.value = Standard.value
+        config.LeftBehind = parseInt(Standard.value)
     }
 }
 
@@ -64,6 +67,10 @@ ChangeAll.addEventListener('change', () =>
         PrepareForEscape.disabled = true
         EdgeOfDarkness.value = config.ChangeAllAmount
         EdgeOfDarkness.disabled = true
+        StandardReset.disabled = true
+        LeftBehindReset.disabled = true
+        PrepareForEscapeReset.disabled = true
+        EdgeOfDarknessReset.disabled = true
     }
     else 
     {
@@ -76,6 +83,11 @@ ChangeAll.addEventListener('change', () =>
         PrepareForEscape.disabled = false
         EdgeOfDarkness.value = config.EdgeOfDarkness
         EdgeOfDarkness.disabled = false
+        EdgeOfDarkness.disabled = false
+        StandardReset.disabled = false
+        LeftBehindReset.disabled = false
+        PrepareForEscapeReset.disabled = false
+        EdgeOfDarknessReset.disabled = false
     }
 })
 
@@ -136,3 +148,18 @@ EdgeOfDarknessReset.addEventListener('click', () =>
     EdgeOfDarkness.value = 68
     writeConfigValue(EdgeOfDarkness)
 })
+
+aboutButton.onclick = function()
+{
+    modal.style.display = "block"
+}
+
+span.onclick = function() 
+{
+    modal.style.display = "none"
+}
+
+window.onclick = function(event) 
+{
+    if (event.target == modal) modal.style.display = "none"
+}

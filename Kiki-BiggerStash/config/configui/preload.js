@@ -10,6 +10,11 @@ window.addEventListener('DOMContentLoaded', () =>
     const LeftBehind = document.getElementById("LeftBehind")
     const PrepareForEscape = document.getElementById("PrepareForEscape")
     const EdgeOfDarkness = document.getElementById("EdgeOfDarkness")
+    const StandardReset = document.getElementById("StandardReset")
+    const LeftBehindReset = document.getElementById("LeftBehindReset")
+    const PrepareForEscapeReset = document.getElementById("PrepareForEscapeReset")
+    const EdgeOfDarknessReset = document.getElementById("EdgeOfDarknessReset")
+
 
     if(config.ChangeAll === false)
     {
@@ -33,5 +38,9 @@ window.addEventListener('DOMContentLoaded', () =>
         PrepareForEscape.setAttribute("disabled", "true")
         EdgeOfDarkness.value = config.ChangeAllAmount
         EdgeOfDarkness.setAttribute("disabled", "true")
+        StandardReset.setAttribute("disabled", "true")
+        LeftBehindReset.setAttribute("disabled", "true")
+        PrepareForEscapeReset.setAttribute("disabled", "true")
+        EdgeOfDarknessReset.setAttribute("disabled", "true")
     }
 })

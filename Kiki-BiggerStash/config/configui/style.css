@@ -3,38 +3,58 @@
   opacity: 0.95;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 50px repeat(2, 2fr);
+  grid-template-rows: 65px repeat(2, 2fr);
   grid-template-areas: "topbar topbar" "left-top right-top" "left-bottom right-bottom";
   height: 97vh;
 }
 
 .topbar{
+  position: relative;
   grid-area: topbar;
   display: grid;
-  grid-template-columns: 9fr 1fr;
-  grid-template-areas: "CA debug"
+  grid-template-columns: 5fr 2fr 1fr;
+  grid-template-areas: "CA debug about"
 }
 
 .CA {
   position: relative;
   grid-area: CA;
   display: grid;
-  
-  grid-template-columns: 20px 5px;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "calabel calabel" "cabutton cainput";
+  padding: 5px;
+  grid-template-columns: 150px 40px 10px 250px;
+  grid-template-areas: "calabel cabutton space cainput";
+  grid-template-rows: auto;
+  border: 5px ridge  grey;
 }
 .cabutton{
-  background-color: aqua;
+  position: absolute;
   grid-area: cabutton;
-  justify-self: start;
+  justify-self: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
 }
 .cainput{
+  position: absolute;
   grid-area: cainput;
-  justify-self: start;
+  justify-self: start;  
+  align-items: center;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 100px;
+  height: 30px;
 }
 .calabel{
+  position: relative;
   grid-area: calabel;
+  justify-self: center;  
+  align-items: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
 }
 .CA .tooltiptext {
   visibility: hidden;
@@ -48,7 +68,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -70,7 +90,25 @@
 .debug{
   position: relative;
   grid-area: debug;
-  height: 50px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "label checkbox";
+  border: 5px ridge  grey;
+}
+.debugLabel{
+  grid-area: label;
+  justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
+}
+.debugCheckbox{
+  grid-area: checkbox;
+  justify-self: center;
+  width: 30px;
+  height: 30px;
 }
 .debug .tooltiptext {
   visibility: hidden;
@@ -83,7 +121,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -100,6 +138,63 @@
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent transparent black;
+}
+
+.aboutDiv{
+  position: relative;
+  display: grid;
+  grid-area: about;
+  border: 5px ridge  grey;
+}
+.aboutButton{
+  position: relative;
+  justify-self: center;
+  width: 35px;
+  height: 35px;
+  margin: 7px;
+  color: red;
+  background-color: black;
+  opacity: 0.9;
+  border: 1px solid red;
+  border-radius: 12px;
+  font-size: 30px;
+  box-shadow: 0 4px #999;
+}
+.aboutDiv .aboutTooltip{
+  visibility: hidden;
+  top: 5px;
+  right: 110%; 
+  height: 20px;
+  width: 200px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  position: absolute;
+  z-index: 1;
+}
+.aboutDiv:hover .aboutTooltip{
+  visibility: visible;
+  opacity: 1;
+}
+.aboutDiv .aboutTooltip::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+.aboutButton:active{
+  border: 1px solid green;
+  color: green;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 
 .stand{
@@ -126,6 +221,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
+  width: 100px;
+  height: 30px;
 }
 .resetDivStand{  
   position: relative;
@@ -165,7 +262,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -195,7 +292,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -238,6 +335,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
+  width: 100px;
+  height: 30px;
 }
 .resetDivLB{  
   position: relative;
@@ -276,7 +375,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -306,7 +405,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -349,6 +448,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
+  width: 100px;
+  height: 30px;
 }
 .resetDivPFE{  
   position: relative;
@@ -386,7 +487,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -416,7 +517,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -459,6 +560,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
+  width: 100px;
+  height: 30px;
 }
 .resetDivEOD{  
   position: relative;
@@ -496,7 +599,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -526,7 +629,7 @@
   padding: 5px 0;
   border-radius: 6px;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
   position: absolute;
   z-index: 1;
 }
@@ -544,3 +647,41 @@
   border-style: solid;
   border-color: transparent transparent transparent black;
 }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} 

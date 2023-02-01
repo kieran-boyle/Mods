@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+const { shell } = require('electron')
 
 const createWindow = () => 
 {
@@ -22,6 +23,14 @@ const createWindow = () =>
   })
 
   win.loadFile('index.html')
+  
+  let wc = win.webContents
+  wc.on('will-navigate', function (e, url) {
+  if (url != wc.getURL()) {
+    e.preventDefault()
+    shell.openExternal(url)
+  }
+})
 }
 
 app.whenReady().then(() => 
@@ -38,3 +47,4 @@ app.on('window-all-closed', () =>
 {
   if (process.platform !== 'darwin') app.quit()
 })
+

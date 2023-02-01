@@ -21,11 +21,17 @@
         </div>
 
         <div class="debug">
-          <label>Debug</label>
-          <input id="debug" type="checkbox"></dialog>
+          <label class="debugLabel">Debug</label>
+          <input class="debugCheckbox" id="debug" type="checkbox"></dialog>
           <span class="tooltiptext">Log changes to console log.</span>
-        </div>   
+        </div>
+        <div class="aboutDiv">
+          <button class="aboutButton" id="aboutButton">?</button>
+          <span class = "aboutTooltip">About</span>
+        </div>
       </div>
+
+      
 
       <div class="stand">
         <label class = "stashlabelsstand">Standard Stash Size</label>
@@ -67,6 +73,15 @@
         </div>
       </div>
     </div>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Bigger Stash by Kiki</p>
+    <p>Source code for this GUI can be found on my <a href="https://github.com/kieran-boyle/Mods">git</a> in config/configGUI along with the source for the mod</p>
+    <p>If you love what I do, why not buy me a <a href="https://ko-fi.com/kiki563478">coffee</a></p>
+    </div>
+  </div>
 
     <script src="./renderer.js"></script>
   </body>
