@@ -1,5 +1,6 @@
 .body{
   background-image: url("./stash.png");
+  opacity: 0.95;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 50px repeat(2, 2fr);
@@ -105,17 +106,26 @@
   position: relative;
   display: grid;
   grid-area: left-top;
-  grid-template-rows: 40px 3fr 1fr;
+  grid-template-rows: 50px 3fr 1fr;
   grid-template-columns: 1fr 40px;
   grid-template-areas: "space StandardReset" "stashlabelsstand stashlabelsstand" "stashinputsstand stashinputsstand";
+  border: 5px ridge  grey;
 }
 .stashlabelsstand{
   grid-area: stashlabelsstand;  
   justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
 }
 .stashinputsstand{  
   grid-area: stashinputsstand;
   justify-self: center;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }
 .resetDivStand{  
   position: relative;
@@ -127,11 +137,24 @@
 .StandardReset{  
   position: relative;
   grid-area: StandardReset;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   color: red;
+  background-color: black;
+  opacity: 0.9;
+  border: 1px solid red;
+  border-radius: 12px;
+  font-size: 30px;
   justify-self: center;
+  box-shadow: 0 4px #999;
 }
+.StandardReset:active{
+  border: 1px solid green;
+  color: green;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
+}
+
 .stand .tooltiptext {
   visibility: hidden;
   width: 100%;
@@ -162,9 +185,9 @@
 }
 .stand .resetDivStand .resetTooltip {
   visibility: hidden;
-  top: -5px;
-  right: 105%; 
-  height: 40px;
+  top: 5px;
+  right: 110%; 
+  height: 20px;
   width: 200px;
   background-color: black;
   color: #fff;
@@ -195,17 +218,26 @@
   position: relative;
   display: grid;
   grid-area: right-top;
-  grid-template-rows: 40px 3fr 1fr;
+  grid-template-rows: 50px 3fr 1fr;
   grid-template-columns: 1fr 40px;
   grid-template-areas: "space LeftBehindReset" "stashlabelsLB stashlabelsLB" "stashinputsLB stashinputsLB";
+  border: 5px ridge  grey;
 }
 .stashlabelsLB{
   grid-area: stashlabelsLB;
   justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
 }
 .stashinputsLB{  
   grid-area: stashinputsLB;
   justify-self: center;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }
 .resetDivLB{  
   position: relative;
@@ -217,10 +249,22 @@
 .LeftBehindReset{
   position: relative;
   grid-area: LeftBehindReset;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   color: red;
   justify-self: center;
+  background-color: black;
+  opacity: 0.9;
+  border: 1px solid red;
+  border-radius: 12px;
+  font-size: 30px;
+  box-shadow: 0 4px #999;
+}
+.LeftBehindReset:active{
+  border: 1px solid green;
+  color: green;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 .LB .tooltiptext {
   visibility: hidden;
@@ -252,9 +296,9 @@
 }
 .LB .resetDivLB .resetTooltip {
   visibility: hidden;
-  top: -5px;
-  right: 105%; 
-  height: 40px;
+  top: 5px;
+  right: 110%; 
+  height: 20px;
   width: 200px;
   background-color: black;
   color: #fff;
@@ -285,17 +329,26 @@
   position: relative;
   display: grid;
   grid-area: left-bottom;
-  grid-template-rows: 40px 3fr 1fr;
+  grid-template-rows: 50px 3fr 1fr;
   grid-template-columns: 1fr 40px;
   grid-template-areas: "space PrepareForEscapeReset" "stashlabelsPFE stashlabelsPFE" "stashinputsPFE stashinputsPFE";
+  border: 5px ridge  grey;
 }
 .stashlabelsPFE{
   grid-area: stashlabelsPFE;
   justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
 }
 .stashinputsPFE{  
   grid-area: stashinputsPFE;
   justify-self: center;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }
 .resetDivPFE{  
   position: relative;
@@ -306,10 +359,22 @@
 }
 .PrepareForEscapeReset{
   grid-area: PrepareForEscapeReset;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   color: red;
   justify-self: center;
+  background-color: black;
+  border: 1px solid red;
+  opacity: 0.9;
+  border-radius: 12px;
+  font-size: 30px;
+  box-shadow: 0 4px #999;
+}
+.PrepareForEscapeReset:active{
+  border: 1px solid green;
+  color: green;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 .PFE .tooltiptext {
   visibility: hidden;
@@ -341,9 +406,9 @@
 }
 .PFE .resetDivPFE .resetTooltip {
   visibility: hidden;
-  top: -5px;
-  right: 105%; 
-  height: 40px;
+  top: 5px;
+  right: 110%; 
+  height: 20px;
   width: 200px;
   background-color: black;
   color: #fff;
@@ -374,17 +439,26 @@
   position: relative;
   display: grid;
   grid-area: right-bottom;
-  grid-template-rows: 40px 3fr 1fr;
+  grid-template-rows: 50px 3fr 1fr;
   grid-template-columns: 1fr 40px;
   grid-template-areas: "space EdgeOfDarknessReset" "stashlabelsEOD stashlabelsEOD" "stashinputsEOD stashinputsEOD";
+  border: 5px ridge  grey;
 }
 .stashlabelsEOD{
   grid-area: stashlabelsEOD;
   justify-self: center;
+  color: white;
+  background-color: black;
+  font-size: 30px;
+  height: 35px;
 }
 .stashinputsEOD{  
   grid-area: stashinputsEOD;
   justify-self: center;
+  opacity: 0.8;
+  background-color: black;
+  color: white;
+  font-size: 20px;
 }
 .resetDivEOD{  
   position: relative;
@@ -395,10 +469,22 @@
 }
 .EdgeOfDarknessReset{
   grid-area: EdgeOfDarknessReset;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   color: red;
   justify-self: center;
+  background-color: black;
+  border: 1px solid red;
+  opacity: 0.9;
+  border-radius: 12px;
+  font-size: 30px;
+  box-shadow: 0 4px #999;
+}
+.EdgeOfDarknessReset:active{
+  border: 1px solid green;
+  color: green;
+  box-shadow: 0 2px #666;
+  transform: translateY(2px);
 }
 .EOD .tooltiptext {
   visibility: hidden;
@@ -430,9 +516,9 @@
 }
 .EOD .resetDivEOD .resetTooltip {
   visibility: hidden;
-  top: -5px;
-  right: 105%; 
-  height: 40px;
+  top: 5px;
+  right: 110%; 
+  height: 20px;
   width: 200px;
   background-color: black;
   color: #fff;
