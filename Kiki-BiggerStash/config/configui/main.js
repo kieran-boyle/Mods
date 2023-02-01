@@ -7,6 +7,7 @@ const createWindow = () =>
   ({
     width: 800,
     height: 600,
+    autoHideMenuBar: true,
     webPreferences: 
     {
       nodeIntegration: true,

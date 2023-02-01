@@ -16,33 +16,40 @@
         <div class="CA">
           <label class = "calabel">ChangeAll</label>   
           <input class = "cabutton" id="ChangeAll" type="checkbox"></dialog>
-          <input class = "cainput" id="ChangeAllAmount" type="number"></dialog>       
+          <input class = "cainput" id="ChangeAllAmount" type="number"></dialog>
+          <span class="tooltiptext">Set all stash sizes to the same value, disables individual control.</span>   
         </div>
 
         <div class="debug">
           <label>Debug</label>
           <input id="debug" type="checkbox"></dialog>
+          <span class="tooltiptext">Log changes to console log.</span>
         </div>   
       </div>
 
       <div class="stand">
         <label class = "stashlabelsstand">Standard Stash Size</label>
         <input class = "stashinputsstand" id="Standard" type="number"></dialog>
+        <input class = "StandardReset" id="StandardReset" type="button"></dialog>
+        <span class="tooltiptext">Standard - Default size 28.  Each stash must be larger than the preceeding.</span>
       </div>
       
       <div class="LB">
         <label class = "stashlabelsLB">Left Behind Stash Size</label>
         <input class = "stashinputsLB" id="LeftBehind" type="number"></dialog>
+        <span class="tooltiptext">Left behind - Default size 38.  Each stash must be larger than the preceeding.</span>
       </div>
       
       <div class="PFE">
         <label class = "stashlabelsPFE">Prepare to Escape Stash Size</label>
         <input class = "stashinputsPFE" id="PrepareForEscape" type="number"></dialog>
+        <span class="tooltiptext">Prepare for escape - Default size 48.  Each stash must be larger than the preceeding.</span>
       </div>
       
       <div class="EOD">
         <label class = "stashlabelsEOD">Edge Of Darkness Stash Size</label>
         <input class = "stashinputsEOD" id="EdgeOfDarkness" type="number"></dialog>
+        <span class="tooltiptext">Edge of darkness - Default size 68.  Each stash must be larger than the preceeding.</span>
       </div>
     </div>
 
