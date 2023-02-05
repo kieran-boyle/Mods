@@ -45,7 +45,7 @@ const verifyValues = function()//stops it being possible for the stash size to n
         config.LeftBehind = parseInt(Standard.value)
     }
 }
-
+setInterval(verifyValues, 50)
 debug.addEventListener('change', () =>
 {
     writeConfigValue(debug)
@@ -103,7 +103,6 @@ ChangeAllAmount.addEventListener('change', () =>
 
 Standard.addEventListener('change', () =>
 {
-    verifyValues()
     writeConfigValue(Standard)
 })
 
@@ -115,37 +114,34 @@ StandardReset.addEventListener('click', () =>
 
 LeftBehind.addEventListener('change', () =>
 {
-    verifyValues()
     writeConfigValue(LeftBehind)
 })
 
 LeftBehindReset.addEventListener('click', () =>
 {
-    LeftBehind.value = 38
+    LeftBehind.value = 38    
     writeConfigValue(LeftBehind)
 })
 
 PrepareForEscape.addEventListener('change', () =>
-{
-    verifyValues()
+{    
     writeConfigValue(PrepareForEscape)
 })
 
 PrepareForEscapeReset.addEventListener('click', () =>
 {
-    PrepareForEscape.value = 48
+    PrepareForEscape.value = 48    
     writeConfigValue(PrepareForEscape)
 })
 
 EdgeOfDarkness.addEventListener('change', () =>
-{
-    verifyValues()
+{    
     writeConfigValue(EdgeOfDarkness)
 })
 
 EdgeOfDarknessReset.addEventListener('click', () =>
 {
-    EdgeOfDarkness.value = 68
+    EdgeOfDarkness.value = 68    
     writeConfigValue(EdgeOfDarkness)
 })
 
