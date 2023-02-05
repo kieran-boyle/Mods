@@ -45,7 +45,9 @@ const verifyValues = function()//stops it being possible for the stash size to n
         config.LeftBehind = parseInt(Standard.value)
     }
 }
+
 setInterval(verifyValues, 50)
+
 debug.addEventListener('change', () =>
 {
     writeConfigValue(debug)
