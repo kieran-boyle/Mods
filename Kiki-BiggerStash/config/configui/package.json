@@ -4,22 +4,12 @@
   "description": "A simple UI for config.json",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "kiki",
   "license": "MIT",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.4",
-    "@electron-forge/maker-deb": "^6.0.4",
-    "@electron-forge/maker-rpm": "^6.0.4",
-    "@electron-forge/maker-squirrel": "^6.0.4",
-    "@electron-forge/maker-zip": "^6.0.4",
     "electron": "^22.1.0"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
   }
 }
