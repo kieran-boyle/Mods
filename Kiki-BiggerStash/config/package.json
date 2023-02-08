@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "install-app-deps",
+    "postinstall": "electron-builder install-app-deps",
     "start": "npm install && electron .",
-    "pack": "build --dir",
-    "dist": "build"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "author": "kiki",
   "license": "MIT",
@@ -21,18 +21,20 @@
     "yarn": "^1.22.19"
   },
   "build": {
-    "productName": "PVM Player",
-    "appId": "scripter.PVMplayer",
+    "productName": "Config",
+    "appId": "scripter.Config",
     "win": {
-        "target": ["portable"]
+      "target": [
+        "portable"
+      ]
     },
     "portable": {
-        "artifactName": "pvmplayer_portable.exe"
+      "artifactName": "config.exe"
     },
     "directories": {
-        "output": "electron/output",
-        "app": "electron/app",
-        "buildResources": "electron/buildResources"
+      "output": "electron/output",
+      "app": "./",
+      "buildResources": "electron/buildResources"
     }
-}
+  }
 }
