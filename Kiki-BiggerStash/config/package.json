@@ -4,12 +4,35 @@
   "description": "A simple UI for config.json",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "build --dir",
+    "dist": "build"
   },
   "author": "kiki",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^22.2.0"
-  }
+    "ajv": "^6.5.1",
+    "electron": "^22.2.0",
+    "electron-builder": "^23.6.0"
+  },
+  "dependencies": {
+    "yarn": "^1.22.19"
+  },
+  "build": {
+    "productName": "PVM Player",
+    "appId": "scripter.PVMplayer",
+    "win": {
+        "target": ["portable"]
+    },
+    "portable": {
+        "artifactName": "pvmplayer_portable.exe"
+    },
+    "directories": {
+        "output": "electron/output",
+        "app": "electron/app",
+        "buildResources": "electron/buildResources"
+    }
+}
 }
