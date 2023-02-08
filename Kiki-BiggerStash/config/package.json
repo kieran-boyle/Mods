@@ -1,14 +1,15 @@
 {
-  "name": "config",
+  "name": "configui",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple UI for config.json",
+  "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "electron": "^22.1.0"
+  "author": "kiki",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^22.2.0"
   }
 }

@@ -1,5 +1,5 @@
 const fs = require('fs')
-const fileName = '../config.json'
+const fileName = './config.json'
 const config = require(fileName)
 
 const ChangeAll = document.getElementById("ChangeAll")

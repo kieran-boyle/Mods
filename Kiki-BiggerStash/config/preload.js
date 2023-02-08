@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => 
 {//sets the initial values of the page to those in the config
-    const config = require('../config.json')
+    const config = require('./config.json')
     
     document.getElementById("debug").checked = config.debug
     
