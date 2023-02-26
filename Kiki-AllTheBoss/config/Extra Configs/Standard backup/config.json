@@ -184,7 +184,7 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 0
         },
 
         "Gluhar":
@@ -239,7 +239,7 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 30
         },
 
         "Gluhar":
@@ -294,7 +294,7 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 30
         },
 
         "Gluhar":
@@ -404,13 +404,13 @@
         "Knight":
         {
           "amount": 0,
-          "chance": 0
+          "chance": 5
         },
 
         "Gluhar":
         {
           "amount": 0,
-          "chance": 0
+          "chance": 15
         },
 
         "Shturman":
@@ -422,7 +422,7 @@
         "Sanitar":
         {
           "amount": 0,
-          "chance": 0
+          "chance": 40
         },
 
         "Reshala":
@@ -434,7 +434,7 @@
         "Killa":
         {
           "amount": 0,
-          "chance": 0
+          "chance": 5
         },
 
         "Tagilla":
@@ -624,7 +624,7 @@
         "Knight":
         {
           "amount": 1,
-          "chance": 100
+          "chance": 30
         },
 
         "Gluhar":
