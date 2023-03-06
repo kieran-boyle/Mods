@@ -69,6 +69,14 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -139,6 +147,14 @@
           "chance": 50,
           "escorts": "Tagilla",
           "escortAmount": "5"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -209,6 +225,14 @@
           "chance": 50,
           "escorts": "Tagilla",
           "escortAmount": "5"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -274,6 +298,14 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+        
+        "Zryachiy":
         {
           "amount": 0,
           "chance": 20,
@@ -349,6 +381,14 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -414,6 +454,14 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+        
+        "Zryachiy":
         {
           "amount": 0,
           "chance": 20,
@@ -489,6 +537,92 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
+    "Streets":
+    {
+      "enabled": true,
+      "addRandomHorde":
+      {
+        "enabled": false,
+        "numberToGenerate": 1,
+        "minimumSupports": 2,
+        "maximumSupports": 6
+      },
+      "bossList":
+      {
+        "Knight":
+        {
+          "amount": 1,
+          "chance": 20,
+          "escorts": "Gluhar,Shturman,Sanitar",
+          "escortAmount": "2,2,1"
+        },
+
+        "Gluhar":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar":
+        {
+          "amount": 1,
+          "chance": 50,
+          "escorts": "Gluhar,Knight",
+          "escortAmount": "3,2"
+        },
+
+        "Reshala":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -559,6 +693,14 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+        
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
         }
       }
     },
@@ -624,6 +766,14 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+        
+        "Zryachiy":
         {
           "amount": 0,
           "chance": 20,

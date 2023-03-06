@@ -493,6 +493,76 @@
       }
     },
 
+    "Streets":
+    {
+      "enabled": true,
+      "addRandomHorde":
+      {
+        "enabled": true,
+        "numberToGenerate": 1,
+        "minimumSupports": 2,
+        "maximumSupports": 6
+      },
+      "bossList":
+      {
+        "Knight":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Gluhar":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Shturman":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Sanitar":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Reshala":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Killa":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Tagilla":
+        {
+          "amount": 0,
+          "chance": 20,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        }
+      }
+    },
+
     "Woods":
     {
       "enabled": true,

@@ -82,7 +82,7 @@ maps :
 			amount : The amount of hordes to add. (number)
 			chance : The chance for the horde to spawn. (number 0 - 100)
 			escorts : Here you must put a list of the bosses you wish to spawn separated with comma's with no spaces.
-				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Killa and Tagilla
+				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Zryachiy, Killa and Tagilla
 				if you wanted Killa and Tagilla as escort you would put "Killa,Tagilla" for example (string)
 			escortAmount : Here you must put a list of the number of each supporting boss to spawn separated with comma's with no spaces.
 				following the above example, if you wanted 2 Killa and 4 Tagilla to support you would put "2,4" (string)

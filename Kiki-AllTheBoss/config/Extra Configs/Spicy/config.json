@@ -77,6 +77,13 @@
           "time": -1,
           "escortAmount": 2
         },
+        "Streets":
+        {
+          "amount": 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
         "Woods":
         {
           "amount": 1,
@@ -161,6 +168,13 @@
           "time": -1,
           "escortAmount": 2
         },
+        "Streets":
+        {
+          "amount": 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
         "Woods":
         {
           "amount": 1,
@@ -223,8 +237,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -273,6 +292,12 @@
         },
 
         "Tagilla":
+        {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Zryachiy":
         {
           "amount": 1,
           "chance": 20
@@ -333,6 +358,12 @@
           "chance": 20
         },
 
+        "Zryachiy":
+        {
+          "amount": 1,
+          "chance": 20
+        },
+        
         "Cultist":
         {
           "amount": 1,
@@ -388,8 +419,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -443,8 +479,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -498,8 +539,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -553,8 +599,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -608,8 +659,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }
@@ -663,8 +719,13 @@
           "chance": 20
         },
 
-        "Cultist":
+        "Zryachiy":
         {
+          "amount": 1,
+          "chance": 20
+        },
+
+        "Cultist":        {
           "amount": 1,
           "chance": 20
         }

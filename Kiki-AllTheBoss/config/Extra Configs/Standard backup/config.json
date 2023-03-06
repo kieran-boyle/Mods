@@ -77,6 +77,13 @@
           "time": -1,
           "escortAmount": 2
         },
+        "Streets":
+        {
+          "amount": 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
         "Woods":
         {
           "amount": 1,
@@ -161,6 +168,13 @@
           "time": -1,
           "escortAmount": 2
         },
+        "Streets":
+        {
+          "amount": 1,
+          "chance": 20,
+          "time": -1,
+          "escortAmount": 2
+        },
         "Woods":
         {
           "amount": 1,
@@ -223,6 +237,12 @@
           "chance": 0
         },
 
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -276,6 +296,12 @@
         {
           "amount": 1,
           "chance": 100
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist":
@@ -383,6 +409,12 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Zryachiy":
         {
           "amount": 0,
           "chance": 0
@@ -498,6 +530,12 @@
           "chance": 0
         },
 
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -551,6 +589,73 @@
         {
           "amount": 0,
           "chance": 0
+        },
+
+        "Zryachiy":
+        {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Cultist":
+        {
+          "amount": 1,
+          "chance": 100
+        }
+      }
+    },
+
+    "Streets":
+    {
+      "enabled": true,
+      "bossList":
+      {
+        "Knight":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Gluhar":
+        {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Shturman":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Sanitar":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Reshala":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Killa":
+        {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Tagilla":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 100
         },
 
         "Cultist":
@@ -608,6 +713,12 @@
           "chance": 0
         },
 
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -658,6 +769,12 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Zryachiy":
         {
           "amount": 0,
           "chance": 0

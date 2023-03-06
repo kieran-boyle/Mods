@@ -21,6 +21,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     'Reshala': 'bossBully',
     'Killa': 'bossKilla',
     'Tagilla': 'bossTagilla',
+    'Zryachiy': 'bosszryachiy',
     'Cultist': 'sectantPriest'
   }
 
@@ -33,7 +34,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     'Reserve': 'rezervbase',
     'Shoreline': 'shoreline',
     'Woods': 'woods',
-    'Lighthouse': 'lighthouse'
+    'Lighthouse': 'lighthouse',
+    'Streets': 'tarkovstreets'
   }
 
   private zoneList :string[] = []
@@ -109,7 +111,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       
       if (this.config.debug === true)
       {
-        this.logger.log(`\n${eachMap} \n${JSON.stringify(locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, 0, 1)}`, 'yellow', 'black')
+        this.logger.log(`\n${eachMap} \n${JSON.stringify(locations[this.mapDictionary[eachMap]].base.BossLocationSpawn, null, 1)}`, 'yellow', 'black')
       }
     }
   }
