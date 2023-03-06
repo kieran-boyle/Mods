@@ -18,7 +18,7 @@ var span = document.getElementsByClassName("close")[0]
 
 const writeConfigValue = function(input)//writes any changes to the config to the file.
 {
-    if(input === debug || input === ChangeAll) config[input.id] = input.checked
+    if (input === debug || input === ChangeAll) config[input.id] = input.checked
     else config[input.id] = parseInt(input.value)
     
     fs.writeFile(fileName, JSON.stringify(config, null, 2), function writeJSON(err) 
@@ -29,17 +29,17 @@ const writeConfigValue = function(input)//writes any changes to the config to th
 
 const verifyValues = function()//stops it being possible for the stash size to not ascend in value
 {
-    if(PrepareForEscape.value > EdgeOfDarkness.value)
+    if (PrepareForEscape.value > EdgeOfDarkness.value)
     {
         EdgeOfDarkness.value = PrepareForEscape.value
         config.EdgeOfDarkness = parseInt(PrepareForEscape.value)
     }    
-    if(LeftBehind.value > PrepareForEscape.value)
+    if (LeftBehind.value > PrepareForEscape.value)
     {
         PrepareForEscape.value = LeftBehind.value
         config.PrepareForEscape = parseInt(LeftBehind.value)
     }
-    if(Standard.value > LeftBehind.value )
+    if (Standard.value > LeftBehind.value)
     {
         LeftBehind.value = Standard.value
         config.LeftBehind = parseInt(Standard.value)
@@ -57,7 +57,7 @@ debug.addEventListener('change', () =>
 ChangeAll.addEventListener('change', () =>
 {
     writeConfigValue(ChangeAll)
-    if(ChangeAll.checked === true)
+    if (ChangeAll.checked === true)
     {
         ChangeAllAmount.type = "number"
         ChangeAllAmount.value = config.ChangeAllAmount
