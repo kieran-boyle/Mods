@@ -21,7 +21,8 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     "sectantpriest": "Cultist",
     "bossknight" : "Knight",
     "followerbigpipe" : "BigPipe",
-    "followerbirdeye" : "BirdEye"
+    "followerbirdeye" : "BirdEye",
+    "bosszryachiy": "Zryachiy"
   }
   private GPlayerHealth
 
