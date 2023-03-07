@@ -1,10 +1,10 @@
 {
   "name": "traderleveltweeks",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "main": "src/TraderLevelTweeks.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.4.*",
+  "akiVersion": "3.5.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

@@ -25,7 +25,8 @@ class smallTweaks implements IPostDBLoadMod
       'shoreline': 1,
       'woods': 1,
       'rezervbase': 1,
-      'lighthouse': 1
+      'lighthouse': 1,
+      'tarkovstreets': 1,
     }
 
     //set the 5 second deploy counter to be instant.  Raise flea level to 99
