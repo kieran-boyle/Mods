@@ -1,0 +1,311 @@
+{
+  "AllEqualToPlayer": false,
+
+  "Player":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 150,
+      "Chest": 100,
+      "Stomach": 100,
+      "LeftArm": 100,
+      "RightArm": 100,
+      "LeftLeg": 100,
+      "RightLeg": 100
+    },
+    "if bodyPartMode.enabled is false": "then",
+    "healthMultiplier": 1
+  },
+
+  "PMC":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 80,
+      "Chest": 150,
+      "Stomach": 100,
+      "LeftArm": 100,
+      "RightArm": 100,
+      "LeftLeg": 100,
+      "RightLeg": 100
+    },
+    "If BodyPartMode.Enabled is false": "then",
+    "healthMultiplier": 1
+  },
+
+  "Scav":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 30,
+      "Chest": 80,
+      "Stomach": 70,
+      "LeftArm": 40,
+      "RightArm": 40,
+      "LeftLeg": 60,
+      "RightLeg": 60
+    },
+    "If BodyPartMode.Enabled is false": "then",
+    "healthMultiplier": 1
+  },
+
+  "Raider":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 80,
+      "Chest": 150,
+      "Stomach": 100,
+      "LeftArm": 50,
+      "RightArm": 50,
+      "LeftLeg": 80,
+      "RightLeg": 80
+    },
+    "If BodyPartMode.Enabled is false": "then",
+    "healthMultiplier": 1
+  },
+
+  "Rogue":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 80,
+      "Chest": 150,
+      "Stomach": 100,
+      "LeftArm": 60,
+      "RightArm": 60,
+      "LeftLeg": 80,
+      "RightLeg": 80
+    },
+    "If BodyPartMode.Enabled is false": "then",
+    "healthMultiplier": 1
+  },
+
+  "Boss":
+  {
+    "Gluhar":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 200,
+        "Stomach": 150,
+        "LeftArm": 100,
+        "RightArm": 100,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Shturman":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 150,
+        "Stomach": 100,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Sanitar":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 150,
+        "Stomach": 100,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Reshala":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 100,
+        "Stomach": 100,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 80,
+        "RightLeg": 80
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Killa":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 250,
+        "Chest": 300,
+        "Stomach": 200,
+        "LeftArm": 100,
+        "RightArm": 100,
+        "LeftLeg": 150,
+        "RightLeg": 150
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }, 
+
+    "Tagilla":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 300,
+        "Chest": 250,
+        "Stomach": 150,
+        "LeftArm": 100,
+        "RightArm": 100,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Knight":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 200,
+        "Stomach": 150,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "BigPipe":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 200,
+        "Stomach": 150,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "BirdEye":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 200,
+        "Stomach": 150,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Zryachiy":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 150,
+        "Stomach": 100,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+    "Cultist":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 80,
+        "Chest": 150,
+        "Stomach": 100,
+        "LeftArm": 80,
+        "RightArm": 80,
+        "LeftLeg": 100,
+        "RightLeg": 100
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    }
+  },
+
+  "Follower":
+  {
+    "enabled": true,
+    "bodyPartMode":
+    {
+      "enabled": true,
+      "Head": 80,
+      "Chest": 200,
+      "Stomach": 150,
+      "LeftArm": 80,
+      "RightArm": 80,
+      "LeftLeg": 100,
+      "RightLeg": 100
+    },
+    "if bodyPartMode.enabled is false": "then",
+    "healthMultiplier": 1
+  }
+}

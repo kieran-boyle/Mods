@@ -148,30 +148,23 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   private setBossZones():void
   {
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
-              
-    for(let eachMap in locations)
+
+    if(this.config.keepOriginalBossZones === true)
     {
-      if(eachMap !== 'base')
+      for(let eachMap in this.config.maps)
       {
-        for(let boss in locations[eachMap].base.BossLocationSpawn)
-        {
-          let thisBoss = locations[eachMap].base.BossLocationSpawn[boss]
-          thisBoss.BossZone = this.chooseZone(this.getKeyByValue(this.mapDictionary, eachMap), locations)
-        }
+        this.populateOriginalZones(eachMap, locations)
       }
     }
-  }
 
-  /**
-     * Return the key from the provided value in an object
-     * Used as a reverse dictionary search
-     * @param object The object to search
-     * @param value The value to search for
-     * @returns The key that holds the value
-     */
-  private getKeyByValue(object :any, value :any):any
-  {
-    return Object.keys(object).find(key => object[key] === value)
+    for(let eachMap in this.config.maps)
+    {
+      for(let boss in locations[this.mapDictionary[eachMap]].base.BossLocationSpawn)
+      {
+        let thisBoss = locations[this.mapDictionary[eachMap]].base.BossLocationSpawn[boss]
+        thisBoss.BossZone = this.chooseZone(eachMap, locations)
+      }
+    }
   }
 
   /**
