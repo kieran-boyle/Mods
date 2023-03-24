@@ -12,6 +12,9 @@ class MarkFIR implements IPreAkiLoadMod
   {
     this.container = container
 
+    if(this.config.markShopFIR === true) 
+    if(this.config.markFleaFIR === true) 
+
     container.afterResolution("InraidController", (_t, result: InraidController) => 
     {
       result.markOrRemoveFoundInRaidItems = (offraidData: ISaveProgressRequestData, pmcData: IPmcData, isPlayerScav: boolean): void => 

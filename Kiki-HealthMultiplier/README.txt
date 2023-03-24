@@ -5,5 +5,9 @@ If AllEqualToPlayer is set to true, then all bots will have their health values 
 (following whatever bodypart or multiplier settings are applied to the player.)
 The values in the config are from the default player health values.  Everything is disabled by default.
 
+Extra configs contains a backup of the original config, as well as a config from PattyPN which makes bosses die to a single headshot (unless wearing a helmet), but balances them individually.
+To use a config from the extra configs folder.  Copy, paste and overwrite the config/config.json.
+If you come up with an interesting config, give me a shout and I may include it in future releases.
+
 ***Notice***
 Due to the profile not being created yet, you will need to restart the game following fresh profile creation for player health changes to take effect.
