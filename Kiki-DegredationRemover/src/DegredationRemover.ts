@@ -17,8 +17,14 @@ class DegredationRemover implements IPostDBLoadMod
 
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
-    const traders = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().traders
+    const traders = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().traders    
+    const items = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.items
     const traderConfig  = this.container.resolve<ConfigServer>("ConfigServer").getConfig(ConfigTypes.TRADER)
+    const repairConfig = this.container.resolve<ConfigServer>("ConfigServer").getConfig(ConfigTypes.REPAIR)
+    const repairKits = ["591094e086f7747caa7bb2ef", "5910968f86f77425cf569c32"]
+
+    repairKits.forEach(kit => items[kit]._props.RepairQuality = this.config.qualityMultiplier)
+    repairConfig.applyRandomizeDurabilityLoss = false
 
     if (this.config.fullDurabilityFence) //All items from fence can be fully repaired to 100% durability
     {
