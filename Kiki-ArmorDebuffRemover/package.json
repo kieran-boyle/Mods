@@ -3,7 +3,7 @@
   "version": "2.3.1",
   "main": "src/ArmorDebuffRemover.js",
   "license": "NCSA",
-  "author": "Kiki",
+  "author": "Kiki, MusicManiac",
   "akiVersion": "3.5.*",
   "scripts": {
       "setup": "npm i",
