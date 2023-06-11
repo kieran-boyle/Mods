@@ -1,24 +1,24 @@
 {
   "Helmet":
   {
-    "speedPenaltyPercent": false,
-    "mousePenalty": false,
-    "weaponErgonomicPenalty": false
+    "speedPenaltyPercent": 0.5,
+    "mousePenalty": 0.5,
+    "weaponErgonomicPenalty": 0.5
   },
   "Rig":
   {
-    "speedPenaltyPercent": false,
-    "mousePenalty": false,
-    "weaponErgonomicPenalty": false
+    "speedPenaltyPercent": 0.5,
+    "mousePenalty": 0.5,
+    "weaponErgonomicPenalty": 0.5
   },
   "Armor":
   {
-    "speedPenaltyPercent": false,
-    "mousePenalty": false,
-    "weaponErgonomicPenalty": false
+    "speedPenaltyPercent": 0.5,
+    "mousePenalty": 0.5,
+    "weaponErgonomicPenalty": 0.5
   },
   "Backpack":
   {
-    "speedPenaltyPercent": false
+    "speedPenaltyPercent": 0.5
   }
 }

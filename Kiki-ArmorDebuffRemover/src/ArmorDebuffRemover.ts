@@ -38,9 +38,9 @@ class ArmorDebuffRemover implements IPostDBLoadMod
   {
     for (let debuf in this.config[configOption])
     {
-      if (this.config[configOption][debuf] === true)
+      if (this.config[configOption][debuf] !== 1)
       {
-        item._props[debuf] = 0
+        item._props[debuf] *= this.config[configOption][debuf];
       }
     }
   }
