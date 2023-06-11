@@ -1,6 +1,6 @@
 {
   "name": "armordebuffremover",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "main": "src/ArmorDebuffRemover.js",
   "license": "NCSA",
   "author": "Kiki, MusicManiac",
