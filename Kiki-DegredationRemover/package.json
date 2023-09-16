@@ -1,6 +1,6 @@
 {
   "name": "degredationremover",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "main": "src/DegredationRemover.js",
   "license": "NCSA",
   "author": "Kiki",

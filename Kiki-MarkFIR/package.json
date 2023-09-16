@@ -1,6 +1,6 @@
 {
   "name": "markfir",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/MarkFIR.js",
   "license": "NCSA",
   "author": "Kiki",
