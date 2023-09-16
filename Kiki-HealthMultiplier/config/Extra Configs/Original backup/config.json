@@ -219,42 +219,6 @@
       "healthMultiplier": 1
     },
 
-    "BigPipe":
-    {
-      "enabled": false,
-      "bodyPartMode":
-      {
-        "enabled": false,
-        "Head": 35,
-        "Chest": 85,
-        "Stomach": 70,
-        "LeftArm": 60,
-        "RightArm": 60,
-        "LeftLeg": 65,
-        "RightLeg": 65
-      },
-      "If BodyPartMode.Enabled is false": "then",
-      "healthMultiplier": 1
-    },
-
-    "BirdEye":
-    {
-      "enabled": false,
-      "bodyPartMode":
-      {
-        "enabled": false,
-        "Head": 35,
-        "Chest": 85,
-        "Stomach": 70,
-        "LeftArm": 60,
-        "RightArm": 60,
-        "LeftLeg": 65,
-        "RightLeg": 65
-      },
-      "If BodyPartMode.Enabled is false": "then",
-      "healthMultiplier": 1
-    },
-
     "Zryachiy":
     {
       "enabled": false,
@@ -272,6 +236,7 @@
       "If BodyPartMode.Enabled is false": "then",
       "healthMultiplier": 1
     },
+    
     "Cultist":
     {
       "enabled": false,
