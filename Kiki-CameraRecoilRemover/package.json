@@ -1,10 +1,10 @@
 {
   "name": "camerarecoilremover",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "main": "src/CameraRecoilRemover.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.5.*",
+  "akiVersion": "3.6.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

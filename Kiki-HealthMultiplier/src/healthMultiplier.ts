@@ -1,10 +1,11 @@
-import type { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import type { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
-import type { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
+import { DependencyContainer } from "tsyringe"
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger"
+import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
+import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
+import { BotHelper } from "@spt-aki/helpers/BotHelper"
+import { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
 
 class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 {
@@ -35,24 +36,29 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
-    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+    const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals    
     const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
     this.GPlayerHealth = playerHealth
+
     for (let eachBot in botTypes)
     {
-      for (let eachHPSet in botTypes[eachBot].health.BodyParts)
-      {
-        let thisBot = botTypes[eachBot].health.BodyParts[eachHPSet]
+      let type = this.findBotType(eachBot, botTypes)
 
-        if (this.config.AllEqualToPlayer == true)
+      if(type !== "Ignore")
+      {
+        for (let eachHPSet in botTypes[eachBot].health.BodyParts)
         {
-          this.setBotHealthToPlayers(thisBot, playerHealth)
-        }
-        else
-        {
-          let type = this.findBotType(eachBot, botTypes)
-          let configOption = type === "Boss" ? this.config.Boss[this.bossDictionary[eachBot]] : this.config[type]
-          this.setBotHealth(thisBot, configOption)                      
+          let thisBot = botTypes[eachBot].health.BodyParts[eachHPSet]
+
+          if (this.config.AllEqualToPlayer == true)
+          {
+            this.setBotHealthToPlayers(thisBot, playerHealth)
+          }
+          else
+          {            
+            let configOption = type === "Boss" ? this.config.Boss[this.bossDictionary[eachBot]] : this.config[type]
+            this.setBotHealth(thisBot, configOption)                      
+          }
         }
       }
     }
@@ -184,14 +190,19 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
    * @param botTypes container/bots/types
    * @returns type of bot
    */
+  //https://discord.com/channels/884901221096386560/940411854449152021/1151901868457472100
+  //use helper functions
   private findBotType(input :string, botTypes :any):string
   {
-    return input === "bosstest" || input === "test" ? "PMC" :
+    const botHelper = this.container.resolve<BotHelper>("BotHelper")
+
+    return input === "sptUsec" || input === "sptBear" ? "PMC" :
       input === "assault" || input === "marksman" ? "Scav" :
       input === "pmcbot" ? "Raider" :
       input === "exusec" ? "Rogue" :
-      botTypes[input].experience.reward.min >= 1000 ? "Boss" :
-      "Follower"    
+      botHelper.isBotFollower(input) ? "Follower" :
+      botHelper.isBotBoss(input) ? "Boss" 
+      : "Ignore"
   }
 
   /**

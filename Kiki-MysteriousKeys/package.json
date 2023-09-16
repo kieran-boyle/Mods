@@ -1,10 +1,10 @@
 {
   "name": "mysteriouskeys",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "main": "src/mysteriouskeys.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.5.*",
+  "akiVersion": "3.6.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"
