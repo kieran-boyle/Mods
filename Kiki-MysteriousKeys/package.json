@@ -4,7 +4,7 @@
   "main": "src/mysteriouskeys.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.6.*",
+  "akiVersion": "3.7.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

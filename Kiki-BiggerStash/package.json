@@ -1,10 +1,10 @@
 {
   "name": "biggerstash",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "main": "src/biggerStash.js",
   "license": "NCSA",
   "author": "Kiki",
-  "akiVersion": "3.6.*",
+  "akiVersion": "3.7.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

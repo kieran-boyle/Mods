@@ -23,7 +23,8 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     "bossknight" : "Knight",
     "followerbigpipe" : "BigPipe",
     "followerbirdeye" : "BirdEye",
-    "bosszryachiy": "Zryachiy"
+    "bosszryachiy": "Zryachiy",
+    'bossboar' : 'Kaban'
   }
   private GPlayerHealth
 
@@ -190,19 +191,38 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
    * @param botTypes container/bots/types
    * @returns type of bot
    */
-  //https://discord.com/channels/884901221096386560/940411854449152021/1151901868457472100
-  //use helper functions
   private findBotType(input :string, botTypes :any):string
   {
     const botHelper = this.container.resolve<BotHelper>("BotHelper")
 
-    return input === "sptUsec" || input === "sptBear" ? "PMC" :
-      input === "assault" || input === "marksman" ? "Scav" :
-      input === "pmcbot" ? "Raider" :
-      input === "exusec" ? "Rogue" :
-      botHelper.isBotFollower(input) ? "Follower" :
-      botHelper.isBotBoss(input) ? "Boss" 
-      : "Ignore"
+    switch (input) 
+    {
+      case "usec":
+      case "bear":
+        return "PMC"
+      
+      case "assault":
+      case "marksman":
+        return "Scav"
+
+      case "bossboarsniper":
+      case "sectantwarrior":
+        return "Follower"
+
+      case "pmcbot":
+        return "Raider"
+
+      case "exusec":
+        return "Rogue"
+
+      case "sectantpriest":
+        return "Boss"
+      
+      default:
+        if (botHelper.isBotFollower(input)) return "Follower"
+        if (botHelper.isBotBoss(input)) return "Boss"
+        return "Ignore"
+    }
   }
 
   /**

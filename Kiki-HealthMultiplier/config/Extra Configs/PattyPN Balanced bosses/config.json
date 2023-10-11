@@ -219,6 +219,24 @@
       "healthMultiplier": 1
     },
 
+    "Kaban":
+    {
+      "enabled": true,
+      "bodyPartMode":
+      {
+        "enabled": true,
+        "Head": 40,
+        "Chest": 150,
+        "Stomach": 80,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 80,
+        "RightLeg": 80
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
     "Zryachiy":
     {
       "enabled": true,
