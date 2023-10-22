@@ -72,12 +72,13 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
   public preAkiLoad(container: DependencyContainer):void
   {
     this.container = container
+    this.logger = this.container.resolve<ILogger>("WinstonLogger")
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
 
     staticRouterModService.registerStaticRouter(
       "SetPlayerHealth",
       [{
-        url: "/client/game/start",
+        url: "/client/game/start",//need to add another route to update on level up /launcher/profile/info
         action: (url :string, info :any, sessionId :string, output :string) => 
         {
           const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
@@ -85,6 +86,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
           const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
 
           this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+          this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
           return output
         }
       }], "aki"
@@ -93,7 +95,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     staticRouterModService.registerStaticRouter(
       "SetPlayerScavHealth",
       [{
-        url: "/client/customization", //had to find a route between scav being regenerated, and loaded into the match
+        url: "/client/customization",
         action: (url :string, info :any, sessionId :string, output :string) => 
         {
           const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
@@ -105,6 +107,25 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
         }
       }], "aki"
     )
+
+    if(this.config.Player.extraHealthPerLevel.enabled === true)
+    {
+      staticRouterModService.registerStaticRouter(
+        "CheckForLevelUp",
+        [{
+          url: "/launcher/profile/info",
+          action: (url :string, info :any, sessionId :string, output :string) => 
+          {
+            const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
+            const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
+            const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
+
+            this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
+            return output
+          }
+        }], "aki"
+      )
+    }
 
     staticRouterModService.registerStaticRouter(
       "RevertPlayerHealth",
@@ -155,13 +176,25 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
 
       if (this.config.Player.bodyPartMode.enabled === true)
       {
-        thisPart.Health.Current = this.config.Player.bodyPartMode[eachPart]
+        if(thisPart.Health.Current === thisPart.Health.Maximum)
+        {
+          thisPart.Health.Current = this.config.Player.bodyPartMode[eachPart]
+        }
         thisPart.Health.Maximum = this.config.Player.bodyPartMode[eachPart]
       }
       else
       {
         thisPart.Health.Current = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
         thisPart.Health.Maximum = Math.ceil(playerHealth[eachPart].Maximum * this.config.Player.healthMultiplier)
+      }
+
+      if (this.config.Player.extraHealthPerLevel.enabled === true)
+      {
+        if(thisPart.Health.Current === thisPart.Health.Maximum)
+        {
+          thisPart.Health.Current += (this.config.Player.extraHealthPerLevel[eachPart] * target.Info.Level)
+        }
+        thisPart.Health.Maximum += (this.config.Player.extraHealthPerLevel[eachPart] * target.Info.Level)
       }
     }
   }

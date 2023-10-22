@@ -16,7 +16,19 @@
       "RightLeg": 65
     },
     "if bodyPartMode.enabled is false": "then",
-    "healthMultiplier": 1
+    "healthMultiplier": 1,
+
+    "extraHealthPerLevel":
+    {
+      "enabled": false,
+      "Head": 1,
+      "Chest": 3,
+      "Stomach": 3,
+      "LeftArm": 2,
+      "RightArm": 2,
+      "LeftLeg": 2,
+      "RightLeg": 2
+    }
   },
 
   "PMC":

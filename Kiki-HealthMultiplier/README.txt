@@ -3,6 +3,8 @@ This can be done in a couple of ways.  bodyPartMode (if enabled) will directly s
 If disabled then the health value will be multiplied by the healthMultiplier instead (where 1 is default, 2 is double, 0.5 is half etc)
 If AllEqualToPlayer is set to true, then all bots will have their health values set to the same as the player 
 (following whatever bodypart or multiplier settings are applied to the player.)
+
+if extraHealthPerLevel enabled is set to true, the player will gain extra health for each of the body parts values, multiplied by the profiles level. (Works for player scav too)
 The values in the config are from the default player health values.  Everything is disabled by default.
 
 Extra configs contains a backup of the original config, as well as a config from PattyPN which makes bosses die to a single headshot (Appart from Killa and Tagilla ), but balances them individually.
