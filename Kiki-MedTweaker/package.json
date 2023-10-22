@@ -1,6 +1,6 @@
 {
   "name": "medtweaker",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "main": "src/MedTweaker.js",
   "license": "NCSA",
   "author": "Kiki",

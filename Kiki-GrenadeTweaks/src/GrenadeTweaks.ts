@@ -2,7 +2,7 @@ import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
 
-class ZaryaKiller implements IPostDBLoadMod
+class GrenadeTweaks implements IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = require("../config/config.json")
@@ -51,4 +51,4 @@ class ZaryaKiller implements IPostDBLoadMod
   }
 }
 
-module.exports = {mod: new ZaryaKiller()}
+module.exports = {mod: new GrenadeTweaks()}
