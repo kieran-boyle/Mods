@@ -1,7 +1,11 @@
-import type { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import { DependencyContainer } from "tsyringe"
+import { HashUtil } from "@spt-aki/models/spt/utils/HashUtil"
+import { ILogger } from "@spt-aki/models/spt/utils/ILogger"
+import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
+import { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import { ConfigServer } from "@spt-aki/servers/ConfigServer"
+import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes"
+import { IQuestConfig } from "@spt-aki/models/spt/config/IQuestConfig"
 
 class RemoveTediousQuestConditions implements IPostDBLoadMod
 {
@@ -14,8 +18,9 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
   {
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
-    const quests = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.quests
-    const conditionsToRemove :string[] = []    
+    const quests = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().templates.quests    
+    const conditionsToRemove :string[] = []  
+
 
     for (let eachOption in this.config)
     {
@@ -30,8 +35,8 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
             quests['5a27c99a86f7747d2c6bdd8e'].conditions.AvailableForFinish[0]._props.counter.conditions[0]._props.target = 'AnyPmc'
             break
 
-          case 'Location':
           case 'InZone':
+          case 'Location':
           case 'VisitPlace':
           case 'Shots':
           case 'HealthEffect':
@@ -92,7 +97,7 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
       for (let eachCondition in quests[eachQuest].conditions.AvailableForFinish)
       {
         if(quests[eachQuest].conditions.AvailableForFinish[eachCondition]._parent === 'CounterCreator')
-          this.removeNested(quests[eachQuest].conditions.AvailableForFinish[eachCondition], target, quests[eachQuest].QuestName)
+          this.removeNested(quests[eachQuest].conditions.AvailableForFinish[eachCondition], target, quests[eachQuest].location, quests[eachQuest].QuestName)
       }      
     }
     if (this.config.debug === true && this.loggerBuffer.length > 0) this.logger.info([... new Set(this.loggerBuffer)])
@@ -103,10 +108,15 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
    * Finds object with parent of target and removes
    * @param input each condition in CounterCreator
    * @param target the _parent condition to find
+   * @param location the location of the quest
    * @param questName the name fo the quest for logging
    */
-   private removeNested(input :any, target :string, questName :string):void 
+   private removeNested(input :any, target :string, location :string, questName :string):void 
    {
+    if(target === 'InZone')
+    {
+      input._props.counter.conditions =  this.setLocation(input._props.counter.conditions, location) 
+    }
     let thisCondition = input._props.counter.conditions
     thisCondition.filter((finalCondition :any) => finalCondition._parent === target)
       .forEach((finalCondition :any) => 
@@ -114,6 +124,42 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
         thisCondition.splice(thisCondition.indexOf(finalCondition), 1)
         this.loggerBuffer.push(questName)
       })
+  }
+
+  /**
+   * Adds a location counter to replace the inZone so it stays in the same map
+   * @param target the condition to push too
+   * @param location the location of the quest
+   */
+  private setLocation(target :any, location :string):any
+  {
+    const hashUtil = this.container.resolve<HashUtil>("HashUtil")
+    const configServer = this.container.resolve<ConfigServer>("ConfigServer")
+    const questConfig = configServer.getConfig<IQuestConfig>(ConfigTypes.QUEST)
+    const locationIdMap = questConfig.locationIdMap
+    let myLocation =
+    {
+      "_parent": "Location",
+      "_props": 
+      {
+        "id": hashUtil.generate(),
+        "target": [this.getKeyByValue(locationIdMap, location)]
+      }
+    }
+    target.push(myLocation)
+
+    return target
+  }
+
+  /**
+   * Finds key in object by passed in value
+   * @param object Object to search 
+   * @param value Value to find
+   * @returns Key requested
+   */
+  private getKeyByValue(object :any, value :string):any
+  {
+    return Object.keys(object).find(key => object[key] === value)
   }
 }
 

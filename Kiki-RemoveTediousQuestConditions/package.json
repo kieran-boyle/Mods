@@ -1,6 +1,6 @@
 {
   "name": "removetediousquestconditions",
-  "version": "2.3.3",
+  "version": "2.4.0",
   "main": "src/RemoveTediousQuestConditions.js",
   "license": "NCSA",
   "author": "Kiki",
