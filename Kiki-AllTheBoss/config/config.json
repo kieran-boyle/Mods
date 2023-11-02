@@ -186,6 +186,167 @@
     }
   },
 
+  "bloodhounds":
+  {
+    "addBloodhounds":
+    {
+      "enabled": false,
+      "maps":
+      {
+        "Customs":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "FactoryDay":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "FactoryNight":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Interchange":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Laboratory":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Lighthouse":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Reserve":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Shoreline":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Streets":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Woods":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        }
+      }
+    }
+  },
+
+  "crazedScavs":
+  {
+    "addCrazedScavs":
+    {
+      "enabled": false,
+      "maps":
+      {
+        "Customs":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "FactoryDay":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "FactoryNight":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Interchange":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Laboratory":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Lighthouse":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Reserve":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Shoreline":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Streets":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        },
+        "Woods":
+        {
+          "amount": 0,
+          "chance": 0,
+          "time": -1,
+          "escortAmount": 0
+        }
+      }
+    }
+  },
 
   "maps":
   {
@@ -243,6 +404,12 @@
           "chance": 0
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -252,6 +419,73 @@
     },
 
     "FactoryDay":
+    {
+      "enabled": true,
+      "bossList":
+      {
+        "Knight":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Gluhar":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Shturman":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Sanitar":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Reshala":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Killa":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Tagilla":
+        {
+          "amount": 1,
+          "chance": 100
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Cultist":
+        {
+          "amount": 0,
+          "chance": 0
+        }
+      }
+    },
+
+    "FactoryNight":
     {
       "enabled": true,
       "bossList":
@@ -303,60 +537,11 @@
           "amount": 0,
           "chance": 0
         },
-
-        "Cultist":
-        {
-          "amount": 1,
-          "chance": 100
-        }
-      }
-    },
-
-    "FactoryNight":
-    {
-      "enabled": true,
-      "bossList":
-      {
-        "Knight":
-        {
-          "amount": 1,
-          "chance": 100
-        },
-
-        "Gluhar":
+        
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
-        },
-
-        "Shturman":
-        {
-          "amount": 0,
-          "chance": 0
-        },
-
-        "Sanitar":
-        {
-          "amount": 0,
-          "chance": 0
-        },
-
-        "Reshala":
-        {
-          "amount": 0,
-          "chance": 0
-        },
-
-        "Killa":
-        {
-          "amount": 0,
-          "chance": 0
-        },
-
-        "Tagilla":
-        {
-          "amount": 1,
-          "chance": 100
         },
 
         "Cultist":
@@ -419,6 +604,12 @@
           "amount": 0,
           "chance": 0
         },
+        
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
 
         "Cultist":
         {
@@ -470,6 +661,24 @@
         },
 
         "Tagilla":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+        
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Crazy scavs":
         {
           "amount": 0,
           "chance": 0
@@ -535,6 +744,12 @@
           "amount": 0,
           "chance": 0
         },
+        
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
 
         "Cultist":
         {
@@ -592,6 +807,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+        
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -655,6 +876,12 @@
         "Zryachiy":
         {
           "amount": 0,
+          "chance": 0
+        },
+        
+        "Kaban":
+        {
+          "amount": 1,
           "chance": 100
         },
 
@@ -714,6 +941,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+        
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -778,6 +1011,12 @@
         {
           "amount": 1,
           "chance": 100
+        },
+        
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist":

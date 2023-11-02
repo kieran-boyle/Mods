@@ -186,7 +186,6 @@
     }
   },
 
-
   "maps":
   {
 
@@ -238,6 +237,12 @@
         },
         
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -304,6 +309,12 @@
           "chance": 0
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -360,6 +371,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -426,6 +443,12 @@
           "chance": 0
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -482,6 +505,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -548,6 +577,12 @@
           "chance": 0
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -604,6 +639,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -670,6 +711,12 @@
           "chance": 0
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
         "Cultist":
         {
           "amount": 1,
@@ -726,6 +773,12 @@
         },
 
         "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0
+        },
+
+        "Kaban":
         {
           "amount": 0,
           "chance": 0
@@ -790,6 +843,12 @@
         {
           "amount": 1,
           "chance": 100
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0
         },
 
         "Cultist":

@@ -21,7 +21,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     'Reshala': 'bossBully',
     'Killa': 'bossKilla',
     'Tagilla': 'bossTagilla',
-    'Zryachiy': 'bosszryachiy',
+    'Zryachiy': 'bossZryachiy',
+    'Kaban': 'bossBoar',
     'Cultist': 'sectantPriest'
   }
 
@@ -44,6 +45,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   private bossNames :string[] = []
   private raider :any[] = []
   private rogue :any[] = []
+  private crazed :any[] = []
+  private bloodhound :any[] = []
   private thisMap :any[] = []
 
   /**
@@ -59,6 +62,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.populateBossList(locations)
     this.cloneSubBoss('raider', locations)
     this.cloneSubBoss('rogue', locations)
+    this.cloneSubBoss('bloodhound', locations)
+    this.cloneSubBoss('crazed', locations)
     
     for (let eachMap in this.config.maps)
     {
@@ -93,6 +98,16 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       if (this.config.rogues.addRogues.enabled === true)
       {
         this.addSubBoss('rogues', eachMap, locations)
+      }
+
+      if (this.config.bloodhounds.addBloodhounds.enabled === true)
+      {
+        this.addSubBoss('bloodhounds', eachMap, locations)
+      }
+      
+      if (this.config.crazedScavs.addCrazedScavs.enabled === true)
+      {
+        this.addSubBoss('crazedScavs', eachMap, locations)
       }
 
       if(this.hordeConfig.hordesEnabled === true && this.hordeConfig.maps[eachMap].enabled === true)
@@ -182,7 +197,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 
         if (!this.bossNames.includes(eachBoss.BossName) &&
           eachBoss.BossName !== 'pmcBot' &&
-          eachBoss.BossName !== 'exUsec')
+          eachBoss.BossName !== 'exUsec' &&
+          eachBoss.BossName !== 'crazyAssaultEvent')
         {
           this.bossNames.push(eachBoss.BossName)
           this.bossList.push(JSON.parse(JSON.stringify(eachBoss)))
@@ -199,16 +215,23 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 
   /**
    * Makes a copy of the target sub-boss
-   * @param target 'raider' or 'rogue'
+   * @param target raider, rogue, bloodhound, crazed
    * @param locations The container/locations
    */
   private cloneSubBoss(target :string, locations :any):void
   {
-    let loc = target === 'raider' ? 'rezervbase' : 'lighthouse'
+    let loc = target === 'raider' ? 'rezervbase' : 
+              target === 'bloodhound' ? 'woods' : 
+              'lighthouse'
+              
+    let targetName = target === 'raider' ? 'pmcBot' :
+                     target === 'rogue' ? 'exUsec' :
+                     target === 'crazed' ? 'crazyAssaultEvent' :
+                     'arenaFighterEvent'
+
     for (let eachBoss in locations[loc].base.BossLocationSpawn)
     {
-
-      if (locations[loc].base.BossLocationSpawn[eachBoss].BossName === (target === 'raider' ? 'pmcBot' : 'exUsec'))
+      if (locations[loc].base.BossLocationSpawn[eachBoss].BossName === targetName)
       {
         this[target] = JSON.parse(JSON.stringify(locations[loc].base.BossLocationSpawn[eachBoss]))
         break
@@ -362,15 +385,23 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   }
 
   /**
-   * Add additional raider / rogue groups to the map.
-   * @param target 'raider' / 'rogue' 
+   * Add additional subBoss groups to the map.
+   * @param target raider, rogue, bloodhound, crazed 
    * @param map Map
    * @param locations The container/locations
    */
   private addSubBoss(target :string, map :string, locations :any):void
   {
-    let targetType = target === 'raiders' ? 'addRaiders' : 'addRogues'
-    let getTarget = target === 'raiders' ? this.raider : this.rogue
+    let targetType = target === 'raiders' ? 'addRaiders' : 
+                      target === `rogues` ? 'addRogues' : 
+                      target === `crazedScavs` ? 'addCrazedScavs' : 
+                      'addBloodhounds'
+
+    let getTarget = target === 'raiders' ? this.raider : 
+                    target === 'rogues' ? this.rogue : 
+                    target === 'crazedScavs' ? this.crazed : 
+                    this.bloodhound
+
     let newSubBoss = JSON.parse(JSON.stringify(getTarget))
     newSubBoss.BossChance = this.config[target][targetType].maps[map].chance
     newSubBoss.Time = this.config[target][targetType].maps[map].time
@@ -424,7 +455,6 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     let thisBoss = JSON.parse(JSON.stringify(this.bossList.find(e => e.BossName === target)))
     thisBoss.BossChance = chance
     thisBoss.BossZone = this.chooseZone(map, locations)
-
     myEscorts.forEach((e, i) => 
     {
       if(!thisBoss.Supports) thisBoss.Supports = []
@@ -454,9 +484,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       'Gluhar',
       'Shturman',
       'Sanitar',
-      'Reshala' ,
+      'Reshala',
       'Killa',
-      'Tagilla'
+      'Tagilla',
+      'Kaban',
+      'Zryachiy'
     ]
     let bigBossindex = this.getRandomInt(0, options.length - 1)
     let bigBoss = this.bossDictionary[options[bigBossindex]]
@@ -475,7 +507,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       supports.push(options[supportIndex])
       options.splice(supportIndex, 1)      
       supportAmmounts.push(rand)
-      if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports) done = true
+      if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports || options.length < 1 )done = true
     }
     this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
   }

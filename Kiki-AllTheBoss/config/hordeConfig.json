@@ -1,14 +1,13 @@
 {
-  "enabled": false,
-  "hordesEnabled": false,
+  "hordesEnabled": true,
   "maps":
   {
     "Customs":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -71,11 +70,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -83,10 +90,10 @@
 
     "FactoryDay":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -149,11 +156,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -161,10 +176,10 @@
 
     "FactoryNight":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -227,11 +242,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -239,10 +262,10 @@
 
     "Interchange":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -305,11 +328,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -317,10 +348,10 @@
 
     "Laboratory":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -383,11 +414,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -395,10 +434,10 @@
 
     "Reserve":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -461,11 +500,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -473,10 +520,10 @@
 
     "Shoreline":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -539,11 +586,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -551,10 +606,10 @@
 
     "Woods":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -617,11 +672,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -629,10 +692,10 @@
 
     "Lighthouse":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -695,11 +758,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -707,10 +778,10 @@
     
     "Streets":
     {
-      "enabled": true,
+      "enabled": false,
       "addRandomHorde":
       {
-        "enabled": true,
+        "enabled": false,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6
@@ -773,11 +844,19 @@
           "escortAmount": "2"
         },
 
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
         "Zryachiy":
         {
           "amount": 0,
-          "chance": 20,
-          "escorts": "Killa",
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }

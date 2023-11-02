@@ -69,9 +69,24 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
+          "escortAmount": "2"
         }
-      }
-    },
+      },
 
     "FactoryDay":
     {
@@ -138,6 +153,22 @@
           "amount": 0,
           "chance": 100,
           "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -209,6 +240,22 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
+          "escortAmount": "2"
         }
       }
     },
@@ -278,6 +325,22 @@
           "amount": 0,
           "chance": 20,
           "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -349,6 +412,22 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
+          "escortAmount": "2"
         }
       }
     },
@@ -418,6 +497,22 @@
           "amount": 0,
           "chance": 20,
           "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -489,6 +584,22 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
+          "escortAmount": "2"
         }
       }
     },
@@ -558,6 +669,22 @@
           "amount": 0,
           "chance": 20,
           "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }
@@ -629,6 +756,22 @@
           "chance": 20,
           "escorts": "Killa",
           "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
+          "escortAmount": "2"
         }
       }
     },
@@ -698,6 +841,22 @@
           "amount": 0,
           "chance": 20,
           "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Kaban":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Killa",
+          "escortAmount": "2"
+        },
+
+        "Zryachiy":
+        {
+          "amount": 0,
+          "chance": 0,
+          "escorts": "Kaban",
           "escortAmount": "2"
         }
       }

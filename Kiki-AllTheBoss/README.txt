@@ -5,7 +5,7 @@ and overwrite the existing files to use.
 If you come up with a cool config please share it in the comments, or feel free to message it to me, I may include it in future releases.
 
 The default config will set any bosses that normally spawn on the map to 100% with no other changes (this is the same as Standard Backup)
-Spicy config give a 20% chance for every boss to spawn on each map, a 20% chance to spawn both a raider and a rogue group, and spawns a boss horde of between 3 and 7 bosses.
+Spicy config give a 20% chance for every boss to spawn on each map, a 20% chance to spawn a raider, a rogue, a bloodhund or a crazed scav group, and spawns a boss horde of between 3 and 7 bosses.
 BossesWithFriends config will set any bosses that normally spawn on the map to 100% and they will bring a friend.
 Horde config will spawn some custom made hordes to ruin your day (good example on building custom hordes)
 
@@ -25,7 +25,7 @@ Raiders and rogues are split into sections with the following options.
 
 		Removes the raiders and rogues present in the original boss waves. (true / false)
 
-	boostRaiders / boostRogues:
+	boostRaiders / boostRogues :
 
 		Boosts the following options of raiders / rogues that are in the original boss waves.
 
@@ -35,9 +35,9 @@ Raiders and rogues are split into sections with the following options.
 				otherwise will be the time after load / event that the group spawns. (number)
 			escortAmount : the number of raiders / rogues in each group. (number)
 		
-	addRaiders / addRogues
+	addRaiders / addRogues / addBloodhounds / addCrazedScavs :
 
-		Adds additional groups of Raiders / Rogues to the boss waves, with the following settings
+		Adds additional groups of Raiders / Rogues / Bloodhounds / CrazedScavs to the boss waves, with the following settings
 
 			enabled : if true, will apply the following settings fop each map. (true / false)
 
@@ -82,7 +82,7 @@ maps :
 			amount : The amount of hordes to add. (number)
 			chance : The chance for the horde to spawn. (number 0 - 100)
 			escorts : Here you must put a list of the bosses you wish to spawn separated with comma's with no spaces.
-				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Zryachiy, Killa and Tagilla
+				available options are Knight, Gluhar, Shturman, Sanitar, Reshala, Zryachiy, Kaban, Killa and Tagilla
 				if you wanted Killa and Tagilla as escort you would put "Killa,Tagilla" for example (string)
 			escortAmount : Here you must put a list of the number of each supporting boss to spawn separated with comma's with no spaces.
 				following the above example, if you wanted 2 Killa and 4 Tagilla to support you would put "2,4" (string)
