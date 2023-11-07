@@ -1,353 +1,376 @@
 {
-  "debug": false,
-  "keepOriginalBossZones": false,
+  "debug": true,
+  "keepOriginalBossZones": true,
   "randomizeBossZonesEachRaid": true,
   "shuffleBossOrder": true,
 
-  "raiders":
+  "subBosses":
   {
-    "removeRaiders": false,
-
-    "boostRaiders":
+    "Raiders":
     {
-      "enabled": false,
-      "chance": 100,
-      "time": -1,
-      "escortAmount": 2
+      "removeRaiders": true,
+  
+      "boostRaiders":
+      {
+        "enabled": false,
+        "chance": 100,
+        "time": -1,
+        "escortAmount": 2
+      },
+  
+      "addRaiders":
+      {
+        "enabled": true,
+        "maps":
+        {
+          "Customs":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "FactoryDay":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "FactoryNight":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Interchange":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Laboratory":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Lighthouse":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Reserve":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Shoreline":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Streets":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Woods":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          }
+        }
+      }
     },
-
-    "addRaiders":
+  
+    "Rogues":
     {
-      "enabled": false,
-      "maps":
+      "removeRogues": false,
+  
+      "boostRogues":
       {
-        "Customs":
+        "enabled": false,
+        "chance": 100,
+        "time": -1,
+        "escortAmount": 2
+      },
+  
+      "addRogues":
+      {
+        "enabled": false,
+        "maps":
         {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "FactoryDay":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "FactoryNight":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Interchange":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Laboratory":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Lighthouse":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Reserve":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Shoreline":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Streets":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Woods":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
+          "Customs":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "FactoryDay":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "FactoryNight":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Interchange":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Laboratory":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Lighthouse":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Reserve":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Shoreline":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Streets":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          },
+          "Woods":
+          {
+            "amount": 1,
+            "chance": 20,
+            "time": -1,
+            "escortAmount": 2
+          }
         }
       }
-    }
-  },
-
-  "rogues":
-  {
-    "removeRogues": false,
-
-    "boostRogues":
-    {
-      "enabled": false,
-      "chance": 100,
-      "time": -1,
-      "escortAmount": 2
     },
-
-    "addRogues":
+  
+    "Bloodhounds":
     {
-      "enabled": false,
-      "maps":
+      "removeBloodhounds": true,
+  
+      "boostBloodhounds":
       {
-        "Customs":
+        "enabled": false,
+        "chance": 100,
+        "time": -1,
+        "escortAmount": 2
+      },
+  
+      "addBloodhounds":
+      {
+        "enabled": true,
+        "maps":
         {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "FactoryDay":
+          "Customs":
+          {
+            "amount": 10,
+            "chance": 100,
+            "time": -1,
+            "escortAmount": 5
+          },
+          "FactoryDay":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "FactoryNight":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Interchange":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Laboratory":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Lighthouse":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Reserve":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Shoreline":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Streets":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Woods":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          }
+        }
+      }
+    },
+  
+    "CrazedScavs":
+    {
+      "removeCrazedScavs": false,
+  
+      "boostCrazedScavs":
+      {
+        "enabled": false,
+        "chance": 100,
+        "time": -1,
+        "escortAmount": 2
+      },
+  
+      "addCrazedScavs":
+      {
+        "enabled": false,
+        "maps":
         {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "FactoryNight":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Interchange":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Laboratory":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Lighthouse":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Reserve":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Shoreline":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Streets":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
-        },
-        "Woods":
-        {
-          "amount": 1,
-          "chance": 20,
-          "time": -1,
-          "escortAmount": 2
+          "Customs":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "FactoryDay":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "FactoryNight":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Interchange":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Laboratory":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Lighthouse":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Reserve":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Shoreline":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Streets":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          },
+          "Woods":
+          {
+            "amount": 0,
+            "chance": 0,
+            "time": -1,
+            "escortAmount": 0
+          }
         }
       }
     }
   },
-
-  "bloodhounds":
-  {
-    "addBloodhounds":
-    {
-      "enabled": false,
-      "maps":
-      {
-        "Customs":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "FactoryDay":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "FactoryNight":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Interchange":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Laboratory":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Lighthouse":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Reserve":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Shoreline":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Streets":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Woods":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        }
-      }
-    }
-  },
-
-  "crazedScavs":
-  {
-    "addCrazedScavs":
-    {
-      "enabled": false,
-      "maps":
-      {
-        "Customs":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "FactoryDay":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "FactoryNight":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Interchange":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Laboratory":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Lighthouse":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Reserve":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Shoreline":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Streets":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        },
-        "Woods":
-        {
-          "amount": 0,
-          "chance": 0,
-          "time": -1,
-          "escortAmount": 0
-        }
-      }
-    }
-  },
-
+  
   "maps":
   {
 

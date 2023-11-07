@@ -4,10 +4,10 @@
   {
     "Customs":
     {
-      "enabled": false,
+      "enabled": true,
       "addRandomHorde":
       {
-        "enabled": false,
+        "enabled": true,
         "numberToGenerate": 1,
         "minimumSupports": 2,
         "maximumSupports": 6

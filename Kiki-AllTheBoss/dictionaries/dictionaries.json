@@ -1,0 +1,49 @@
+{
+  "bossDictionary": {
+    "Knight": "bossKnight",
+    "Gluhar": "bossGluhar",
+    "Shturman": "bossKojaniy",
+    "Sanitar": "bossSanitar",
+    "Reshala": "bossBully",
+    "Killa": "bossKilla",
+    "Tagilla": "bossTagilla",
+    "Zryachiy": "bossZryachiy",
+    "Kaban": "bossBoar",
+    "Cultist": "sectantPriest"
+  },
+
+  "mapDictionary": {
+    "Customs": "bigmap",
+    "FactoryDay": "factory4_day",
+    "FactoryNight": "factory4_night",
+    "Interchange": "interchange",
+    "Laboratory": "laboratory",
+    "Reserve": "rezervbase",
+    "Shoreline": "shoreline",
+    "Woods": "woods",
+    "Lighthouse": "lighthouse",
+    "Streets": "tarkovstreets"
+  },
+
+  "subBossDictionary": {
+    "Raiders": {
+      "name": "pmcBot",
+      "map":"rezervbase"
+    },
+    "Rogues": {
+      "name": "exUsec",
+      "map":"lighthouse"
+    },
+    "Bloodhounds": {
+      "name": "arenaFighterEvent",
+      "map":"woods"
+    },
+    "CrazedScavs": {
+      "name": "crazyAssaultEvent",
+      "map":"lighthouse"
+    }
+  },
+
+  "botTypesToIgnore": ["bossboarsniper"],
+  "botTypesToSkipZoneHarvest":["sectantPriest","sectantwarrior"]
+}
