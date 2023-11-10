@@ -1,9 +1,11 @@
 import { DependencyContainer } from 'tsyringe'
 import { ILogger } from '@spt-aki/models/spt/utils/ILogger'
 import { IPostDBLoadMod } from '@spt-aki/models/external/IPostDBLoadMod'
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import { IPreAkiLoadMod } from '@spt-aki/models/external/IPreAkiLoadMod'
 import { DatabaseServer } from '@spt-aki/servers/DatabaseServer'
-import {StaticRouterModService} from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
+import {StaticRouterModService} from '@spt-aki/services/mod/staticRouter/StaticRouterModService'
+import { configBuilder } from "./configBuilder"
+//import build from '/configBuilder'
 
 class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 {
@@ -28,7 +30,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.container = container
     this.logger = this.container.resolve<ILogger>('WinstonLogger')
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
-
+    const builder = new configBuilder()
+    
+    builder.build()
     this.populateSubBossList(locations)
     this.populateBossList(locations)
     
@@ -121,6 +125,10 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     }
   }
 
+  /**
+   * Finds all subBosses and pushes their object to subBossList
+   * @param locations 
+   */
   private populateSubBossList(locations :any):void
   {
     for(let subBoss in this.dictionaries.subBossDictionary)
@@ -187,7 +195,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   private populateOriginalZones(map :string, locations :any):void
   {
     let bossLocations = locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn
-    bossLocations = bossLocations.filter(boss => Object.values(this.bossList).map(obj => obj.BossName).includes(boss.BossName) && !this.dictionaries.botTypesToSkipZoneHarvest.includes(boss.BossName))
+    bossLocations = bossLocations.filter(boss => Object.values(this.bossList)
+                                .map(obj => obj.BossName)
+                                .includes(boss.BossName) 
+                                && !this.dictionaries.botTypesToSkipZoneHarvest.includes(boss.BossName))
+
     let bossZones = bossLocations.map(boss => boss.BossZone.split(',')).flat()
     this.originalZones[map] = [...new Set(bossZones)]
   }
