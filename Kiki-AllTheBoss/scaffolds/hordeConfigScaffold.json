@@ -1,0 +1,21 @@
+{
+  "hordesEnabled": true,
+  "maps":
+  {
+    "enabled": true,
+    "addRandomHorde":
+    {
+      "enabled": true,
+      "numberToGenerate": 1,
+      "minimumSupports": 2,
+      "maximumSupports": 6
+    },
+    "bossList":
+    {
+      "amount": 0,
+      "chance": 0,
+      "escorts": "",
+      "escortAmount": "0"
+    }
+  }
+}

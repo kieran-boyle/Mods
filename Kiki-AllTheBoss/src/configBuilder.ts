@@ -4,11 +4,13 @@ export class configBuilder
    private hordeConfig = require('../config/hordeConfig.json')
    private dictionaries = require('../dictionaries/dictionaries.json')
    private configScaffold = require('../scaffolds/configScaffold.json')
+   private hordeConfigScaffold = require('../scaffolds/hordeConfigScaffold.json')
    
    public build()
    {
       console.log("building")
       this.generateConfig()
+      this.generateHordeConfig()
    }
 
    private generateConfig() 
@@ -54,7 +56,7 @@ export class configBuilder
             "bossList": this.generateBossList()
          }
       }
-      console.log(JSON.stringify(config, null, 1))
+      //console.log(JSON.stringify(config, null, 1))
    }
 
    private generateSubBossMaps()
@@ -85,5 +87,46 @@ export class configBuilder
          }
       }
       return bosses
+   }
+
+   private generateHordeConfig()
+   {
+      const hordeConfig = 
+      {
+         "hordesEnabled": this.hordeConfigScaffold.hordesEnabled,
+         "maps":{}
+      }
+      for(const map in this.dictionaries.mapDictionary)
+      {
+         hordeConfig.maps[map] = 
+         {
+         "enabled": this.hordeConfigScaffold.maps.enabled,
+         "addRandomHorde": 
+         {
+            "enabled": this.hordeConfigScaffold.maps.addRandomHorde.enabled,
+            "numberToGenerate": this.hordeConfigScaffold.maps.addRandomHorde.numberToGenerate,
+            "minimumSupports": this.hordeConfigScaffold.maps.addRandomHorde.minimumSupports,
+            "maximumSupports": this.hordeConfigScaffold.maps.addRandomHorde.maximumSupports
+         },
+         "bossList": this.generateHordeBossList()
+         }
+      }
+      //console.log(JSON.stringify(hordeConfig, null, 1))
+   }
+
+   private generateHordeBossList()
+   {
+      const bossList= {}
+      for(const boss in this.dictionaries.bossDictionary)
+      {
+         bossList[boss] =
+         {
+         "amount": this.hordeConfigScaffold.maps.bossList.amount,
+         "chance": this.hordeConfigScaffold.maps.bossList.chance,
+         "escorts": this.hordeConfigScaffold.maps.bossList.escorts,
+         "escortAmount": this.hordeConfigScaffold.maps.bossList.escortAmount
+         }
+      }
+      return bossList
    }
 }
