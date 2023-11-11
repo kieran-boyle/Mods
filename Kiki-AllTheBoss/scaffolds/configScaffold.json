@@ -15,8 +15,8 @@
     },
     "add":
     {
-      "enabled": false,
-      "amount": 0,
+      "enabled": true,
+      "amount": 1,
       "chance": 20,
       "time": -1,
       "escortAmount": 2
@@ -26,6 +26,6 @@
   {
     "enabled": true,
     "amount": 1,
-    "chance": 100
+    "chance": 20
   }
 }

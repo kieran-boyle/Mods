@@ -14,64 +14,64 @@
 				"escortAmount": 2
 			},
 			"addRaiders": {
-				"enabled": false,
+				"enabled": true,
 				"maps": {
 					"Customs": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryDay": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryNight": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Interchange": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Laboratory": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Reserve": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Shoreline": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Woods": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Lighthouse": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Streets": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
@@ -88,64 +88,64 @@
 				"escortAmount": 2
 			},
 			"addRogues": {
-				"enabled": false,
+				"enabled": true,
 				"maps": {
 					"Customs": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryDay": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryNight": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Interchange": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Laboratory": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Reserve": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Shoreline": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Woods": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Lighthouse": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Streets": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
@@ -162,64 +162,64 @@
 				"escortAmount": 2
 			},
 			"addBloodhounds": {
-				"enabled": false,
+				"enabled": true,
 				"maps": {
 					"Customs": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryDay": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryNight": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Interchange": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Laboratory": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Reserve": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Shoreline": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Woods": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Lighthouse": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Streets": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
@@ -236,64 +236,64 @@
 				"escortAmount": 2
 			},
 			"addCrazedScavs": {
-				"enabled": false,
+				"enabled": true,
 				"maps": {
 					"Customs": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryDay": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"FactoryNight": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Interchange": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Laboratory": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Reserve": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Shoreline": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Woods": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Lighthouse": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
 					},
 					"Streets": {
-						"amount": 0,
+						"amount": 1,
 						"chance": 20,
 						"time": -1,
 						"escortAmount": 2
@@ -308,43 +308,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -353,43 +353,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -398,43 +398,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -443,43 +443,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -488,43 +488,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -533,43 +533,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -578,43 +578,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -623,43 +623,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -668,43 +668,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		},
@@ -713,43 +713,43 @@
 			"bossList": {
 				"Knight": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Gluhar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Shturman": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Sanitar": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Reshala": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Killa": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Tagilla": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Zryachiy": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Kaban": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				},
 				"Cultist": {
 					"amount": 1,
-					"chance": 100
+					"chance": 20
 				}
 			}
 		}
