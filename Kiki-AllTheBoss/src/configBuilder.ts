@@ -11,10 +11,10 @@ export class configBuilder
    
    public build()
    {
-      const oldConfig = JSON.stringify(this.config, null, 1)
-      const oldHordeConfig = JSON.stringify(this.hordeConfig, null, 1)
+      const oldConfig = JSON.parse(JSON.stringify(this.config))
+      const oldHordeConfig = JSON.parse(JSON.stringify(this.hordeConfig))
 
-      this.generateBackups(oldConfig, oldHordeConfig)
+      this.generateBackups(JSON.stringify(oldConfig, null, "\t"), JSON.stringify(oldHordeConfig, null, "\t"))
 
       const newConfig = this.generateConfig()
       const newHordeConfig = this.generateHordeConfig()
