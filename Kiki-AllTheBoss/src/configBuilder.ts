@@ -1,3 +1,5 @@
+import path from "path"
+
 export class configBuilder
 {
    private config = require('../config/config.json')
@@ -5,17 +7,23 @@ export class configBuilder
    private dictionaries = require('../dictionaries/dictionaries.json')
    private configScaffold = require('../scaffolds/configScaffold.json')
    private hordeConfigScaffold = require('../scaffolds/hordeConfigScaffold.json')
+   private fs = require('fs')
    
    public build()
    {
-      console.log("building")
-      this.generateConfig()
-      this.generateHordeConfig()
+      const oldConfig = JSON.stringify(this.config, null, 1)
+      const oldHordeConfig = JSON.stringify(this.hordeConfig, null, 1)
+
+      this.generateBackups(oldConfig, oldHordeConfig)
+
+      const newConfig = this.generateConfig()
+      const newHordeConfig = this.generateHordeConfig()
    }
 
    private generateConfig() 
    {
-      const config = {
+      const config = 
+      {
         "debug": this.configScaffold.debug,
         "keepOriginalBossZones": this.configScaffold.keepOriginalBossZones,
         "randomizeBossZonesEachRaid": this.configScaffold.randomizeBossZonesEachRaid,
@@ -28,10 +36,10 @@ export class configBuilder
       {
          config.subBosses[subBossKey] = {}
 
-         let remove = `remove${subBossKey}`
+         const remove = `remove${subBossKey}`
          config.subBosses[subBossKey][remove] = this.configScaffold.subBosses.remove
 
-         let boost = `boost${subBossKey}`
+         const boost = `boost${subBossKey}`
          config.subBosses[subBossKey][boost] = 
          {
             "enabled": this.configScaffold.subBosses.boost.enabled,
@@ -40,7 +48,7 @@ export class configBuilder
             "escortAmount": this.configScaffold.subBosses.boost.escortAmount
          }
 
-         let add = `add${subBossKey}`
+         const add = `add${subBossKey}`
          config.subBosses[subBossKey][add] =
          {
             "enabled": this.configScaffold.subBosses.add.enabled,
@@ -56,7 +64,7 @@ export class configBuilder
             "bossList": this.generateBossList()
          }
       }
-      //console.log(JSON.stringify(config, null, 1))
+      return config
    }
 
    private generateSubBossMaps()
@@ -100,18 +108,18 @@ export class configBuilder
       {
          hordeConfig.maps[map] = 
          {
-         "enabled": this.hordeConfigScaffold.maps.enabled,
-         "addRandomHorde": 
-         {
-            "enabled": this.hordeConfigScaffold.maps.addRandomHorde.enabled,
-            "numberToGenerate": this.hordeConfigScaffold.maps.addRandomHorde.numberToGenerate,
-            "minimumSupports": this.hordeConfigScaffold.maps.addRandomHorde.minimumSupports,
-            "maximumSupports": this.hordeConfigScaffold.maps.addRandomHorde.maximumSupports
-         },
+            "enabled": this.hordeConfigScaffold.maps.enabled,
+            "addRandomHorde": 
+            {
+               "enabled": this.hordeConfigScaffold.maps.addRandomHorde.enabled,
+               "numberToGenerate": this.hordeConfigScaffold.maps.addRandomHorde.numberToGenerate,
+               "minimumSupports": this.hordeConfigScaffold.maps.addRandomHorde.minimumSupports,
+               "maximumSupports": this.hordeConfigScaffold.maps.addRandomHorde.maximumSupports
+            },
          "bossList": this.generateHordeBossList()
          }
       }
-      //console.log(JSON.stringify(hordeConfig, null, 1))
+      return hordeConfig
    }
 
    private generateHordeBossList()
@@ -128,5 +136,30 @@ export class configBuilder
          }
       }
       return bossList
+   }
+
+   private generateBackups(oldConfig, oldHordeConfig)
+   {
+      const timestamp = Date.now()
+      const date = new Date(timestamp)
+      const year = date.getFullYear()
+      const month = ('0' + (date.getMonth() + 1)).slice(-2)
+      const day = ('0' + date.getDate()).slice(-2)
+      const hours = ('0' + date.getHours()).slice(-2)
+      const minutes = ('0' + date.getMinutes()).slice(-2)
+      const seconds = ('0' + date.getSeconds()).slice(-2)
+
+      const formattedDateTime = `${month}-${day} ${hours}h ${minutes}m ${seconds}s`;
+
+      this.fs.mkdir(path.resolve(__dirname, `../backups/${formattedDateTime}`), (err) => {
+         if (err) throw err})
+
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/config.json`), oldConfig, function (err) {
+         if (err) throw err
+      })
+
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/hordeConfig.json`), oldHordeConfig, function (err) {
+         if (err) throw err
+      })
    }
 }
