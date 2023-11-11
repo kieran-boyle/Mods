@@ -5,7 +5,6 @@ import { IPreAkiLoadMod } from '@spt-aki/models/external/IPreAkiLoadMod'
 import { DatabaseServer } from '@spt-aki/servers/DatabaseServer'
 import {StaticRouterModService} from '@spt-aki/services/mod/staticRouter/StaticRouterModService'
 import { configBuilder } from "./configBuilder"
-//import build from '/configBuilder'
 
 class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 {
@@ -30,9 +29,16 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.container = container
     this.logger = this.container.resolve<ILogger>('WinstonLogger')
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
-    const builder = new configBuilder()
+
+    if(this.config.rebuildConfig === true)
+    {
+
+      this.logger.log(`[Kiki-AllTheBoss] WARNING your config has been rebuilt.  \nA backup of your old configs have been made and stored in the backups folder`, "red")
+      const builder = new configBuilder()
     
-    builder.build()
+      builder.build()
+    }
+
     this.populateSubBossList(locations)
     this.populateBossList(locations)
     

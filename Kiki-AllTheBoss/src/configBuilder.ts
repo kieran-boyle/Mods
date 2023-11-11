@@ -14,10 +14,9 @@ export class configBuilder
       const oldConfig = JSON.parse(JSON.stringify(this.config))
       const oldHordeConfig = JSON.parse(JSON.stringify(this.hordeConfig))
 
-      this.generateBackups(JSON.stringify(oldConfig, null, "\t"), JSON.stringify(oldHordeConfig, null, "\t"))
+      this.generateBackups(oldConfig, oldHordeConfig)
 
-      const newConfig = this.generateConfig()
-      const newHordeConfig = this.generateHordeConfig()
+      this.writeNewConfigs(this.generateConfig(), this.generateHordeConfig())
    }
 
    private generateConfig() 
@@ -25,6 +24,7 @@ export class configBuilder
       const config = 
       {
         "debug": this.configScaffold.debug,
+        "rebuildConfig": false,
         "keepOriginalBossZones": this.configScaffold.keepOriginalBossZones,
         "randomizeBossZonesEachRaid": this.configScaffold.randomizeBossZonesEachRaid,
         "shuffleBossOrder": this.configScaffold.shuffleBossOrder,
@@ -151,15 +151,32 @@ export class configBuilder
 
       const formattedDateTime = `${month}-${day} ${hours}h ${minutes}m ${seconds}s`;
 
-      this.fs.mkdir(path.resolve(__dirname, `../backups/${formattedDateTime}`), (err) => {
-         if (err) throw err})
-
-      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/config.json`), oldConfig, function (err) {
+      this.fs.mkdir(path.resolve(__dirname, `../backups/${formattedDateTime}`), (err) => 
+      {
          if (err) throw err
       })
 
-      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/hordeConfig.json`), oldHordeConfig, function (err) {
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/config.json`), JSON.stringify(oldConfig, null, "\t"), (err) => 
+      {
          if (err) throw err
+      })
+
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/hordeConfig.json`), JSON.stringify(oldHordeConfig, null, "\t"), (err) =>
+      {
+         if (err) throw err
+      })
+   }
+
+   private writeNewConfigs(newConfig, newHordeConfig)
+   {
+      this.fs.writeFile(path.resolve(__dirname, '../config/config.json'), JSON.stringify(newConfig, null, "\t"), (err) => 
+      { 
+         if (err) throw (err)
+      })
+
+      this.fs.writeFile(path.resolve(__dirname, '../config/hordeConfig.json'), JSON.stringify(newHordeConfig, null, "\t"), (err) =>
+      { 
+         if (err) throw (err)
       })
    }
 }
