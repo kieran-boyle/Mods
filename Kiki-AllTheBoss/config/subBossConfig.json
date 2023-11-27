@@ -1,0 +1,424 @@
+{
+	"maps": {
+		"Customs": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"FactoryDay": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"FactoryNight": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Interchange": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Laboratory": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Reserve": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Shoreline": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Woods": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Lighthouse": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		},
+		"Streets": {
+			"Raiders": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Rogues": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"Bloodhounds": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			},
+			"CrazedScavs": {
+				"remove": true,
+				"add": {
+					"enabled": false,
+					"amount": 0,
+					"chance": 0,
+					"time": -1,
+					"escortAmount": 2
+				}
+			}
+		}
+	}
+}

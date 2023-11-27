@@ -2,85 +2,82 @@ import path from "path"
 
 export class configBuilder
 {
-   private config = require('../config/config.json')
+   private bossConfig = require('../config/bossConfig.json')
    private hordeConfig = require('../config/hordeConfig.json')
+   private subBossConfig = require('../config/subBossConfig.json')
    private dictionaries = require('../dictionaries/dictionaries.json')
-   private configScaffold = require('../scaffolds/configScaffold.json')
+   private bossConfigScaffold = require('../scaffolds/bossConfigScaffold.json')
    private hordeConfigScaffold = require('../scaffolds/hordeConfigScaffold.json')
+   private subBossConfigScaffold = require('../scaffolds/subBossConfigScaffold.json')
    private fs = require('fs')
    
    public build()
    {
-      const oldConfig = JSON.parse(JSON.stringify(this.config))
+      const oldConfig = JSON.parse(JSON.stringify(this.bossConfig))
       const oldHordeConfig = JSON.parse(JSON.stringify(this.hordeConfig))
+      const oldSubBossConfig = JSON.parse(JSON.stringify(this.subBossConfig))
 
-      this.generateBackups(oldConfig, oldHordeConfig)
+      this.generateBackups(oldConfig, oldHordeConfig, oldSubBossConfig)
 
-      this.writeNewConfigs(this.generateConfig(), this.generateHordeConfig())
+      this.writeNewConfigs(this.generateBossConfig(), this.generateHordeConfig(), this.generateSubBossConfig())
    }
-
-   private generateConfig() 
+   
+   private generateBossConfig() 
    {
       const config = 
       {
-        "debug": this.configScaffold.debug,
+        "debug": this.bossConfigScaffold.debug,
         "rebuildConfig": false,
-        "keepOriginalBossZones": this.configScaffold.keepOriginalBossZones,
-        "randomizeBossZonesEachRaid": this.configScaffold.randomizeBossZonesEachRaid,
-        "shuffleBossOrder": this.configScaffold.shuffleBossOrder,
-        "subBosses": {},
+        "keepOriginalBossZones": this.bossConfigScaffold.keepOriginalBossZones,
+        "randomizeBossZonesEachRaid": this.bossConfigScaffold.randomizeBossZonesEachRaid,
+        "shuffleBossOrder": this.bossConfigScaffold.shuffleBossOrder,
         "maps": {}
-      }
-    
-      for (const subBossKey in this.dictionaries.subBossDictionary) 
-      {
-         config.subBosses[subBossKey] = {}
-
-         const remove = `remove${subBossKey}`
-         config.subBosses[subBossKey][remove] = this.configScaffold.subBosses.remove
-
-         const boost = `boost${subBossKey}`
-         config.subBosses[subBossKey][boost] = 
-         {
-            "enabled": this.configScaffold.subBosses.boost.enabled,
-            "chance": this.configScaffold.subBosses.boost.chance,
-            "time": this.configScaffold.subBosses.boost.time,
-            "escortAmount": this.configScaffold.subBosses.boost.escortAmount
-         }
-
-         const add = `add${subBossKey}`
-         config.subBosses[subBossKey][add] =
-         {
-            "enabled": this.configScaffold.subBosses.add.enabled,
-            "maps": this.generateSubBossMaps()
-         }
       }
 
       for(const map in this.dictionaries.mapDictionary)
       {
          config.maps[map] =
          {
-            "enabled": this.configScaffold.maps.enabled,
+            "enabled": this.bossConfigScaffold.maps.enabled,
             "bossList": this.generateBossList()
          }
       }
       return config
    }
 
-   private generateSubBossMaps()
+   private generateSubBossConfig()
    {
-      const maps = {}
+      const config = 
+      {
+         "maps": {}
+      }
+
       for(const map in this.dictionaries.mapDictionary)
       {
-         maps[map] = 
+         config.maps[map] = {}
+         for(const subBoss in this.dictionaries.subBossDictionary)
          {
-            "amount": this.configScaffold.subBosses.add.amount,
-            "chance": this.configScaffold.subBosses.add.chance,
-            "time": this.configScaffold.subBosses.add.time,
-            "escortAmount": this.configScaffold.subBosses.add.escortAmount
+            config.maps[map][subBoss] = this.addSubBosses()
+         }         
+      }
+      return config
+   }
+
+   private addSubBosses()
+   {
+      const subObj =
+      {
+         "remove": this.subBossConfigScaffold.maps.remove,
+         "add":
+         {            
+            "enabled": this.subBossConfigScaffold.maps.add.enabled,
+            "amount": this.subBossConfigScaffold.maps.add.chance,
+            "chance": this.subBossConfigScaffold.maps.add.chance,
+            "time": this.subBossConfigScaffold.maps.add.time,
+            "escortAmount": this.subBossConfigScaffold.maps.add.escortAmount            
          }
       }
-      return maps
+      return subObj
    }
 
    private generateBossList()
@@ -90,8 +87,8 @@ export class configBuilder
       {
          bosses[boss] =
          {
-            "amount": this.configScaffold.maps.amount,
-            "chance": this.configScaffold.maps.chance
+            "amount": this.bossConfigScaffold.maps.amount,
+            "chance": this.bossConfigScaffold.maps.chance
          }
       }
       return bosses
@@ -138,7 +135,7 @@ export class configBuilder
       return bossList
    }
 
-   private generateBackups(oldConfig, oldHordeConfig)
+   private generateBackups(oldBossConfig, oldHordeConfig, oldSubBossConfig)
    {
       const timestamp = Date.now()
       const date = new Date(timestamp)
@@ -156,7 +153,7 @@ export class configBuilder
          if (err) throw err
       })
 
-      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/config.json`), JSON.stringify(oldConfig, null, "\t"), (err) => 
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/bossConfig.json`), JSON.stringify(oldBossConfig, null, "\t"), (err) => 
       {
          if (err) throw err
       })
@@ -165,16 +162,26 @@ export class configBuilder
       {
          if (err) throw err
       })
+
+      this.fs.appendFile(path.resolve(__dirname, `../backups/${formattedDateTime}/subBossConfig.json`), JSON.stringify(oldSubBossConfig, null, "\t"), (err) =>
+      {
+         if (err) throw err
+      })
    }
 
-   private writeNewConfigs(newConfig, newHordeConfig)
+   private writeNewConfigs(newConfig, newHordeConfig, newSubBossConfig)
    {
-      this.fs.writeFile(path.resolve(__dirname, '../config/config.json'), JSON.stringify(newConfig, null, "\t"), (err) => 
+      this.fs.writeFile(path.resolve(__dirname, '../config/bossConfig.json'), JSON.stringify(newConfig, null, "\t"), (err) => 
       { 
          if (err) throw (err)
       })
 
       this.fs.writeFile(path.resolve(__dirname, '../config/hordeConfig.json'), JSON.stringify(newHordeConfig, null, "\t"), (err) =>
+      { 
+         if (err) throw (err)
+      })
+
+      this.fs.writeFile(path.resolve(__dirname, '../config/subBossConfig.json'), JSON.stringify(newSubBossConfig, null, "\t"), (err) =>
       { 
          if (err) throw (err)
       })

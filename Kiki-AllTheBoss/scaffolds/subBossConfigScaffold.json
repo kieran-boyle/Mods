@@ -1,0 +1,14 @@
+{
+  "maps":
+  {
+    "remove": true,
+    "add":
+    {
+      "enabled": false,
+      "amount": 0,
+      "chance": 0,
+      "time": -1,
+      "escortAmount": 2
+    }
+  }
+}

@@ -9,8 +9,9 @@ import { configBuilder } from "./configBuilder"
 class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
 {
   private container: DependencyContainer
-  private config = require('../config/config.json')
+  private bossConfig = require('../config/bossConfig.json')
   private hordeConfig = require('../config/hordeConfig.json')
+  private subBossConfig = require('../config/subBossConfig.json')
   private dictionaries = require('../dictionaries/dictionaries.json')
   private logger :ILogger
   private sniperFinder = new RegExp(/.*(snip).*/i)
@@ -30,9 +31,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.logger = this.container.resolve<ILogger>('WinstonLogger')
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
 
-    if(this.config.rebuildConfig === true)
+    if(this.bossConfig.rebuildConfig === true)
     {
-
       this.logger.log(`[Kiki-AllTheBoss] WARNING your config has been rebuilt.  \nA backup of your old configs have been made and stored in the backups folder`, "red")
       const builder = new configBuilder()
     
@@ -42,16 +42,16 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.populateSubBossList(locations)
     this.populateBossList(locations)
     
-    for (let eachMap in this.config.maps)
+    for (let eachMap in this.bossConfig.maps)
     {
       this.populateZoneList(eachMap, locations)
 
-      if(this.config.keepOriginalBossZones === true)
+      if(this.bossConfig.keepOriginalBossZones === true)
       {
         this.populateOriginalZones(eachMap, locations)
       }
 
-      if (this.config.maps[eachMap].enabled === true)
+      if (this.bossConfig.maps[eachMap].enabled === true)
       {
         this.setBosses(eachMap, locations)
         this.sanatizeMap(eachMap, locations)
@@ -64,7 +64,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
         this.setBossHordes(eachMap, locations)
       }
 
-      if(this.config.shuffleBossOrder === true)
+      if(this.bossConfig.shuffleBossOrder === true)
       {
         this.shuffleArray(this.thisMap)
       }
@@ -73,7 +73,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       locations[this.dictionaries.mapDictionary[eachMap]].base.BossLocationSpawn = [...locations[this.dictionaries.mapDictionary[eachMap]].base.BossLocationSpawn, ...this.thisMap]
       this.thisMap = []
       
-      if (this.config.debug === true)
+      if (this.bossConfig.debug === true)
       {
         this.logger.log(`\n${eachMap} \n${JSON.stringify(locations[this.dictionaries.mapDictionary[eachMap]].base.BossLocationSpawn, null, 1)}`, 'yellow', 'black')
       }
@@ -89,7 +89,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
 
-    if(this.config.randomizeBossZonesEachRaid === true)
+    if(this.bossConfig.randomizeBossZonesEachRaid === true)
     {
       staticRouterModService.registerStaticRouter
       (
@@ -113,15 +113,15 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   {
     const locations = this.container.resolve<DatabaseServer>('DatabaseServer').getTables().locations
 
-    if(this.config.keepOriginalBossZones === true)
+    if(this.bossConfig.keepOriginalBossZones === true)
     {
-      for(let eachMap in this.config.maps)
+      for(let eachMap in this.bossConfig.maps)
       {
         this.populateOriginalZones(eachMap, locations)
       }
     }
 
-    for(let eachMap in this.config.maps)
+    for(let eachMap in this.bossConfig.maps)
     {
       for(let boss in locations[this.dictionaries.mapDictionary[eachMap]].base.BossLocationSpawn)
       {
@@ -164,7 +164,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private populateBossList(locations :any):void
   {      
-    for (let map in this.config.maps)
+    for (let map in this.bossConfig.maps)
     {
 
       for (let eachBoss of locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn)
@@ -233,7 +233,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       return 'BotZone'
     }
 
-    if(this.config.keepOriginalBossZones === true && map !== 'Laboratory')
+    if(this.bossConfig.keepOriginalBossZones === true && map !== 'Laboratory')
     {
       return this.originalZones[map].join(',')
     }
@@ -256,9 +256,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private setBosses(map :string, locations :any):void
   {
-    for (let eachBoss in this.config.maps[map].bossList)
+    for (let eachBoss in this.bossConfig.maps[map].bossList)
     {
-      let thisBoss = this.config.maps[map].bossList[eachBoss]
+      let thisBoss = this.bossConfig.maps[map].bossList[eachBoss]
       for (let i = 0; i < thisBoss.amount; i++)
       {
         let clone = JSON.parse(JSON.stringify(this.bossList.find(boss => boss.BossName === this.dictionaries.bossDictionary[eachBoss])))
@@ -276,12 +276,15 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private sanatizeMap(map :string, locations :any):void
   {
+    const subBossesToRemove = Object.entries(this.subBossConfig.maps[map])
+                                    .filter(([subBoss, subBossData]) => subBossData.remove === true)
+                                    .map(([subBoss, subBossData]) => this.dictionaries.subBossDictionary[subBoss].name)
+
+    console.log(subBossesToRemove)
+    
     for (let i = Object.keys(locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
     {
       let thisBoss = locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn[i]
-      const subBossesToRemove = Object.entries(this.config.subBosses)
-                                      .filter(([subBoss, subBossData]) => subBossData[`remove${subBoss}`] === true)
-                                      .map(([subBoss, subBossData]) => this.dictionaries.subBossDictionary[subBoss].name)
 
       if (Object.values(this.bossList).map(obj => obj.BossName).includes(thisBoss.BossName) ||
           subBossesToRemove.includes(thisBoss.BossName))
@@ -298,32 +301,13 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private setSubBosses(map :string, locations :any):void
   {
-    const subBossesToBoost = Object.entries(this.config.subBosses)
-                                  .filter(([subBoss, subBossData]) => subBossData[`boost${subBoss}`].enabled === true)
-                                  .map(([subBoss, subBossData]) => subBoss)
-                                  
-    const subBossesToAdd = Object.entries(this.config.subBosses)
-                                  .filter(([subBoss, subBossData]) => subBossData[`add${subBoss}`].enabled === true)
-                                  .map(([subBoss, subBossData]) => subBoss)
-
-    subBossesToBoost.forEach(boss => this.boostSubBoss(boss, map, locations))
-    subBossesToAdd.forEach(boss => this.addSubBoss(boss, map, locations))
-  }
-
-  /**
-   * Sets the chance, time and escort amount for raiders / rogues in the maps original bossSpawns[]
-   * @param target subBoss name 
-   * @param map Map
-   * @param locations The container/locations
-   */
-  private boostSubBoss(target :string, map :string, locations :any):void
-  {
-    for (let eachBot in locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn)
+    //console.log(this.subBossConfig.maps[map])
+    for(let subBoss in this.subBossConfig.maps[map])
     {
-      let thisBot = locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn[eachBot]
-      thisBot.BossChance = this.config.subBosses[target][`boost${target}`].chance
-      thisBot.Time = this.config.subBosses[target][`boost${target}`].time
-      thisBot.BossEscortAmount = this.config.subBosses[target][`boost${target}`].escortAmount
+      if(this.subBossConfig.maps[map][subBoss].add.enabled === true)
+      {
+        this.addSubBoss(subBoss, map, locations)
+      }
     }
   }
 
@@ -336,11 +320,11 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   private addSubBoss(target :string, map :string, locations :any):void
   {
     let newSubBoss = this.subBossList.find(boss => boss.BossName === this.dictionaries.subBossDictionary[target].name)
-    newSubBoss.BossChance = this.config.subBosses[target][`add${target}`].maps[map].chance
-    newSubBoss.Time = this.config.subBosses[target][`add${target}`].maps[map].time
-    newSubBoss.BossEscortAmount = this.config.subBosses[target][`add${target}`].maps[map].escortAmount
+    newSubBoss.BossChance = this.subBossConfig.maps[map][target].add.chance
+    newSubBoss.Time = this.subBossConfig.maps[map][target].add.chance.time
+    newSubBoss.BossEscortAmount = this.subBossConfig.maps[map][target].add.chance.escortAmount
 
-    for (let i = 0; i < this.config.subBosses[target][`add${target}`].maps[map].amount; i++)
+    for (let i = 0; i < this.subBossConfig.maps[map][target].add.chance.amount; i++)
     {
       newSubBoss.BossZone = this.chooseZone(map, locations)
       this.thisMap.push(JSON.parse(JSON.stringify(newSubBoss)))
@@ -430,7 +414,8 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       supports.push(options[supportIndex])
       options.splice(supportIndex, 1)      
       supportAmmounts.push(rand)
-      if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports || options.length < 1 )done = true
+      if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports || options.length < 1)
+        done = true
     }
     this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
   }

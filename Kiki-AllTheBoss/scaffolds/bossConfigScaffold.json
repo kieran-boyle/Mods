@@ -1,0 +1,12 @@
+{
+  "debug": false,
+  "keepOriginalBossZones": false,
+  "randomizeBossZonesEachRaid": true,
+  "shuffleBossOrder": true,
+  "maps":
+  {
+    "enabled": false,
+    "amount": 0,
+    "chance": 0
+  }
+}
