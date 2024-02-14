@@ -45,6 +45,20 @@ export class configBuilder
       return config
    }
 
+   private generateBossList()
+   {
+      const bosses = {}
+      for(const boss in this.dictionaries.bossDictionary)
+      {
+         bosses[boss] =
+         {
+            "amount": this.bossConfigScaffold.maps.amount,
+            "chance": this.bossConfigScaffold.maps.chance
+         }
+      }
+      return bosses
+   }
+
    private generateSubBossConfig()
    {
       const config = 
@@ -65,33 +79,19 @@ export class configBuilder
 
    private addSubBosses()
    {
-      const subObj =
+      const subBosses =
       {
          "remove": this.subBossConfigScaffold.maps.remove,
          "add":
          {            
             "enabled": this.subBossConfigScaffold.maps.add.enabled,
-            "amount": this.subBossConfigScaffold.maps.add.chance,
+            "amount": this.subBossConfigScaffold.maps.add.amount,
             "chance": this.subBossConfigScaffold.maps.add.chance,
             "time": this.subBossConfigScaffold.maps.add.time,
             "escortAmount": this.subBossConfigScaffold.maps.add.escortAmount            
          }
       }
-      return subObj
-   }
-
-   private generateBossList()
-   {
-      const bosses = {}
-      for(const boss in this.dictionaries.bossDictionary)
-      {
-         bosses[boss] =
-         {
-            "amount": this.bossConfigScaffold.maps.amount,
-            "chance": this.bossConfigScaffold.maps.chance
-         }
-      }
-      return bosses
+      return subBosses
    }
 
    private generateHordeConfig()
@@ -101,6 +101,7 @@ export class configBuilder
          "hordesEnabled": this.hordeConfigScaffold.hordesEnabled,
          "maps":{}
       }
+      
       for(const map in this.dictionaries.mapDictionary)
       {
          hordeConfig.maps[map] = 
@@ -113,7 +114,8 @@ export class configBuilder
                "minimumSupports": this.hordeConfigScaffold.maps.addRandomHorde.minimumSupports,
                "maximumSupports": this.hordeConfigScaffold.maps.addRandomHorde.maximumSupports
             },
-         "bossList": this.generateHordeBossList()
+
+            "bossList": this.generateHordeBossList()
          }
       }
       return hordeConfig

@@ -369,19 +369,19 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
   {
     let myEscorts = escorts.split(',')
     let myAmounts = escortAmounts.split(',')
-    let thisBoss = JSON.parse(JSON.stringify(this.bossList.find(e => e.BossName === target)))
+    let thisBoss = JSON.parse(JSON.stringify(this.bossList.find(boss => boss.BossName === target)))
     thisBoss.BossChance = chance
     thisBoss.BossZone = this.chooseZone(map, locations)
-    myEscorts.forEach((e, i) => 
+    myEscorts.forEach((escort, index) => 
     {
       if(!thisBoss.Supports) thisBoss.Supports = []
       thisBoss.Supports.push(
       {
-        "BossEscortType" : this.dictionaries.bossDictionary[e],
+        "BossEscortType" : this.dictionaries.bossDictionary[escort],
         "BossEscortDifficult": [
           "normal"
         ],
-        "BossEscortAmount": myAmounts[i]
+        "BossEscortAmount": myAmounts[index]
       })
     })
     this.thisMap.push(JSON.parse(JSON.stringify(thisBoss)))
@@ -396,14 +396,13 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private addRandomHorde(minimumSupports :number, maximumSupports :number, map :string, locations :any):void
   {
+    let tally :number = 0
+    let supports :string[] = []
+    let supportAmmounts :number[] = []
+    let done :boolean = false
     let options = Object.values(this.bossList).map((subBoss) => subBoss.BossName)
     let bigBossindex = this.getRandomInt(0, options.length - 1)
     let bigBoss = options[bigBossindex]
-    let tally = 0
-    let supports :string[] = []
-    let supportAmmounts :number[] = []
-    let done = false
-
     options.splice(bigBossindex, 1)
 
     while (done === false) 
@@ -415,7 +414,9 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
       options.splice(supportIndex, 1)      
       supportAmmounts.push(rand)
       if(tally > minimumSupports && Math.round(Math.random()) === 1 || tally >= maximumSupports || options.length < 1)
+      {
         done = true
+      }
     }
     this.addBossHorde(bigBoss, map, 100, supports.join(','), supportAmmounts.join(','), locations)
   }
@@ -426,10 +427,10 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private shuffleArray(array :any):void
   {
-    for (var i = array.length - 1; i > 0; i--) 
+    for (let i = array.length - 1; i > 0; i--) 
     {
-      var j = this.getRandomInt(0, i + 1)
-      var temp = array[i]
+      let j = this.getRandomInt(0, i + 1)
+      let temp = array[i]
       array[i] = array[j]
       array[j] = temp
     }
