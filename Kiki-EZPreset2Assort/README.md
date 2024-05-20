@@ -6,7 +6,7 @@ Run the server, then close the server.
 Copy the assort.JSON and setup.JSON files that have been created in the output folder, and paste them into the src folder of your trader mod.
 
 In your trader mod you will require the following to be pasted into its mod.ts.postDBLoad
-
+```
 //Bring in your assorts
 const newAssort = require("../res/assort.json")
 const newSetup = require("../res/setup.json")
@@ -34,6 +34,6 @@ for(let item in newAssort)
     //add to globals presets 
     tables.globals.ItemPresets[newAssort[item]._id] = newAssort[item]
 }
-
+```
 You can then set your prices and requirements in setup.JSON.
 This works with roubles only currently, you can repeat with different sets of presets with aditional currencies / barters if required.  (Or you could add a prefix to your builds names to determin type of currency and strip it at import, go wild)
