@@ -1,6 +1,6 @@
 import type { DependencyContainer } from "tsyringe"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
+import type { DatabaseServer } from "@spt/servers/DatabaseServer"
 
 class GrenadeTweaks implements IPostDBLoadMod
 {

@@ -1,7 +1,7 @@
 import type { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import type { ILogger } from "@spt/models/spt/utils/ILogger"
+import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
+import type { DatabaseServer } from "@spt/servers/DatabaseServer"
 
 class CameraRecoilRemover implements IPostDBLoadMod
 {

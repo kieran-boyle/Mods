@@ -1,7 +1,7 @@
 import type { DependencyContainer } from "tsyringe"
-import type { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
-import { InraidController } from "@spt-aki/controllers/InraidController"
-import { InRaidHelper } from "@spt-aki/helpers/InRaidHelper"
+import type { IPreAkiLoadMod } from "@spt/models/external/IPreAkiLoadMod"
+import { InraidController } from "@spt/controllers/InraidController"
+import { InRaidHelper } from "@spt/helpers/InRaidHelper"
 
 class MarkFIR implements IPreAkiLoadMod
 {

@@ -1,11 +1,11 @@
 import { DependencyContainer } from "tsyringe"
-import { HashUtil } from "@spt-aki/models/spt/utils/HashUtil"
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ConfigServer } from "@spt-aki/servers/ConfigServer"
-import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes"
-import { IQuestConfig } from "@spt-aki/models/spt/config/IQuestConfig"
+import { HashUtil } from "@spt/models/spt/utils/HashUtil"
+import { ILogger } from "@spt/models/spt/utils/ILogger"
+import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
+import { DatabaseServer } from "@spt/servers/DatabaseServer"
+import { ConfigServer } from "@spt/servers/ConfigServer"
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes"
+import { IQuestConfig } from "@spt/models/spt/config/IQuestConfig"
 
 class RemoveTediousQuestConditions implements IPostDBLoadMod
 {
@@ -32,7 +32,7 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
             break
 
           case 'setPMC':
-            quests['5a27c99a86f7747d2c6bdd8e'].conditions.AvailableForFinish[0]._props.counter.conditions[0]._props.target = 'AnyPmc'
+            quests['5a27c99a86f7747d2c6bdd8e'].conditions.AvailableForFinish[0].counter.conditions[0].target = 'AnyPmc'
             break
 
           case 'InZone':
@@ -96,7 +96,7 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
     {
       for (let eachCondition in quests[eachQuest].conditions.AvailableForFinish)
       {
-        if(quests[eachQuest].conditions.AvailableForFinish[eachCondition]._parent === 'CounterCreator')
+        if(quests[eachQuest].conditions.AvailableForFinish[eachCondition].conditionType === 'CounterCreator')
           this.removeNested(quests[eachQuest].conditions.AvailableForFinish[eachCondition], target, quests[eachQuest].location, quests[eachQuest].QuestName)
       }      
     }
@@ -115,10 +115,10 @@ class RemoveTediousQuestConditions implements IPostDBLoadMod
    {
     if(target === 'InZone')
     {
-      input._props.counter.conditions =  this.setLocation(input._props.counter.conditions, location) 
+      input.counter.conditions =  this.setLocation(input.counter.conditions, location) 
     }
-    let thisCondition = input._props.counter.conditions
-    thisCondition.filter((finalCondition :any) => finalCondition._parent === target)
+    let thisCondition = input.counter.conditions
+    thisCondition.filter((finalCondition :any) => finalCondition.conditionType === target)
       .forEach((finalCondition :any) => 
       {
         thisCondition.splice(thisCondition.indexOf(finalCondition), 1)

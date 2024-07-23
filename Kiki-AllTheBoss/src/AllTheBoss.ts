@@ -1,9 +1,9 @@
 import { DependencyContainer } from 'tsyringe'
-import { ILogger } from '@spt-aki/models/spt/utils/ILogger'
-import { IPostDBLoadMod } from '@spt-aki/models/external/IPostDBLoadMod'
-import { IPreAkiLoadMod } from '@spt-aki/models/external/IPreAkiLoadMod'
-import { DatabaseServer } from '@spt-aki/servers/DatabaseServer'
-import {StaticRouterModService} from '@spt-aki/services/mod/staticRouter/StaticRouterModService'
+import { ILogger } from '@spt/models/spt/utils/ILogger'
+import { IPostDBLoadMod } from '@spt/models/external/IPostDBLoadMod'
+import { IPreAkiLoadMod } from '@spt/models/external/IPreAkiLoadMod'
+import { DatabaseServer } from '@spt/servers/DatabaseServer'
+import { StaticRouterModService } from '@spt/services/mod/staticRouter/StaticRouterModService'
 import { configBuilder } from "./configBuilder"
 
 class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod

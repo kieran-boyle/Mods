@@ -1,7 +1,7 @@
 import type { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
+import type { ILogger } from "@spt/models/spt/utils/ILogger"
+import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
+import type { DatabaseServer } from "@spt/servers/DatabaseServer"
 
 class biggerStash implements IPostDBLoadMod
 {
@@ -19,14 +19,17 @@ class biggerStash implements IPostDBLoadMod
       "566abbc34bdc2d92178b4576", //Standard stash 10x28
       "5811ce572459770cba1a34ea", //Left Behind stash 10x38
       "5811ce662459770f6f490f32", //Prepare for escape stash 10x48
-      "5811ce772459770e9e5f9532" //Edge of darkness stash 10x68
+      "5811ce772459770e9e5f9532", //Edge of darkness stash 10x68
+      "6602bcf19cc643f44a04274b"  //"The Unheard Edition stash 10x72"
     ]    
+    const newWidth = 12
 
     for (let stash of stashes)
     {
       let newSize = this.config.ChangeAll !== false ? this.config.ChangeAll : this.config[stash].size
       items[stash]._props.Grids[0]._props.cellsV = newSize
-    
+      items[stash]._props.Grids[0]._props.cellsH = newWidth
+
       if(this.config.debug === true)
         this.logger.log(`[kiki-BiggerStash] : ${this.config[stash].name} stash size changed to ${newSize}`, "yellow", "black")
     }    

@@ -1,9 +1,9 @@
 import type { DependencyContainer } from "tsyringe"
-import type { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import type { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
-import type { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes"
-import { ConfigServer } from "@spt-aki/servers/ConfigServer"
+import type { ILogger } from "@spt/models/spt/utils/ILogger"
+import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
+import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import { ConfigTypes } from "@spt/models/enums/ConfigTypes"
+import { ConfigServer } from "@spt/servers/ConfigServer"
 
 class DegredationRemover implements IPostDBLoadMod
 {

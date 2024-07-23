@@ -1,7 +1,7 @@
 import path from "path"
 import { DependencyContainer } from "tsyringe"
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
+import { ILogger } from "@spt/models/spt/utils/ILogger"
+import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 
 class EZPreset2Assort implements IPostDBLoadMod
 {
