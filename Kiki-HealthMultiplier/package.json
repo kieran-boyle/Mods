@@ -1,10 +1,10 @@
 {
   "name": "healthmultiplier",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "main": "src/HealthMultiplier.js",
   "license": "NCSA",
   "author": "Kiki",
-  "sptVersion": "3.9.*",
+  "sptVersion": "3.11.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

@@ -1,4 +1,5 @@
 {
+  "debug": false,
   "AllEqualToPlayer": false,
 
   "Player":
@@ -250,6 +251,42 @@
     },
 
     "Kaban":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Kolontay":
+    {
+      "enabled": false,
+      "bodyPartMode":
+      {
+        "enabled": false,
+        "Head": 35,
+        "Chest": 85,
+        "Stomach": 70,
+        "LeftArm": 60,
+        "RightArm": 60,
+        "LeftLeg": 65,
+        "RightLeg": 65
+      },
+      "If BodyPartMode.Enabled is false": "then",
+      "healthMultiplier": 1
+    },
+
+    "Partisan":
     {
       "enabled": false,
       "bodyPartMode":

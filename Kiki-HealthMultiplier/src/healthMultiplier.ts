@@ -1,18 +1,20 @@
 import { DependencyContainer } from "tsyringe"
 import { ILogger } from "@spt/models/spt/utils/ILogger"
 import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
-import { IPreAkiLoadMod } from "@spt/models/external/IPreAkiLoadMod"
+import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod"
 import { DatabaseServer } from "@spt/servers/DatabaseServer"
 import { ProfileHelper } from "@spt/helpers/ProfileHelper"
 import { BotHelper } from "@spt/helpers/BotHelper"
 import { StaticRouterModService } from "@spt/services/mod/staticRouter/StaticRouterModService"
+import Config from "../config/config.json"
 
-class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
+class HealthMultiplier implements IPreSptLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
   private logger :ILogger
-  private bossDictionary = {
+  private bossDictionary =
+  {
     "bossgluhar": "Gluhar",
     "bosskojaniy": "Shturman",
     "bosssanitar": "Sanitar",
@@ -24,7 +26,9 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     "followerbigpipe" : "BigPipe",
     "followerbirdeye" : "BirdEye",
     "bosszryachiy": "Zryachiy",
-    'bossboar' : 'Kaban'
+    'bossboar' : 'Kaban',
+    'bosskolontay' : 'Kolontay',
+    'bosspartisan' : 'Partisan'
   }
   private GPlayerHealth
 
@@ -39,11 +43,11 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
     const botTypes = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().bots.types
     const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals    
     const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
-    this.GPlayerHealth = playerHealth
+    this.GPlayerHealth = JSON.parse(JSON.stringify(playerHealth))
 
     for (let eachBot in botTypes)
     {
-      let type = this.findBotType(eachBot, botTypes)
+      let type = this.findBotType(eachBot)
 
       if(type !== "Ignore")
       {
@@ -69,7 +73,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
    * Sets routes to set the profile at game start, scav before raid start, and revert back to default on logout
    * @param container container
    */
-  public preAkiLoad(container: DependencyContainer):void
+  public preSptLoad(container: DependencyContainer):void
   {
     this.container = container
     this.logger = this.container.resolve<ILogger>("WinstonLogger")
@@ -84,12 +88,11 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
           const globals = this.container.resolve<DatabaseServer>("DatabaseServer").getTables().globals
           const profileHelper = this.container.resolve<ProfileHelper>("ProfileHelper")
           const playerHealth = globals.config.Health.ProfileHealthSettings.BodyPartsSettings
-
           this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
           this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
           return output
         }
-      }], "aki"
+      }], "spt"
     )
   
     staticRouterModService.registerStaticRouter(
@@ -105,7 +108,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
           this.checkProfileHealth(profileHelper.getScavProfile(sessionId), playerHealth)
           return output
         }
-      }], "aki"
+      }], "spt"
     )
 
     if(this.config.Player.extraHealthPerLevel.enabled === true)
@@ -123,7 +126,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
             this.checkProfileHealth(profileHelper.getPmcProfile(sessionId), playerHealth)
             return output
           }
-        }], "aki"
+        }], "spt"
       )
     }
 
@@ -139,7 +142,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
           this.revertProfileHealth(profileHelper.getScavProfile(sessionId), this.GPlayerHealth)
           return output
         }
-      }], "aki"
+      }], "spt"
     )
   }
 
@@ -224,14 +227,16 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
    * @param botTypes container/bots/types
    * @returns type of bot
    */
-  private findBotType(input :string, botTypes :any):string
+  private findBotType(input :string):string
   {
     const botHelper = this.container.resolve<BotHelper>("BotHelper")
 
     switch (input) 
     {
-      case "usec":
-      case "bear":
+      case "pmcusec":
+      case "pmcbear":
+      case 'usec':
+      case 'bear':
         return "PMC"
       
       case "assault":
@@ -254,6 +259,7 @@ class HealthMultiplier implements IPreAkiLoadMod, IPostDBLoadMod
       default:
         if (botHelper.isBotFollower(input)) return "Follower"
         if (botHelper.isBotBoss(input)) return "Boss"
+        if (this.config.debug === true) this.logger.log(`[Kiki-HealthMultiplier] : Bot type for ${input} not found, using default settings`, "yellow", "red")
         return "Ignore"
     }
   }
