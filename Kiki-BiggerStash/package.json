@@ -4,7 +4,7 @@
   "main": "src/biggerStash.js",
   "license": "NCSA",
   "author": "Kiki",
-  "sptVersion": "3.9.*",
+  "sptVersion": "3.11.*",
   "scripts": {
       "setup": "npm i",
       "build": "node ./packageBuild.ts"

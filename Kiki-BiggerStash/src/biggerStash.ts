@@ -2,11 +2,12 @@ import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class biggerStash implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
   private logger :ILogger
 
   public postDBLoad(container: DependencyContainer):void
@@ -21,14 +22,12 @@ class biggerStash implements IPostDBLoadMod
       "5811ce662459770f6f490f32", //Prepare for escape stash 10x48
       "5811ce772459770e9e5f9532", //Edge of darkness stash 10x68
       "6602bcf19cc643f44a04274b"  //"The Unheard Edition stash 10x72"
-    ]    
-    const newWidth = 12
+    ]
 
     for (let stash of stashes)
     {
       let newSize = this.config.ChangeAll !== false ? this.config.ChangeAll : this.config[stash].size
       items[stash]._props.Grids[0]._props.cellsV = newSize
-      items[stash]._props.Grids[0]._props.cellsH = newWidth
 
       if(this.config.debug === true)
         this.logger.log(`[kiki-BiggerStash] : ${this.config[stash].name} stash size changed to ${newSize}`, "yellow", "black")
