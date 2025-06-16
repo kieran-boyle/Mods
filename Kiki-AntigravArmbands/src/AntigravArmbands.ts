@@ -2,11 +2,12 @@ import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class AntigravArmbands implements IPostDBLoadMod
 {
   private container :DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
   private logger :ILogger
 
   public postDBLoad(container: DependencyContainer):void

@@ -29,5 +29,5 @@
     "weight": -100,
     "stackSize": 10
   },
-  "debug": true
+  "debug": false
 }
