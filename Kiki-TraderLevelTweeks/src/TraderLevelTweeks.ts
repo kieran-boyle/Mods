@@ -1,11 +1,12 @@
 import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class TraderLevelTweeks implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
 
   public postDBLoad(container: DependencyContainer):void
   {
