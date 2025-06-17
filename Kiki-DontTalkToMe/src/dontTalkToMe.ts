@@ -1,11 +1,12 @@
 import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class dontTalkToMe implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
 
   public postDBLoad(container: DependencyContainer):void
   {
@@ -23,7 +24,7 @@ class dontTalkToMe implements IPostDBLoadMod
         if(this.config.botTypes.follower === true && (i.includes("follower") || i === "sectantwarrior")) this.shutUp(bots[i])
         if(this.config.botTypes.boss === true && (i.includes("boss") || i === "sectantpriest")) this.shutUp(bots[i])
         if(this.config.botTypes.scav === true && (i === "assault" || i === "marksman")) this.shutUp(bots[i])
-        if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec")) this.shutUp(bots[i])
+        if(this.config.botTypes.pmc === true && (i === "bear" || i === "usec" || i === "pmcbear" || i === "pmcusec")) this.shutUp(bots[i])
         if(this.config.botTypes.raider === true && i === "cursedassault") this.shutUp(bots[i])
         if(this.config.botTypes.rogue === true && i === "exusec") this.shutUp(bots[i])
       }

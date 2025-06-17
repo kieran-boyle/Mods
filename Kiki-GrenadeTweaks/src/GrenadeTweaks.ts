@@ -1,11 +1,12 @@
 import type { DependencyContainer } from "tsyringe"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class GrenadeTweaks implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
   private zarya = "5a0c27731526d80618476ac4"
   private impacts = ["617fd91e5539a84ec44ce155", "618a431df1eb8e24b8741deb"]
   private VOGs = ["5e32f56fcb6d5863cc5e5ee4", "5e340dcdcb6d5863cc5e5efb"]
