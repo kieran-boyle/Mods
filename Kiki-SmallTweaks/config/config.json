@@ -1,0 +1,26 @@
+{
+  "removeInraidRestriction" : true,
+  "fastDeploy" : true,
+  "fleaLevel" : 99,
+  "openExtracts" : true,
+  "colourAmmo" : true,
+  "removeContainerRestrictions" : true,
+  "giveKeysUnlimitedUses" : true,
+  "raidLength" : 120,
+  "setStrength" : true,
+
+  "lootConfig" :
+  {
+    "globalsMul": 1,
+    "bigmap": 1,
+    "factory4_day": 1,
+    "factory4_night": 1,
+    "interchange": 1,
+    "laboratory": 1,
+    "shoreline": 1,
+    "woods": 1,
+    "rezervbase": 1,
+    "lighthouse": 1,
+    "tarkovstreets": 1
+  }
+}
