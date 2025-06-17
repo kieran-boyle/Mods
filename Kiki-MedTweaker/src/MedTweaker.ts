@@ -2,11 +2,12 @@ import type { DependencyContainer } from "tsyringe"
 import type { ILogger } from "@spt/models/spt/utils/ILogger"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
+import Config from "../config/config.json"
 
 class MedTweaker implements IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
   private logger :ILogger
 
   /**
@@ -40,8 +41,8 @@ class MedTweaker implements IPostDBLoadMod
     if (item._props.MaxHpResource) item._props.MaxHpResource *= this.config.MaxHpResource
     if (item._props.hpResourceRate) item._props.hpResourceRate *= this.config.hpResourceRate
     if (item._props.medUseTime) item._props.medUseTime *= this.config.medUseTime
-    if (item._props.effects_damage != []) this.setEffects(item, 'effects_damage')
-    if (item._props.effects_health != []) this.setEffects(item, 'effects_health')   
+    if (item._props.effects_damage.length > 0) this.setEffects(item, 'effects_damage')
+    if (item._props.effects_health.length > 0) this.setEffects(item, 'effects_health')   
   }
 
   /**
@@ -62,7 +63,7 @@ class MedTweaker implements IPostDBLoadMod
       }
       if (this.config.debug === true)
       {
-        this.logger.log(`\n[Kiki-MedTweaker-Debug] : ${item._props.Name} ${effect} ${JSON.stringify(item._props[target][effect], 0, 4)}`, "yellow", "black")
+        this.logger.log(`\n[Kiki-MedTweaker-Debug] : ${item._props.Name} ${effect} ${JSON.stringify(item._props[target][effect], null, 4)}`, "yellow", "black")
       }
     }
   }
