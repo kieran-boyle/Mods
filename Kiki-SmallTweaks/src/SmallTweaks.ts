@@ -1,11 +1,12 @@
 import { DependencyContainer } from 'tsyringe'
 import { IPostDBLoadMod } from '@spt/models/external/IPostDBLoadMod'
+import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod"
 import { DatabaseServer } from '@spt/servers/DatabaseServer'
 import { ProfileHelper } from "@spt/helpers/ProfileHelper"
 import { StaticRouterModService } from "@spt/services/mod/staticRouter/StaticRouterModService"
 import Config from "../config/config.json"
 
-class smallTweaks implements IPostDBLoadMod
+class smallTweaks implements IPreSptLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
   private config = Config

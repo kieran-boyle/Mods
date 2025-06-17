@@ -1,15 +1,16 @@
 import type{ DependencyContainer } from "tsyringe"
-import type{ IPreAkiLoadMod } from "@spt/models/external/IPreAkiLoadMod"
+import type{ IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod"
 import type { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod"
 import type { DatabaseServer } from "@spt/servers/DatabaseServer"
 import type { StaticRouterModService } from "@spt/services/mod/staticRouter/StaticRouterModService"
+import Config from "../config/config.json"
 
-class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
+class ScavTweaks implements IPreSptLoadMod, IPostDBLoadMod
 {
   private container: DependencyContainer
-  private config = require("../config/config.json")
+  private config = Config
 
-  public preAkiLoad(container: DependencyContainer):void
+  public preSptLoad(container: DependencyContainer):void
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
@@ -22,7 +23,7 @@ class ScavTweaks implements IPreAkiLoadMod, IPostDBLoadMod
           this.setSpawnDelay(info)
           return output
         }
-      }],"aki")
+      }],"spt")
   }
   
   private setSpawnDelay(info :any):void
