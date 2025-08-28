@@ -1,18 +1,22 @@
 import { DependencyContainer } from 'tsyringe'
 import { ILogger } from '@spt/models/spt/utils/ILogger'
 import { IPostDBLoadMod } from '@spt/models/external/IPostDBLoadMod'
-import { IPreAkiLoadMod } from '@spt/models/external/IPreAkiLoadMod'
+import { IPreSptLoadMod } from '@spt/models/external/IPreSptLoadMod'
 import { DatabaseServer } from '@spt/servers/DatabaseServer'
 import { StaticRouterModService } from '@spt/services/mod/staticRouter/StaticRouterModService'
 import { configBuilder } from "./configBuilder"
+import bossConfig from '../config/bossConfig.json'
+import hordeConfig from '../config/hordeConfig.json'
+import subBossConfig from '../config/subBossConfig.json'
+import dictionaries from '../dictionaries/dictionaries.json'
 
-class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
+class AllTheBoss implements IPostDBLoadMod, IPreSptLoadMod
 {
   private container: DependencyContainer
-  private bossConfig = require('../config/bossConfig.json')
-  private hordeConfig = require('../config/hordeConfig.json')
-  private subBossConfig = require('../config/subBossConfig.json')
-  private dictionaries = require('../dictionaries/dictionaries.json')
+  private bossConfig = bossConfig
+  private hordeConfig = hordeConfig
+  private subBossConfig = subBossConfig
+  private dictionaries = dictionaries
   private logger :ILogger
   private sniperFinder = new RegExp(/.*(snip).*/i)
   private zoneList :string[] = []
@@ -84,7 +88,7 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    * If randomizeBossZonesEachRaid is enabled, randomizes each bosses spawn zone each raid with setBossZones()
    * @param container Container
    */
-  public preAkiLoad(container: DependencyContainer):void
+  public preSptLoad(container: DependencyContainer):void
   {
     this.container = container
     const staticRouterModService = this.container.resolve<StaticRouterModService>("StaticRouterModService")
@@ -279,8 +283,6 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
     const subBossesToRemove = Object.entries(this.subBossConfig.maps[map])
                                     .filter(([subBoss, subBossData]) => subBossData.remove === true)
                                     .map(([subBoss, subBossData]) => this.dictionaries.subBossDictionary[subBoss].name)
-
-    console.log(subBossesToRemove)
     
     for (let i = Object.keys(locations[this.dictionaries.mapDictionary[map]].base.BossLocationSpawn).length; i--; i < 0)
     {
@@ -301,7 +303,6 @@ class AllTheBoss implements IPostDBLoadMod, IPreAkiLoadMod
    */
   private setSubBosses(map :string, locations :any):void
   {
-    //console.log(this.subBossConfig.maps[map])
     for(let subBoss in this.subBossConfig.maps[map])
     {
       if(this.subBossConfig.maps[map][subBoss].add.enabled === true)
