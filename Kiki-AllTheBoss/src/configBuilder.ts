@@ -1,15 +1,23 @@
 import path from "path"
+import fs from "fs"
+import bossConfig from "../config/bossConfig.json"
+import hordeConfig from "../config/hordeConfig.json"
+import subBossConfig from "../config/subBossConfig.json"
+import dictionaries from "../dictionaries/dictionaries.json"
+import bossConfigScaffold from "../scaffolds/bossConfigScaffold.json"
+import hordeConfigScaffold from "../scaffolds/hordeConfigScaffold.json" 
+import subBossConfigScaffold from "../scaffolds/subBossConfigScaffold.json"
 
 export class configBuilder
 {
-   private bossConfig = require('../config/bossConfig.json')
-   private hordeConfig = require('../config/hordeConfig.json')
-   private subBossConfig = require('../config/subBossConfig.json')
-   private dictionaries = require('../dictionaries/dictionaries.json')
-   private bossConfigScaffold = require('../scaffolds/bossConfigScaffold.json')
-   private hordeConfigScaffold = require('../scaffolds/hordeConfigScaffold.json')
-   private subBossConfigScaffold = require('../scaffolds/subBossConfigScaffold.json')
-   private fs = require('fs')
+   private bossConfig = bossConfig
+   private hordeConfig = hordeConfig
+   private subBossConfig = subBossConfig
+   private dictionaries = dictionaries
+   private bossConfigScaffold = bossConfigScaffold
+   private hordeConfigScaffold = hordeConfigScaffold
+   private subBossConfigScaffold = subBossConfigScaffold
+   private fs = fs
    
    public build()
    {

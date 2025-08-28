@@ -6,7 +6,7 @@
 	"shuffleBossOrder": true,
 	"maps": {
 		"Customs": {
-			"enabled": true,
+			"enabled": false,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -45,6 +45,18 @@
 					"chance": 0
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0
 				}
@@ -92,6 +104,18 @@
 				"Cultist": {
 					"amount": 0,
 					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
+					"amount": 0,
+					"chance": 0
 				}
 			}
 		},
@@ -135,6 +159,18 @@
 					"chance": 0
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0
 				}
@@ -182,6 +218,18 @@
 				"Cultist": {
 					"amount": 0,
 					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
+					"amount": 0,
+					"chance": 0
 				}
 			}
 		},
@@ -225,6 +273,18 @@
 					"chance": 0
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0
 				}
@@ -272,6 +332,18 @@
 				"Cultist": {
 					"amount": 0,
 					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
+					"amount": 0,
+					"chance": 0
 				}
 			}
 		},
@@ -315,6 +387,18 @@
 					"chance": 0
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0
 				}
@@ -362,6 +446,18 @@
 				"Cultist": {
 					"amount": 0,
 					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
+					"amount": 0,
+					"chance": 0
 				}
 			}
 		},
@@ -407,6 +503,18 @@
 				"Cultist": {
 					"amount": 0,
 					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
+					"amount": 0,
+					"chance": 0
 				}
 			}
 		},
@@ -450,6 +558,18 @@
 					"chance": 0
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0
 				}

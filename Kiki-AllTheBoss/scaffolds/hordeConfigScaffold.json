@@ -1,11 +1,11 @@
 {
-  "hordesEnabled": true,
+  "hordesEnabled": false,
   "maps":
   {
-    "enabled": true,
+    "enabled": false,
     "addRandomHorde":
     {
-      "enabled": true,
+      "enabled": false,
       "numberToGenerate": 1,
       "minimumSupports": 2,
       "maximumSupports": 6

@@ -1,10 +1,10 @@
 {
-	"hordesEnabled": true,
+	"hordesEnabled": false,
 	"maps": {
 		"Customs": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -65,6 +65,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -73,9 +91,9 @@
 			}
 		},
 		"FactoryDay": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -136,6 +154,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -144,9 +180,9 @@
 			}
 		},
 		"FactoryNight": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -207,6 +243,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -215,9 +269,9 @@
 			}
 		},
 		"Interchange": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -278,6 +332,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -286,9 +358,9 @@
 			}
 		},
 		"Laboratory": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -349,6 +421,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -357,9 +447,9 @@
 			}
 		},
 		"Reserve": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -420,6 +510,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -428,9 +536,9 @@
 			}
 		},
 		"Shoreline": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -491,6 +599,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -499,9 +625,9 @@
 			}
 		},
 		"Woods": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -562,6 +688,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -570,9 +714,9 @@
 			}
 		},
 		"Lighthouse": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -633,6 +777,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",
@@ -641,9 +803,9 @@
 			}
 		},
 		"Streets": {
-			"enabled": true,
+			"enabled": false,
 			"addRandomHorde": {
-				"enabled": true,
+				"enabled": false,
 				"numberToGenerate": 1,
 				"minimumSupports": 2,
 				"maximumSupports": 6
@@ -704,6 +866,24 @@
 					"escortAmount": "0"
 				},
 				"Cultist": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Partisan": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Kolontay": {
+					"amount": 0,
+					"chance": 0,
+					"escorts": "",
+					"escortAmount": "0"
+				},
+				"Santa": {
 					"amount": 0,
 					"chance": 0,
 					"escorts": "",

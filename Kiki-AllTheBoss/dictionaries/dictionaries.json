@@ -9,7 +9,10 @@
     "Tagilla": "bossTagilla",
     "Zryachiy": "bossZryachiy",
     "Kaban": "bossBoar",
-    "Cultist": "sectantPriest"
+    "Cultist": "sectantPriest",
+    "Partisan": "bossPartisan",
+    "Kolontay": "bossKolontay",
+    "Santa": "gifter"
   },
 
   "mapDictionary": {
