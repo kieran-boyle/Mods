@@ -1,16 +1,16 @@
 {
 	"debug": false,
 	"rebuildConfig": false,
-	"keepOriginalBossZones": false,
+	"keepOriginalBossZones": true,
 	"randomizeBossZonesEachRaid": true,
 	"shuffleBossOrder": true,
 	"maps": {
 		"Customs": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Gluhar": {
 					"amount": 0,
@@ -25,8 +25,8 @@
 					"chance": 0
 				},
 				"Reshala": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Killa": {
 					"amount": 0,
@@ -45,8 +45,8 @@
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -63,7 +63,7 @@
 			}
 		},
 		"FactoryDay": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -90,8 +90,8 @@
 					"chance": 0
 				},
 				"Tagilla": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Zryachiy": {
 					"amount": 0,
@@ -120,7 +120,7 @@
 			}
 		},
 		"FactoryNight": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -147,8 +147,8 @@
 					"chance": 0
 				},
 				"Tagilla": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Zryachiy": {
 					"amount": 0,
@@ -159,8 +159,8 @@
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -177,7 +177,7 @@
 			}
 		},
 		"Interchange": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -200,8 +200,8 @@
 					"chance": 0
 				},
 				"Killa": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Tagilla": {
 					"amount": 0,
@@ -216,8 +216,8 @@
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -234,7 +234,7 @@
 			}
 		},
 		"Laboratory": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -291,15 +291,15 @@
 			}
 		},
 		"Reserve": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
 					"chance": 0
 				},
 				"Gluhar": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Shturman": {
 					"amount": 0,
@@ -348,7 +348,7 @@
 			}
 		},
 		"Shoreline": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -363,8 +363,8 @@
 					"chance": 0
 				},
 				"Sanitar": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Reshala": {
 					"amount": 0,
@@ -387,8 +387,8 @@
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -405,7 +405,7 @@
 			}
 		},
 		"Woods": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -416,8 +416,8 @@
 					"chance": 0
 				},
 				"Shturman": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Sanitar": {
 					"amount": 0,
@@ -444,8 +444,8 @@
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -462,7 +462,7 @@
 			}
 		},
 		"Lighthouse": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -493,16 +493,16 @@
 					"chance": 0
 				},
 				"Zryachiy": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Kaban": {
 					"amount": 0,
 					"chance": 0
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
@@ -519,7 +519,7 @@
 			}
 		},
 		"Streets": {
-			"enabled": false,
+			"enabled": true,
 			"bossList": {
 				"Knight": {
 					"amount": 0,
@@ -554,20 +554,20 @@
 					"chance": 0
 				},
 				"Kaban": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Cultist": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Partisan": {
 					"amount": 0,
 					"chance": 0
 				},
 				"Kolontay": {
-					"amount": 0,
-					"chance": 0
+					"amount": 1,
+					"chance": 100
 				},
 				"Santa": {
 					"amount": 0,
